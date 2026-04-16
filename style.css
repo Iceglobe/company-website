@@ -401,6 +401,38 @@ header.scrolled {
     box-shadow: 0 12px 0 rgba(0,0,0,0.02), 0 30px 60px rgba(0,0,0,0.08);
 }
 
+.work-card-full {
+    grid-column: 1 / -1;
+    margin-top: 32px;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    background: transparent;
+}
+
+.work-card-full-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 32px;
+    gap: 12px;
+}
+
+.work-card-full-q {
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.18);
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.work-card-full-text {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
 .work-card:hover .work-img-wrapper img {
     transform: scale(1.05);
 }
