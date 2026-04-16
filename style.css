@@ -555,13 +555,13 @@ footer {
 .hero-dark h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: 24px;
-    max-width: 1100px;
+    max-width: 900px;
 }
 
 .hero-dark .hero-subtitle {
     color: rgba(255,255,255,0.8);
     font-size: 1.15rem;
-    max-width: 1000px;
+    max-width: 800px;
 }
 
 .hero-list {

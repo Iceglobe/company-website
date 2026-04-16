@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | AugmentedPlanning</title>
-    <meta name="description" content="We're supply chain practitioners who built the tool we always wanted. Meet the team behind AugmentedPlanning.">
+    <title>About Us | OmniaOps</title>
+    <meta name="description" content="We're supply chain practitioners who built the tool we always wanted. Meet the team behind OmniaOps.">
     <link rel="stylesheet" href="style.css">
     <style>
         .about-hero {
-            min-height: 60vh;
+            min-height: 55vh;
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.png');
             background-size: cover;
             background-position: center;
@@ -22,14 +22,14 @@
 
         .about-hero h1 {
             font-size: clamp(3rem, 5vw, 5rem);
-            max-width: 800px;
+            max-width: 1040px;
             margin-bottom: 24px;
         }
 
         .about-hero p {
             font-size: 1.25rem;
             color: rgba(255,255,255,0.7);
-            max-width: 640px;
+            max-width: 832px;
             line-height: 1.7;
         }
 
@@ -42,7 +42,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: start;
-            margin-bottom: 120px;
+            margin-bottom: 0;
         }
 
         .about-story h2 {
@@ -57,153 +57,121 @@
             margin-bottom: 20px;
         }
 
-        .values-section {
-            margin-bottom: 120px;
+
+        .team-dark-section {
+            padding: 80px 0;
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/circuit_bg.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
         }
 
-        .values-label {
-            font-size: 0.75rem;
+        .team-dark-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.3);
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .team-dark-row-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.4);
             font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .values-section h2 {
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            margin-bottom: 56px;
-            max-width: 600px;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .value-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: 0 4px 0 rgba(0,0,0,0.02), 0 15px 35px rgba(0,0,0,0.05);
-        }
-
-        .value-num {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
             margin-bottom: 20px;
-            text-transform: uppercase;
         }
 
-        .value-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
+        .team-dark-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 72px;
+            justify-content: center;
         }
 
-        .value-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
+        .team-dark-grid-2 .team-dark-card {
+            flex: 0 0 340px;
         }
 
-        .team-section h2 {
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            margin-bottom: 56px;
+        .team-dark-grid-3 .team-dark-card {
+            flex: 0 0 340px;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .team-card {
-            background: white;
-            border: 1px solid var(--border);
+        .team-dark-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 4px 0 rgba(0,0,0,0.02), 0 15px 35px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 0 rgba(0,0,0,0.3), 0 15px 35px rgba(0,0,0,0.4);
             transition: var(--transition);
         }
 
-        .team-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 0 rgba(0,0,0,0.03), 0 30px 60px rgba(0,0,0,0.08);
+        .team-dark-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 0 rgba(0,0,0,0.4), 0 25px 50px rgba(0,0,0,0.6);
         }
 
-        .team-photo {
-            aspect-ratio: 4/3;
-            background: #f1f3f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .team-dark-photo {
             overflow: hidden;
+            background: rgba(0,0,0,0.3);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         }
 
-        .team-photo-placeholder {
-            width: 72px;
-            height: 72px;
-            background: #e0e3e7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .team-dark-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%);
+            opacity: 0.85;
         }
 
-        .team-photo-placeholder svg {
-            width: 36px;
-            height: 36px;
-            color: #999;
+        .team-dark-info {
+            padding: 24px 28px 28px;
         }
 
-        .team-info {
-            padding: 28px 32px 32px;
-        }
-
-        .team-name {
-            font-size: 1.2rem;
+        .team-dark-name {
+            font-size: 1rem;
             font-weight: 800;
+            color: white;
             margin-bottom: 4px;
+            letter-spacing: -0.01em;
         }
 
-        .team-role {
-            font-size: 0.8rem;
+        .team-dark-role {
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.35);
             font-weight: 700;
             margin-bottom: 16px;
         }
 
-        .team-bio {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
+        .team-dark-bio {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0;
+            margin: 0;
         }
 
-        .cta-banner {
-            background: #000;
-            border-radius: var(--radius-lg);
-            padding: 80px;
-            text-align: center;
-            margin-top: 120px;
-            color: white;
-        }
-
-        .cta-banner h2 {
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .cta-banner p {
-            font-size: 1.15rem;
+        .team-dark-bio li {
+            font-size: 0.85rem;
             color: rgba(255,255,255,0.6);
-            margin-bottom: 40px;
+            line-height: 1.6;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .team-dark-bio li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
         }
 
         @media (max-width: 992px) {
@@ -211,19 +179,14 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-            .team-grid {
+            .team-dark-grid-3 {
                 grid-template-columns: 1fr 1fr;
-            }
-            .cta-banner {
-                padding: 48px 32px;
             }
         }
 
         @media (max-width: 600px) {
-            .team-grid {
+            .team-dark-grid-2,
+            .team-dark-grid-3 {
                 grid-template-columns: 1fr;
             }
         }
@@ -235,15 +198,15 @@
         <div class="container">
             <nav class="nav-content">
                 <a href="index.html" class="logo logo-white" style="display: flex; align-items: center; gap: 10px;">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="18" cy="8" r="3" fill="#4ade80"/>
-                        <circle cx="7" cy="27" r="3" fill="#4ade80"/>
-                        <circle cx="29" cy="27" r="3" fill="#4ade80"/>
-                        <line x1="18" y1="8" x2="7" y2="27" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
-                        <line x1="18" y1="8" x2="29" y2="27" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
-                        <line x1="7" y1="27" x2="29" y2="27" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="7" cy="27" r="3" fill="#4ade80" opacity="0.8"/>
+                        <circle cx="29" cy="27" r="3" fill="#4ade80" opacity="0.8"/>
+                        <line x1="18" y1="8" x2="7" y2="27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+                        <line x1="18" y1="8" x2="29" y2="27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+                        <line x1="7" y1="27" x2="29" y2="27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4"/>
                     </svg>
-                    AugmentedPlanning
+                    <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html#about" style="color: white;">Platform</a></li>
@@ -261,7 +224,7 @@
             <div class="container">
                 <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-bottom: 16px;">About Us</p>
                 <h1>We're supply chain practitioners who built the tool we always wanted</h1>
-                <p>AugmentedPlanning was started by people who spent years inside supply chains - frustrated by slow systems, endless spreadsheets, and planning processes that couldn't keep up with the business.</p>
+                <p>OmniaOps was started by people who spent years inside supply chains - frustrated by slow systems, endless spreadsheets, and planning processes that couldn't keep up with the business.</p>
             </div>
         </section>
 
@@ -274,7 +237,7 @@
                         <h2>Why we started this</h2>
                         <p>After years working in and around supply chain planning - consulting, implementing ERP systems, and running S&OP cycles - we kept running into the same problems. The tools were either too rigid, too expensive, or too slow to adapt.</p>
                         <p>Planning teams were smart and motivated, but they were spending most of their time managing data instead of making decisions. We believed that could change.</p>
-                        <p>So we built AugmentedPlanning - a platform that removes the heavy lifting and lets planners focus on what actually matters: making the right call at the right time.</p>
+                        <p>So we built OmniaOps - a platform that removes the heavy lifting and lets planners focus on what actually matters: making the right call at the right time.</p>
                     </div>
                     <div>
                         <h2>What we believe</h2>
@@ -284,108 +247,108 @@
                     </div>
                 </div>
 
-                <!-- Values -->
-                <div class="values-section">
-                    <p class="values-label">Our principles</p>
-                    <h2>What guides how we work</h2>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <div class="value-num">01</div>
-                            <h3>Process first</h3>
-                            <p>We start by understanding how your business actually runs - not by demoing features. The right solution follows from the right diagnosis.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-num">02</div>
-                            <h3>Speed without shortcuts</h3>
-                            <p>We move fast because our platform is built for configurability - not because we skip steps. A 6-week deployment still means thorough testing and proper training.</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-num">03</div>
-                            <h3>Honest about what we don't know</h3>
-                            <p>Supply chains are complex. If we're not sure, we say so. We'd rather be useful than impressive in a sales meeting.</p>
-                        </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Team Section -->
+    <section class="team-dark-section">
+        <div class="container">
+            <p class="team-dark-label">The OmniaOps Team</p>
+
+            <!-- Row 1: The Team -->
+            <div class="team-dark-row-label">The Team</div>
+            <div class="team-dark-grid team-dark-grid-2">
+
+                <div class="team-dark-card">
+                    <div class="team-dark-photo">
+                        <img src="assets/team/philip.jpeg" alt="Philip L. Valentin">
+                    </div>
+                    <div class="team-dark-info">
+                        <div class="team-dark-name">Philip L. Valentin</div>
+                        <div class="team-dark-role">Founder</div>
+                        <ul class="team-dark-bio">
+                            <li>Department head with +8 years of experience in Supply Chain &amp; Operations leading international teams at companies such as Novo Nordisk, Ambu, and WSA, specializing in process development, analytics and team leadership.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Team -->
-                <div class="team-section">
-                    <h2>The team</h2>
-                    <div class="team-grid">
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <div class="team-photo-placeholder">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="12" cy="7" r="4"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="team-info">
-                                <div class="team-name">Your Name</div>
-                                <div class="team-role">Co-founder & CEO</div>
-                                <p class="team-bio">Background in supply chain consulting and ERP implementations. Spent a decade helping mid-size manufacturers fix their planning before deciding to build the platform he always wished existed.</p>
-                            </div>
-                        </div>
-
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <div class="team-photo-placeholder">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="12" cy="7" r="4"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="team-info">
-                                <div class="team-name">Co-founder Name</div>
-                                <div class="team-role">Co-founder & CTO</div>
-                                <p class="team-bio">Placeholder bio - describe your technical background, what you built before, and your role in the product.</p>
-                            </div>
-                        </div>
-
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <div class="team-photo-placeholder">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="12" cy="7" r="4"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="team-info">
-                                <div class="team-name">Team Member</div>
-                                <div class="team-role">Supply Chain Lead</div>
-                                <p class="team-bio">Placeholder bio - add more team members here as you grow, or remove this card if it's just the two of you for now.</p>
-                            </div>
-                        </div>
+                <div class="team-dark-card">
+                    <div class="team-dark-photo">
+                        <img src="assets/team/jakob.png" alt="Jakob Kaiser">
+                    </div>
+                    <div class="team-dark-info">
+                        <div class="team-dark-name">Jakob Kaiser</div>
+                        <div class="team-dark-role">Co-founder</div>
+                        <ul class="team-dark-bio">
+                            <li>Co-founder of Crickster with +7 years in programme management, software development, and sales.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- CTA -->
-                <div class="cta-banner">
-                    <h2>Ready to see if we're the right fit?</h2>
-                    <p>Book a 30-minute call - no commitment, no pitch deck. Just a conversation about your planning process.</p>
-                    <a href="book-call.html" class="btn-solid">Book a call</a>
+            </div>
+
+            <!-- Row 2: Advisory Board -->
+            <div class="team-dark-row-label" style="margin-top: 48px;">Advisory Board</div>
+            <div class="team-dark-grid team-dark-grid-3">
+
+                <div class="team-dark-card">
+                    <div class="team-dark-photo">
+                        <img src="assets/team/christian.png" alt="Christian Steen Jensen">
+                    </div>
+                    <div class="team-dark-info">
+                        <div class="team-dark-name">Christian Steen Jensen</div>
+                        <div class="team-dark-role">Advisory Board</div>
+                        <ul class="team-dark-bio">
+                            <li>Founder of Great Works Copenhagen and ShowMe with COO, CMO, &amp; CCO roles in companies such as Kraftvaerk, Noa Ignite, and TeamViewer.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-dark-card">
+                    <div class="team-dark-photo">
+                        <img src="assets/team/erik.png" alt="Erik Harby">
+                    </div>
+                    <div class="team-dark-info">
+                        <div class="team-dark-name">Erik Harby</div>
+                        <div class="team-dark-role">Advisory Board</div>
+                        <ul class="team-dark-bio">
+                            <li>Nearly 30 years of experience in operations with COO roles in companies such as Globus Wine &amp; Dana Lim.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-dark-card">
+                    <div class="team-dark-photo">
+                        <img src="assets/team/thomas.png" alt="Thomas Kjeldsen">
+                    </div>
+                    <div class="team-dark-info">
+                        <div class="team-dark-name">Thomas Kjeldsen</div>
+                        <div class="team-dark-role">Advisory Board</div>
+                        <ul class="team-dark-bio">
+                            <li>Zillion Consulting Partner with extensive experience advising companies in supply chain and operations.</li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
         </div>
-    </main>
+    </section>
 
     <footer>
         <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
                 <div>
                     <a href="index.html" class="logo" style="margin-bottom: 24px; color: white; display: flex; align-items: center; gap: 10px;">
-                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="18" cy="8" r="3" fill="#4ade80"/>
-                            <circle cx="7" cy="27" r="3" fill="#4ade80"/>
-                            <circle cx="29" cy="27" r="3" fill="#4ade80"/>
-                            <line x1="18" y1="8" x2="7" y2="27" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
-                            <line x1="18" y1="8" x2="29" y2="27" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
-                            <line x1="7" y1="27" x2="29" y2="27" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="7" cy="27" r="3" fill="#4ade80" opacity="0.8"/>
+                            <circle cx="29" cy="27" r="3" fill="#4ade80" opacity="0.8"/>
+                            <line x1="18" y1="8" x2="7" y2="27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+                            <line x1="18" y1="8" x2="29" y2="27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+                            <line x1="7" y1="27" x2="29" y2="27" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4"/>
                         </svg>
-                        AugmentedPlanning
+                        <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                     </a>
                     <p style="color: rgba(255,255,255,0.7); max-width: 300px;">The next major category in supply chain planning is autonomous.</p>
                 </div>
@@ -407,7 +370,7 @@
                 </div>
             </div>
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;">
-                &copy; 2026 AugmentedPlanning Autonomous Planning. All rights reserved.
+                &copy; 2026 OmniaOps Autonomous Planning. All rights reserved.
             </div>
         </div>
     </footer>
