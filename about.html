@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .about-hero {
-            min-height: 55vh;
+            min-height: 58vh;
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.png');
             background-size: cover;
             background-position: center;
@@ -17,7 +17,7 @@
             flex-direction: column;
             justify-content: flex-end;
             padding-top: 120px;
-            padding-bottom: 80px;
+            padding-bottom: 120px;
         }
 
         .about-hero h1 {
@@ -67,19 +67,20 @@
         }
 
         .team-dark-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: rgba(255,255,255,0.3);
-            font-weight: 700;
-            margin-bottom: 40px;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            text-transform: none;
+            letter-spacing: -0.02em;
+            color: white;
+            font-weight: 800;
+            margin-bottom: 48px;
+            text-align: left;
         }
 
         .team-dark-row-label {
-            font-size: 0.7rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.6);
             font-weight: 700;
             margin-bottom: 20px;
         }
@@ -91,12 +92,9 @@
             justify-content: center;
         }
 
-        .team-dark-grid-2 .team-dark-card {
-            flex: 0 0 340px;
-        }
-
+        .team-dark-grid-2 .team-dark-card,
         .team-dark-grid-3 .team-dark-card {
-            flex: 0 0 340px;
+            flex: 0 0 368px;
         }
 
         .team-dark-card {
@@ -115,21 +113,30 @@
         }
 
         .team-dark-photo {
-            overflow: hidden;
-            background: rgba(0,0,0,0.3);
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            display: flex;
+            justify-content: flex-start;
+            padding: 20px 20px 0 20px;
+            background: transparent;
         }
 
         .team-dark-photo img {
-            width: 100%;
+            width: 192px;
             height: auto;
             display: block;
             filter: grayscale(100%);
             opacity: 0.85;
+            border-radius: 8px;
+        }
+
+        .team-dark-divider {
+            width: 90%;
+            margin: 10px auto 0;
+            border: none;
+            border-top: 2px solid rgba(255,255,255,0.12);
         }
 
         .team-dark-info {
-            padding: 24px 28px 28px;
+            padding: 20px 24px 28px;
         }
 
         .team-dark-name {
@@ -222,9 +229,9 @@
     <main>
         <section class="about-hero">
             <div class="container">
-                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-bottom: 16px;">About Us</p>
+                <p style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); font-weight: 700; margin-bottom: 16px;">About Us</p>
                 <h1>We're supply chain practitioners who built the tool we always wanted</h1>
-                <p>OmniaOps was started by people who spent years inside supply chains - frustrated by slow systems, endless spreadsheets, and planning processes that couldn't keep up with the business.</p>
+                <p>OmniaOps was started by people who spent years inside supply chains - frustrated by slow systems, endless spreadsheets, and planning processes that couldn't keep up with the business. We want people focused where they create the most value - getting them out of heavy spreadsheets and fragmented systems that were never built for how your business runs.</p>
             </div>
         </section>
 
@@ -254,8 +261,6 @@
     <!-- Team Section -->
     <section class="team-dark-section">
         <div class="container">
-            <p class="team-dark-label">The OmniaOps Team</p>
-
             <!-- Row 1: The Team -->
             <div class="team-dark-row-label">The Team</div>
             <div class="team-dark-grid team-dark-grid-2">
@@ -264,6 +269,7 @@
                     <div class="team-dark-photo">
                         <img src="assets/team/philip.jpeg" alt="Philip L. Valentin">
                     </div>
+                    <hr class="team-dark-divider">
                     <div class="team-dark-info">
                         <div class="team-dark-name">Philip L. Valentin</div>
                         <div class="team-dark-role">Founder</div>
@@ -277,6 +283,7 @@
                     <div class="team-dark-photo">
                         <img src="assets/team/jakob.png" alt="Jakob Kaiser">
                     </div>
+                    <hr class="team-dark-divider">
                     <div class="team-dark-info">
                         <div class="team-dark-name">Jakob Kaiser</div>
                         <div class="team-dark-role">Co-founder</div>
@@ -296,6 +303,7 @@
                     <div class="team-dark-photo">
                         <img src="assets/team/christian.png" alt="Christian Steen Jensen">
                     </div>
+                    <hr class="team-dark-divider">
                     <div class="team-dark-info">
                         <div class="team-dark-name">Christian Steen Jensen</div>
                         <div class="team-dark-role">Advisory Board</div>
@@ -309,6 +317,7 @@
                     <div class="team-dark-photo">
                         <img src="assets/team/erik.png" alt="Erik Harby">
                     </div>
+                    <hr class="team-dark-divider">
                     <div class="team-dark-info">
                         <div class="team-dark-name">Erik Harby</div>
                         <div class="team-dark-role">Advisory Board</div>
@@ -322,6 +331,7 @@
                     <div class="team-dark-photo">
                         <img src="assets/team/thomas.png" alt="Thomas Kjeldsen">
                     </div>
+                    <hr class="team-dark-divider">
                     <div class="team-dark-info">
                         <div class="team-dark-name">Thomas Kjeldsen</div>
                         <div class="team-dark-role">Advisory Board</div>
