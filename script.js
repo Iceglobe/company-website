@@ -85,14 +85,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Platform preview - feature list clicks
     const platformFeatures = document.querySelectorAll('.platform-feature, .tab-item');
     const previewScreens = document.querySelectorAll('.preview-screen');
+    const calloutGroups = document.querySelectorAll('.callout-group');
+
     platformFeatures.forEach(feature => {
         feature.addEventListener('click', () => {
             const target = feature.dataset.tab;
+            
+            // Toggle active classes for nav items
             platformFeatures.forEach(f => f.classList.remove('active'));
-            previewScreens.forEach(s => s.classList.remove('active'));
             feature.classList.add('active');
+
+            // Toggle screens
+            previewScreens.forEach(s => s.classList.remove('active'));
             const screen = document.querySelector(`.preview-screen[data-tab="${target}"]`);
             if (screen) screen.classList.add('active');
+
+            // Toggle callout groups
+            calloutGroups.forEach(g => g.classList.remove('active'));
+            const group = document.querySelector(`.callout-group[data-tab="${target}"]`);
+            if (group) group.classList.add('active');
         });
     });
 
