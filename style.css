@@ -3310,6 +3310,14 @@ footer.midnight-footer .footer-bottom {
     }
 }
 
+.pricing-table-note {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+    margin: 0 0 14px 6px;
+    line-height: 1.5;
+}
+
 /* Pricing Table */
 .pricing-table-wrap {
     background: rgba(255,255,255,0.04);
@@ -3373,6 +3381,30 @@ footer.midnight-footer .footer-bottom {
     font-weight: 500;
     font-style: italic;
     color: rgba(255,255,255,0.65);
+}
+
+.pricing-table .pt-col-subtitle {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.4;
+}
+
+.pricing-table .pt-tier-cell {
+    text-align: left;
+    background: rgba(255,255,255,0.03);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    padding: 20px 20px;
+    white-space: nowrap;
+    border-left: 1px solid rgba(255,255,255,0.06);
 }
 
 .pricing-table thead tr:first-child th:first-child,
@@ -3444,6 +3476,7 @@ footer.midnight-footer .footer-bottom {
 
 .pt-price--split {
     padding: 20px 20px;
+    background: rgba(255,255,255,0.02);
 }
 
 .pt-price--split .pt-price-line {
@@ -3452,10 +3485,6 @@ footer.midnight-footer .footer-bottom {
     align-items: center;
     gap: 8px;
     padding: 10px 0;
-}
-
-.pt-price--split .pt-price-line + .pt-price-line {
-    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .pt-price--split .pt-price-tag {
