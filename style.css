@@ -3639,6 +3639,10 @@ footer.midnight-footer .footer-bottom {
    Base rules: button hidden on desktop. Becomes visible
    inside the (max-width: 768px) block below.
    ============================================================ */
+.mobile-only {
+    display: none;
+}
+
 .nav-toggle {
     display: none;
     background: transparent;
@@ -3683,19 +3687,40 @@ body.menu-open {
 
     /* Header / hamburger */
     header {
-        padding: 12px 0;
+        padding: 8px 0;
+        background: rgba(10, 14, 26, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    header.scrolled {
+        padding: 6px 0;
+    }
+    .nav-content {
+        flex-wrap: nowrap;
+        gap: 8px;
     }
     .nav-content .nav-right {
         margin-right: 0;
+    }
+    .nav-content .nav-cta,
+    .nav-content > a.nav-cta {
+        display: none;
+    }
+    .logo {
+        font-size: 1rem;
     }
     .nav-toggle {
         display: flex;
     }
 
+    .mobile-only {
+        display: list-item;
+    }
+
     /* Mobile menu drop-down */
     .nav-content .nav-links {
         position: fixed;
-        top: 64px;
+        top: 56px;
         left: 0;
         right: 0;
         transform: none;
