@@ -3633,3 +3633,207 @@ footer.midnight-footer .footer-bottom {
         font-size: 1.15rem;
     }
 }
+
+/* ============================================================
+   MOBILE NAVIGATION (hamburger)
+   Base rules: button hidden on desktop. Becomes visible
+   inside the (max-width: 768px) block below.
+   ============================================================ */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ============================================================
+   PHONE/TABLET BREAKPOINT (max 768px)
+   Only takes effect below this width. Desktop view unchanged.
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Layout density */
+    .container {
+        padding: 0 20px;
+    }
+    section {
+        padding: 60px 0;
+    }
+
+    /* Header / hamburger */
+    header {
+        padding: 12px 0;
+    }
+    .nav-content .nav-right {
+        margin-right: 0;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Mobile menu drop-down */
+    .nav-content .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        transform: none;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(10, 14, 26, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 16px 24px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    .nav-content.open .nav-links {
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-content .nav-links li {
+        list-style: none;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav-content .nav-links li:last-child {
+        border-bottom: 0;
+    }
+    .nav-content .nav-links a {
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+
+    /* Hamburger to X animation */
+    .nav-content.open .nav-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .nav-content.open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-content.open .nav-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Hero (index) */
+    .hero-dark > .container > div[style*="padding"] {
+        padding: 60px 0 32px !important;
+    }
+    .hero-dark h1 {
+        font-size: clamp(2rem, 8vw, 2.6rem);
+    }
+    .hero-impact-row {
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 36px;
+        padding-top: 32px;
+    }
+    .hero-impact-item,
+    .hero-impact-item:first-child {
+        padding: 0;
+    }
+    .hero-impact-num {
+        font-size: 2.2rem;
+    }
+
+    /* Common multi-column grids collapse to single column */
+    .work-grid,
+    .process-grid,
+    .platform-card,
+    .impl-cards {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* Feature cards */
+    .feature-card {
+        padding: 28px 22px;
+    }
+
+    /* Generic two-column rows that haven't already collapsed */
+    .modvis-core-wrapper {
+        margin: 0 auto;
+    }
+
+    /* Book-call page layout */
+    .book-page {
+        padding-top: 96px !important;
+        padding-bottom: 48px !important;
+    }
+    .book-layout {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        padding-top: 24px !important;
+    }
+    .meeting-form-wrap {
+        padding: 28px 22px !important;
+        min-height: 0 !important;
+        border-radius: 20px !important;
+    }
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+    .btn-next,
+    .form-submit-btn,
+    .btn-back {
+        padding: 14px 18px !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* Headings */
+    h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+}
+
+/* ============================================================
+   SMALL PHONE (max 480px)
+   Tighter padding, smaller H1 floor.
+   ============================================================ */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    section {
+        padding: 48px 0;
+    }
+    .hero-dark h1 {
+        font-size: clamp(1.75rem, 9vw, 2.2rem);
+    }
+    .hero-subtitle p,
+    .hero-list li {
+        font-size: 0.95rem;
+    }
+    .nav-cta {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    .feature-card {
+        padding: 22px 18px;
+    }
+}

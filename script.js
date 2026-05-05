@@ -53,6 +53,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile hamburger nav
+    const navToggle = document.querySelector('.nav-toggle');
+    const navContent = document.querySelector('.nav-content');
+    if (navToggle && navContent) {
+        const closeMenu = () => {
+            navContent.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open menu');
+            document.body.classList.remove('menu-open');
+        };
+        navToggle.addEventListener('click', () => {
+            const isOpen = navContent.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            document.body.classList.toggle('menu-open', isOpen);
+        });
+        navContent.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
+
     // Metrics: count-up animation
     function countUp(el, target, prefix, suffix, duration) {
         const start = performance.now();
