@@ -3189,6 +3189,34 @@ header.scrolled .nav-cta {
     font-weight: 700;
 }
 
+/* Mobile: always show a full-width floating pill, regardless of scroll state.
+   At the top of the page the desktop override makes the header transparent,
+   which on mobile meant the nav was invisible until you scrolled past 50px. */
+@media (max-width: 768px) {
+    header,
+    header.scrolled {
+        padding: 8px 0 !important;
+        background: transparent !important;
+    }
+    header .container,
+    header.scrolled .container {
+        background: rgba(10, 14, 26, 0.9);
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        margin: 0 12px;
+        padding: 6px 14px 6px 20px !important;
+        width: auto !important;
+        max-width: none !important;
+        left: auto !important;
+        transform: none !important;
+        display: block !important;
+        position: relative;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+}
+
 /* GLOBAL FOOTER REDESIGN: Deep Midnight Navy */
 footer.midnight-footer {
     background: #0a0e1a !important; /* Deep, rich architectural navy */

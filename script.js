@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navContent.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', closeMenu);
         });
+        document.addEventListener('click', (e) => {
+            if (!navContent.classList.contains('open')) return;
+            if (navContent.contains(e.target)) return;
+            closeMenu();
+        });
     }
 
     // Metrics: count-up animation
