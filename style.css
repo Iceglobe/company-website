@@ -3150,10 +3150,14 @@ header.scrolled .nav-right {
     margin-right: 0;
 }
 
-/* In the scrolled pill, drop absolute positioning so the pill hugs content */
-header.scrolled .nav-content .nav-links {
-    position: static;
-    transform: none;
+/* In the scrolled pill, drop absolute positioning so the pill hugs content.
+   Desktop only — on mobile, .nav-links is a fixed-position dropdown and must
+   stay out of flow or it stretches the pill vertically. */
+@media (min-width: 769px) {
+    header.scrolled .nav-content .nav-links {
+        position: static;
+        transform: none;
+    }
 }
 
 header.scrolled .nav-content {
