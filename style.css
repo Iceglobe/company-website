@@ -638,18 +638,101 @@ header.scrolled {
     margin-bottom: 24px;
 }
 
-/* Social Proof */
-.social-proof {
+/* --- LOGO TICKER --- */
+.logo-ticker {
     padding: 60px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: transparent;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.logo-track {
+/* Glassmorphic fade edges */
+.logo-ticker::before,
+.logo-ticker::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-ticker::before {
+    left: 0;
+    background: linear-gradient(to right, #05080f 0%, rgba(5,8,15,0) 100%);
+}
+
+.logo-ticker::after {
+    right: 0;
+    background: linear-gradient(to left, #05080f 0%, rgba(5,8,15,0) 100%);
+}
+
+.logo-ticker-track {
     display: flex;
-    justify-content: space-between;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    gap: 60px;
     align-items: center;
-    opacity: 0.5;
+}
+
+.logo-ticker-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: var(--transition);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.logo-ticker-item:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.logo-ticker-item img {
+    width: 120px !important;
+    height: 40px !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.9 !important;
+    transition: var(--transition);
+}
+
+.logo-ticker-item:hover img {
+    opacity: 1 !important;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 30px)); } /* Adjust for gap */
+}
+
+@media (max-width: 768px) {
+    .logo-ticker-track { gap: 40px; }
+    .logo-ticker::before, .logo-ticker::after { width: 100px; }
+}
+
+@media (max-width: 768px) {
+    .logo-ticker {
+        padding: 50px 0;
+    }
+    .logo-ticker-track {
+        gap: 60px;
+    }
+    .logo-ticker-item {
+        height: 28px;
+    }
+    .logo-ticker::before,
+    .logo-ticker::after {
+        width: 100px;
+    }
 }
 
 /* Footer */
