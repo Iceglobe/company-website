@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WJZ5450Y0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3WJZ5450Y0');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask OmniaOps — Free supply chain Q&amp;A</title>
+    <meta name="description" content="Ask any supply chain planning question. Powered by the same AI agent that runs inside the OmniaOps platform. Free, instant, no signup.">
+    <link rel="canonical" href="https://omniaops.com/ask.html">
+    <link rel="stylesheet" href="style.css?v=40260505b">
+    <style>
+        body { background: #0d111c; color: white; min-height: 100vh; }
+        .ask-wrap { max-width: 880px; margin: 0 auto; padding: 100px 24px 60px; }
+        .ask-wrap h1 { font-size: 2.4rem; line-height: 1.1; margin: 0 0 12px; }
+        .ask-wrap .lede { font-size: 1.1rem; opacity: 0.78; margin: 0 0 32px; line-height: 1.55; }
+        .chat-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 24px; backdrop-filter: blur(20px); min-height: 400px; display: flex; flex-direction: column; }
+        .msgs { flex: 1; overflow-y: auto; padding: 8px 4px; min-height: 280px; max-height: 60vh; }
+        .msg { padding: 14px 18px; border-radius: 14px; margin-bottom: 12px; line-height: 1.55; max-width: 92%; }
+        .msg.user { background: #fcd34d; color: #0d111c; align-self: flex-end; margin-left: auto; font-weight: 500; }
+        .msg.assistant { background: rgba(255,255,255,0.08); color: white; align-self: flex-start; }
+        .msg.assistant a { color: #fcd34d; }
+        .input-row { display: flex; gap: 10px; align-items: flex-end; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .input-row textarea { flex: 1; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; padding: 12px 16px; font-size: 1rem; font-family: inherit; resize: none; min-height: 48px; max-height: 160px; }
+        .input-row textarea:focus { outline: none; border-color: #fcd34d; }
+        .input-row textarea::placeholder { color: rgba(255,255,255,0.4); }
+        .send-btn { background: #fcd34d; color: #0d111c; border: none; border-radius: 12px; padding: 0 22px; height: 48px; font-weight: 700; cursor: pointer; transition: all 0.15s; font-size: 0.98rem; }
+        .send-btn:hover { background: #fde68a; }
+        .send-btn:disabled { background: rgba(252,211,77,0.4); cursor: not-allowed; }
+        .examples { margin: 24px 0 8px; }
+        .examples-label { font-size: 0.85rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+        .example-chip { display: inline-block; padding: 8px 14px; margin: 0 8px 8px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; cursor: pointer; transition: all 0.15s; font-size: 0.9rem; }
+        .example-chip:hover { background: rgba(252,211,77,0.12); border-color: #fcd34d; }
+        .email-gate { background: rgba(252,211,77,0.08); border: 1px solid rgba(252,211,77,0.3); border-radius: 14px; padding: 20px; margin: 16px 0; }
+        .email-gate label { display: block; font-size: 0.9rem; opacity: 0.85; margin-bottom: 6px; font-weight: 600; }
+        .email-gate input { width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.3); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-size: 1rem; margin-bottom: 12px; box-sizing: border-box; }
+        .email-gate input::placeholder { color: rgba(255,255,255,0.35); }
+        .footer-note { font-size: 0.82rem; opacity: 0.55; margin-top: 24px; line-height: 1.6; }
+        .typing { display: inline-block; }
+        .typing::after { content: '...'; animation: dots 1.4s steps(4, end) infinite; }
+        @keyframes dots { 0%,20%{content:'.'} 40%{content:'..'} 60%,100%{content:'...'} }
+    </style>
+</head>
+<body>
+
+<header id="main-header">
+    <div class="container">
+        <nav class="nav-content">
+            <a href="index.html" class="logo logo-white">
+                <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about" style="color: white;">Platform</a></li>
+                <li><a href="about.html" style="color: white;">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="book-call.html" class="nav-cta">Book a call</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="ask-wrap">
+    <h1>Ask any supply chain question</h1>
+    <p class="lede">The same AI agent that runs inside the OmniaOps planning platform, opened up for anyone. Free, instant, no signup for your first three messages. Built on top of 200+ years of combined supply chain practitioner experience and the OmniaOps planning engine.</p>
+
+    <div class="examples">
+        <div class="examples-label">Try one of these</div>
+        <span class="example-chip" data-q="What is the right safety stock for a 3-week lead time at 95% service level?">Safety stock for 3-week lead time?</span>
+        <span class="example-chip" data-q="How do I structure an S&OP cycle for a 12-site CPG company?">S&amp;OP for 12 CPG sites</span>
+        <span class="example-chip" data-q="My MRP keeps recommending POs we don't need. What master data should I check?">MRP recommending wrong POs</span>
+        <span class="example-chip" data-q="When should we switch from Excel-based planning to a dedicated system?">Excel vs dedicated system?</span>
+        <span class="example-chip" data-q="What's the difference between forecast accuracy and forecast bias?">Forecast accuracy vs bias</span>
+    </div>
+
+    <div class="chat-box">
+        <div class="msgs" id="msgs">
+            <div class="msg assistant">Hi, I am the OmniaOps planning assistant. Ask me anything about demand planning, MRP, S&amp;OP, inventory, safety stock, capacity planning, or evaluation of any planning tool. I will give you a practitioner-grade answer in plain language.</div>
+        </div>
+        <div class="input-row">
+            <textarea id="input" placeholder="Type your question..."></textarea>
+            <button class="send-btn" id="send">Send</button>
+        </div>
+    </div>
+
+    <p class="footer-note">After three messages we will ask for your email so we can save the conversation and (optionally) send you related content. We never share emails. This widget is powered by the same engine that runs inside the OmniaOps SCP Planner — if you like the answers, you can <a href="book-call.html?utm_source=ask&utm_medium=footer" style="color:#fcd34d">book a call</a> to see the full platform.</p>
+</div>
+
+<script>
+const STATE = { messages: [], email_captured: false, lead_id: null };
+const SCP_BACKEND = window.SCP_BACKEND_URL || 'https://omniaops.com/api/ask';  // TODO: replace with deployed proxy
+
+function addMsg(role, content) {
+    const div = document.createElement('div');
+    div.className = 'msg ' + role;
+    div.textContent = content;
+    document.getElementById('msgs').appendChild(div);
+    div.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    return div;
+}
+
+function addEmailGate() {
+    const div = document.createElement('div');
+    div.className = 'email-gate';
+    div.innerHTML = `
+        <div style="font-weight:600;margin-bottom:4px">Want to keep going?</div>
+        <div style="opacity:0.78;font-size:0.95rem;margin-bottom:14px">Drop your work email so we can save this conversation and send you the answer as a PDF. Then keep asking.</div>
+        <label>Work email</label>
+        <input type="email" id="gate_email" placeholder="you@company.com" required>
+        <label>Name</label>
+        <input type="text" id="gate_name" placeholder="Your name" required>
+        <button class="send-btn" id="gate_submit" style="width:100%;height:44px;border-radius:10px">Continue chatting</button>
+    `;
+    document.getElementById('msgs').appendChild(div);
+    div.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+    document.getElementById('gate_submit').addEventListener('click', async () => {
+        const email = document.getElementById('gate_email').value.trim();
+        const name = document.getElementById('gate_name').value.trim();
+        if (!email || !name) return;
+        const params = new URLSearchParams(window.location.search);
+        const data = {
+            access_key: '0bd4c671-b693-48d8-bffd-575abc619096',
+            subject: 'Ask widget — new lead',
+            name, email,
+            lead_source: 'magnet:ask-widget',
+            conversation: JSON.stringify(STATE.messages).slice(0, 8000),
+            utm_source: params.get('utm_source') || 'ask_widget',
+            utm_medium: params.get('utm_medium') || 'direct',
+            utm_campaign: params.get('utm_campaign') || '',
+            utm_content: params.get('utm_content') || '',
+            referrer: document.referrer || ''
+        };
+        try {
+            await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            if (typeof gtag === 'function') gtag('event', 'ask_email_captured');
+        } catch (e) { /* non-blocking */ }
+        STATE.email_captured = true;
+        STATE.lead_id = email;
+        div.remove();
+    });
+}
+
+async function ask(q) {
+    addMsg('user', q);
+    STATE.messages.push({role: 'user', content: q});
+    const ph = addMsg('assistant', '');
+    ph.innerHTML = '<span class="typing">Thinking</span>';
+
+    try {
+        const resp = await fetch(SCP_BACKEND, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                messages: STATE.messages,
+                source: 'ask_widget',
+                lead_id: STATE.lead_id
+            })
+        });
+        if (!resp.ok) throw new Error('backend ' + resp.status);
+        const data = await resp.json();
+        const reply = data.reply || data.message || 'Sorry, I had a problem. Try again or email philip@omniaops.com directly.';
+        ph.textContent = reply;
+        STATE.messages.push({role: 'assistant', content: reply});
+        if (typeof gtag === 'function') gtag('event', 'ask_message', { count: STATE.messages.length / 2 });
+        if (STATE.messages.filter(m => m.role === 'user').length === 3 && !STATE.email_captured) {
+            addEmailGate();
+        }
+    } catch (err) {
+        ph.innerHTML = `<span style="opacity:0.85">The chatbot backend is not reachable right now. Email Philip directly at <a href="mailto:philip@omniaops.com">philip@omniaops.com</a> or <a href="book-call.html">book a 20-min call</a> — we will answer in person.</span>`;
+    }
+}
+
+document.querySelectorAll('.example-chip').forEach(c => {
+    c.addEventListener('click', () => {
+        const q = c.dataset.q;
+        document.getElementById('input').value = q;
+        ask(q);
+        document.getElementById('input').value = '';
+    });
+});
+
+document.getElementById('send').addEventListener('click', () => {
+    const v = document.getElementById('input').value.trim();
+    if (!v) return;
+    ask(v);
+    document.getElementById('input').value = '';
+});
+
+document.getElementById('input').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById('send').click();
+    }
+});
+</script>
+
+<footer class="midnight-footer">
+    <div class="container">
+        <div class="footer-bottom">&copy; 2026 OmniaOps. <a href="index.html" style="color:rgba(255,255,255,0.6)">Back to home</a> · <a href="book-call.html" style="color:rgba(255,255,255,0.6)">Book a call</a></div>
+    </div>
+</footer>
+
+</body>
+</html>

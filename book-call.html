@@ -465,6 +465,17 @@
                                 <textarea id="message" name="message" placeholder="Briefly describe your planning challenges..."></textarea>
                             </div>
 
+                            <div class="form-group">
+                                <label for="heard_about">Where did you first hear about us? (optional)</label>
+                                <input type="text" id="heard_about" name="heard_about" placeholder="LinkedIn, search, referral, etc.">
+                            </div>
+
+                            <input type="hidden" id="utm_source_hidden" name="utm_source">
+                            <input type="hidden" id="utm_medium_hidden" name="utm_medium">
+                            <input type="hidden" id="utm_campaign_hidden" name="utm_campaign">
+                            <input type="hidden" id="utm_content_hidden" name="utm_content">
+                            <input type="hidden" id="referrer_hidden" name="referrer">
+
                             <div class="form-navigation">
                                 <button type="button" class="btn-back" onclick="goToStep(1)">Back</button>
                                 <button type="submit" class="form-submit-btn">Request Meeting</button>
@@ -479,6 +490,7 @@
     <footer class="midnight-footer">
         <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
+                <div>
                     <a href="index.html" class="logo" style="margin-bottom: 24px; color: white;">
                         <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                     </a>
@@ -649,6 +661,13 @@
             const email   = document.getElementById('femail').value.trim();
             const company = document.getElementById('company').value.trim();
             const message = document.getElementById('message').value.trim();
+            const heard   = (document.getElementById('heard_about') || {value:''}).value.trim();
+            const params  = new URLSearchParams(window.location.search);
+            const utm_source = params.get('utm_source') || '';
+            const utm_medium = params.get('utm_medium') || '';
+            const utm_campaign = params.get('utm_campaign') || '';
+            const utm_content = params.get('utm_content') || '';
+            const referrer = document.referrer || '';
 
             const payload = {
                 access_key: this.querySelector('[name="access_key"]').value,
@@ -661,11 +680,26 @@
                     'Company:  ' + (company || 'N/A'),
                     'Date:     ' + date,
                     'Time:     ' + time,
+                    'Heard:    ' + (heard || 'not provided'),
+                    'UTM:      ' + utm_source + ' / ' + utm_medium + ' / ' + utm_campaign + ' / ' + utm_content,
+                    'Referrer: ' + referrer,
                     '',
                     'Message:',
                     message || '(none)'
-                 ].join('\n')
+                 ].join('\n'),
+                heard_about: heard,
+                utm_source: utm_source,
+                utm_medium: utm_medium,
+                utm_campaign: utm_campaign,
+                utm_content: utm_content,
+                referrer: referrer
             };
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    source: utm_source || 'direct',
+                    medium: utm_medium || 'organic'
+                });
+            }
 
             try {
                 const res = await fetch('https://api.web3forms.com/submit', {

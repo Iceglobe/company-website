@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WJZ5450Y0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3WJZ5450Y0');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of Stockout Calculator | OmniaOps</title>
+    <meta name="description" content="Estimate the annual revenue, gross margin, and customer-lifetime-value impact of stockouts at your company. 2 minutes. No email required.">
+    <link rel="canonical" href="https://omniaops.com/tools/stockout-calculator.html">
+    <link rel="stylesheet" href="../style.css?v=40260505b">
+    <style>
+        .calc-wrap { max-width: 880px; margin: 0 auto; padding: 60px 24px 120px; color: #0d111c; }
+        .calc-wrap h1 { font-size: 2.2rem; margin: 0 0 12px; line-height: 1.15; }
+        .lede { font-size: 1.1rem; color: #475569; margin: 0 0 32px; line-height: 1.55; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+        .input-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; }
+        .input-card h3 { font-size: 1.1rem; margin: 0 0 16px; }
+        .field { margin-bottom: 18px; }
+        .field label { display: block; font-size: 0.92rem; color: #475569; margin-bottom: 6px; font-weight: 600; }
+        .field input, .field select { width: 100%; padding: 12px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 1rem; box-sizing: border-box; font-family: inherit; }
+        .field input:focus, .field select:focus { outline: none; border-color: #f59e0b; }
+        .field .hint { font-size: 0.82rem; color: #94a3b8; margin-top: 4px; }
+        .result-card { background: linear-gradient(135deg, #0d111c, #1e293b); color: white; border-radius: 20px; padding: 36px 28px; position: sticky; top: 100px; }
+        .result-card h3 { font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.75; margin: 0 0 6px; font-weight: 700; }
+        .result-big { font-size: 2.6rem; font-weight: 900; line-height: 1; margin: 4px 0 20px; background: linear-gradient(90deg, #fcd34d, #fde68a); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .result-line { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.95rem; }
+        .result-line .l { opacity: 0.75; }
+        .result-line .v { font-weight: 700; font-feature-settings: "tnum"; }
+        .cta { margin-top: 24px; }
+        .cta a { display: block; padding: 14px 18px; background: #fcd34d; color: #0d111c; border-radius: 10px; text-align: center; font-weight: 700; text-decoration: none; transition: background 0.15s; }
+        .cta a:hover { background: #fde68a; }
+        .micro { font-size: 0.8rem; opacity: 0.65; margin-top: 14px; line-height: 1.45; }
+        .back-link { display: inline-block; margin-bottom: 24px; color: #475569; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header id="main-header">
+    <div class="container">
+        <nav class="nav-content">
+            <a href="../index.html" class="logo logo-white">
+                <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about" style="color: white;">Platform</a></li>
+                <li><a href="../about.html" style="color: white;">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="../book-call.html" class="nav-cta">Book a call</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="calc-wrap">
+    <a href="../index.html" class="back-link">← Back to OmniaOps</a>
+    <h1>Cost of Stockout Calculator</h1>
+    <p class="lede">Estimate the annual cost of stockouts at your company in 2 minutes. Most teams under-count by 3-5x because they only see the lost sale, not the gross margin, the customer churn, and the expedite cost.</p>
+
+    <div class="grid">
+        <div>
+            <div class="input-card">
+                <h3>About your business</h3>
+                <div class="field">
+                    <label for="revenue">Annual revenue (USD)</label>
+                    <input type="number" id="revenue" value="200000000" min="0" step="1000000">
+                    <div class="hint">Total annual revenue, top line.</div>
+                </div>
+                <div class="field">
+                    <label for="margin">Gross margin %</label>
+                    <input type="number" id="margin" value="42" min="0" max="100" step="1">
+                    <div class="hint">Gross margin (revenue minus direct cost), as a percent.</div>
+                </div>
+                <div class="field">
+                    <label for="stockout_rate">Stockout rate %</label>
+                    <input type="number" id="stockout_rate" value="3.5" min="0" max="50" step="0.1">
+                    <div class="hint">Of order lines requested, what percent cannot be fulfilled on time? Industry average for mid-market: 3-6%.</div>
+                </div>
+                <div class="field">
+                    <label for="recovery_rate">% of stockouts recovered (eventually filled)</label>
+                    <input type="number" id="recovery_rate" value="65" min="0" max="100" step="1">
+                    <div class="hint">The rest is permanently lost revenue. Industry average: 50-70%.</div>
+                </div>
+                <div class="field">
+                    <label for="expedite_cost">Avg expedite cost per recovered stockout (USD)</label>
+                    <input type="number" id="expedite_cost" value="450" min="0" step="10">
+                    <div class="hint">Air freight, overtime, line-changeover, etc. Typical: $200-$1,500.</div>
+                </div>
+                <div class="field">
+                    <label for="customer_ltv_multiplier">Customer LTV multiplier</label>
+                    <input type="number" id="customer_ltv_multiplier" value="4" min="1" max="20" step="0.5">
+                    <div class="hint">Each lost order also damages future revenue from the same customer. Conservative: 3-5x the lost order value.</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="result-card">
+                <h3>Estimated annual cost of stockouts</h3>
+                <div class="result-big" id="total">$0</div>
+                <div class="result-line"><span class="l">Direct lost revenue</span><span class="v" id="r_lost_rev">$0</span></div>
+                <div class="result-line"><span class="l">Lost gross margin</span><span class="v" id="r_lost_gm">$0</span></div>
+                <div class="result-line"><span class="l">Expedite & rework cost</span><span class="v" id="r_expedite">$0</span></div>
+                <div class="result-line"><span class="l">Customer-lifetime damage</span><span class="v" id="r_ltv">$0</span></div>
+                <div class="result-line" style="border-top:1px solid rgba(255,255,255,0.3);margin-top:8px;padding-top:14px;font-weight:800"><span class="l" style="opacity:1">Total annual cost</span><span class="v" id="r_total">$0</span></div>
+
+                <div class="cta">
+                    <a id="cta-book" href="../book-call.html?utm_source=stockout_calc&utm_medium=cta">See how OmniaOps cuts this by 60-80%</a>
+                </div>
+                <div class="micro">Methodology: Lost margin = revenue × stockout-rate × (1 - recovery) × margin. Expedite = revenue × stockout-rate × recovery × (expedite_cost / avg_order_size_assumed_8000). LTV damage = lost revenue × (multiplier - 1). All inputs editable above.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+const inputs = ['revenue','margin','stockout_rate','recovery_rate','expedite_cost','customer_ltv_multiplier'];
+
+function recalc() {
+    const v = {};
+    inputs.forEach(k => v[k] = parseFloat(document.getElementById(k).value) || 0);
+    const stockedOutRevenue = v.revenue * (v.stockout_rate / 100);
+    const lostRevenue = stockedOutRevenue * (1 - v.recovery_rate / 100);
+    const lostGM = lostRevenue * (v.margin / 100);
+    const recoveredStockouts = stockedOutRevenue * (v.recovery_rate / 100);
+    const expediteCost = (recoveredStockouts / 8000) * v.expedite_cost;
+    const ltvDamage = lostRevenue * (v.customer_ltv_multiplier - 1);
+    const total = lostGM + expediteCost + ltvDamage;
+
+    document.getElementById('total').textContent = fmt(total);
+    document.getElementById('r_lost_rev').textContent = fmt(lostRevenue);
+    document.getElementById('r_lost_gm').textContent = fmt(lostGM);
+    document.getElementById('r_expedite').textContent = fmt(expediteCost);
+    document.getElementById('r_ltv').textContent = fmt(ltvDamage);
+    document.getElementById('r_total').textContent = fmt(total);
+
+    const cta = document.getElementById('cta-book');
+    if (cta) {
+        const params = new URLSearchParams({
+            utm_source: 'stockout_calc', utm_medium: 'cta', utm_campaign: 'stockout_calculator',
+            utm_content: `total_${Math.round(total)}`,
+            calc_revenue: v.revenue, calc_margin: v.margin, calc_stockout_rate: v.stockout_rate,
+            calc_total: Math.round(total)
+        });
+        cta.href = '/book-call.html?' + params.toString();
+    }
+}
+
+inputs.forEach(k => document.getElementById(k).addEventListener('input', recalc));
+recalc();
+
+if (typeof gtag === 'function') {
+    let firedInteraction = false;
+    inputs.forEach(k => document.getElementById(k).addEventListener('change', () => {
+        if (!firedInteraction) {
+            gtag('event', 'tool_used', { tool: 'stockout_calculator' });
+            firedInteraction = true;
+        }
+    }));
+}
+</script>
+
+<footer class="midnight-footer">
+    <div class="container">
+        <div class="footer-bottom">&copy; 2026 OmniaOps. <a href="../index.html" style="color:rgba(255,255,255,0.6)">Back to home</a> · <a href="../book-call.html" style="color:rgba(255,255,255,0.6)">Book a call</a></div>
+    </div>
+</footer>
+
+</body>
+</html>

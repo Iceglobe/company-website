@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WJZ5450Y0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3WJZ5450Y0');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&amp;OP Maturity Self-Assessment | OmniaOps</title>
+    <meta name="description" content="A 6-minute self-assessment that benchmarks your S&amp;OP cycle against 5 maturity levels. Built by supply chain leaders out of Novo Nordisk, Ambu, Pfizer.">
+    <meta property="og:title" content="S&amp;OP Maturity Self-Assessment | OmniaOps">
+    <meta property="og:description" content="Score your S&amp;OP cycle in 6 minutes. Get a personalized PDF report.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://omniaops.com/tools/sop-maturity.html">
+    <link rel="stylesheet" href="../style.css?v=40260505b">
+    <style>
+        .assessment-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 120px; color: #0d111c; }
+        .assessment-wrap h1 { font-size: 2.2rem; margin: 0 0 12px; line-height: 1.15; }
+        .assessment-wrap .lede { font-size: 1.1rem; color: #475569; margin: 0 0 32px; line-height: 1.55; }
+        .progress-bar { height: 6px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 32px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #fcd34d, #f59e0b); transition: width 0.3s ease; width: 0%; }
+        .question-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+        .question-num { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .question-text { font-size: 1.15rem; font-weight: 600; margin: 0 0 20px; line-height: 1.4; }
+        .option { display: block; padding: 14px 18px; border: 1.5px solid #e2e8f0; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: all 0.15s ease; font-size: 0.98rem; line-height: 1.45; }
+        .option:hover { border-color: #fcd34d; background: #fffbeb; }
+        .option input { display: none; }
+        .option.selected { border-color: #f59e0b; background: #fffbeb; box-shadow: 0 0 0 3px rgba(252, 211, 77, 0.25); }
+        .nav-buttons { display: flex; gap: 12px; margin-top: 24px; justify-content: space-between; }
+        .btn { padding: 14px 28px; border-radius: 10px; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+        .btn-primary { background: #0d111c; color: white; }
+        .btn-primary:hover { background: #1e293b; }
+        .btn-primary:disabled { background: #cbd5e1; cursor: not-allowed; }
+        .btn-secondary { background: white; color: #475569; border: 1.5px solid #e2e8f0; }
+        .btn-secondary:hover { border-color: #94a3b8; }
+        .result-card { background: linear-gradient(135deg, #0d111c, #1e293b); color: white; border-radius: 20px; padding: 48px 40px; }
+        .result-card h2 { font-size: 1.8rem; margin: 0 0 8px; }
+        .result-level { font-size: 3.5rem; font-weight: 900; line-height: 1; margin: 8px 0; background: linear-gradient(90deg, #fcd34d, #fde68a); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .result-level-name { font-size: 1.4rem; font-weight: 600; opacity: 0.95; }
+        .result-section { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); }
+        .result-section h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; margin: 0 0 12px; }
+        .gap-list { padding-left: 20px; }
+        .gap-list li { margin-bottom: 8px; line-height: 1.5; opacity: 0.92; }
+        .email-gate { background: white; color: #0d111c; border-radius: 16px; padding: 32px; margin-top: 24px; }
+        .email-gate label { display: block; font-size: 0.9rem; color: #475569; margin-bottom: 6px; font-weight: 600; }
+        .email-gate input { width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 1rem; margin-bottom: 16px; box-sizing: border-box; }
+        .email-gate input:focus { outline: none; border-color: #f59e0b; }
+        .cta-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+        .cta-row .btn { flex: 1; min-width: 200px; }
+        .micro { font-size: 0.85rem; color: #94a3b8; margin-top: 12px; }
+        .back-link { display: inline-block; margin-bottom: 24px; color: #475569; text-decoration: none; font-size: 0.95rem; }
+        .back-link:hover { color: #0d111c; }
+    </style>
+</head>
+<body>
+
+<header id="main-header">
+    <div class="container">
+        <nav class="nav-content">
+            <a href="../index.html" class="logo logo-white">
+                <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about" style="color: white;">Platform</a></li>
+                <li><a href="../about.html" style="color: white;">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="../book-call.html" class="nav-cta">Book a call</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="assessment-wrap">
+    <a href="../index.html" class="back-link">← Back to OmniaOps</a>
+    <h1>S&amp;OP Maturity Self-Assessment</h1>
+    <p class="lede">Six minutes. 12 questions. A personal benchmark on the 5-level maturity scale we use to advise supply chain leaders. Built by ops practitioners out of Novo Nordisk, Ambu, and Pfizer.</p>
+
+    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+    <div id="quiz"></div>
+
+    <div id="result" style="display:none"></div>
+</div>
+
+<script>
+const QUESTIONS = [
+    {
+        q: "How often does your demand consensus actually happen?",
+        opts: [
+            {l: "Monthly, with planner + sales + commercial in one room and a signed artifact", s: 4},
+            {l: "Monthly, but mostly email and spreadsheet — no real meeting", s: 2},
+            {l: "Quarterly or worse", s: 1},
+            {l: "We don't run one", s: 0}
+        ]
+    },
+    {
+        q: "What tool actually runs your demand plan today?",
+        opts: [
+            {l: "A purpose-built planning platform (e.g. Kinaxis, o9, Anaplan, OmniaOps)", s: 4},
+            {l: "ERP demand module + Excel overlay", s: 2},
+            {l: "Excel — with macros and pivot tables maintained by one person", s: 1},
+            {l: "Excel — without macros", s: 0}
+        ]
+    },
+    {
+        q: "How is your forecast accuracy measured?",
+        opts: [
+            {l: "WMAPE at SKU × customer level, tracked monthly, reviewed in S&OP", s: 4},
+            {l: "MAPE at aggregate level, reviewed quarterly", s: 2},
+            {l: "We report it but don't act on it", s: 1},
+            {l: "We don't measure it", s: 0}
+        ]
+    },
+    {
+        q: "When did you last audit your master data (lead times, safety stock, MOQs, BOMs)?",
+        opts: [
+            {l: "Within the last 6 months, with a documented process", s: 4},
+            {l: "1-2 years ago", s: 2},
+            {l: "Longer than 2 years, or not sure", s: 1},
+            {l: "Never as a structured exercise", s: 0}
+        ]
+    },
+    {
+        q: "How are stockouts caught and acted on?",
+        opts: [
+            {l: "Daily exception report with named owners and SLAs", s: 4},
+            {l: "Weekly review with the planner", s: 2},
+            {l: "Customer complaints — that's how we find out", s: 1},
+            {l: "Reactively, after the order is missed", s: 0}
+        ]
+    },
+    {
+        q: "Where does your safety stock come from?",
+        opts: [
+            {l: "Service-level-driven, formula-based, recalculated quarterly", s: 4},
+            {l: "Rule of thumb (e.g., lead time × 1.5)", s: 2},
+            {l: "Set once years ago, never revised", s: 1},
+            {l: "Different for every SKU, nobody knows why", s: 0}
+        ]
+    },
+    {
+        q: "Capacity planning — do you do it?",
+        opts: [
+            {l: "Yes, monthly, integrated with demand and supply", s: 4},
+            {l: "Quarterly, as a separate exercise", s: 2},
+            {l: "Annually for budget purposes only", s: 1},
+            {l: "Not formally", s: 0}
+        ]
+    },
+    {
+        q: "How are scenario plans (e.g. demand spike, supplier disruption) handled?",
+        opts: [
+            {l: "Real-time scenario tooling, scenarios saved and re-runnable", s: 4},
+            {l: "Spreadsheet what-ifs when something happens", s: 2},
+            {l: "Phone calls and gut feel", s: 1},
+            {l: "We don't run scenarios", s: 0}
+        ]
+    },
+    {
+        q: "S&OP meeting output: what comes out?",
+        opts: [
+            {l: "A signed plan with owners, deadlines, and KPIs", s: 4},
+            {l: "Meeting minutes with action items", s: 2},
+            {l: "Slides circulated, no real decisions", s: 1},
+            {l: "Nothing structured", s: 0}
+        ]
+    },
+    {
+        q: "How clean is your customer-level demand signal?",
+        opts: [
+            {l: "Per-customer forecast at SKU, reviewed monthly", s: 4},
+            {l: "Top-20 customers tracked, rest aggregated", s: 2},
+            {l: "Aggregate only — customer signal lost", s: 1},
+            {l: "We don't forecast at customer level", s: 0}
+        ]
+    },
+    {
+        q: "When a planner leaves, how long until the next person is productive?",
+        opts: [
+            {l: "Days — SOPs, dashboards, and master data are all documented", s: 4},
+            {l: "Weeks — some documentation, some tribal knowledge", s: 2},
+            {l: "Months — most knowledge was in that person's head", s: 1},
+            {l: "We have never replaced a planner cleanly", s: 0}
+        ]
+    },
+    {
+        q: "Inventory turns over the last 24 months — trend?",
+        opts: [
+            {l: "Improving consistently, tracked monthly", s: 4},
+            {l: "Roughly stable", s: 2},
+            {l: "Worsening", s: 1},
+            {l: "I don't know our inventory turns by heart", s: 0}
+        ]
+    }
+];
+
+const LEVELS = [
+    { min: 0, max: 11, level: 1, name: "Reactive", desc: "Planning is firefighting. Excel is the system of record. The team is heroic but exhausted.", gaps: ["You likely have $1M+ in working capital tied up in inventory that doesn't need to be there", "Stockouts surface from customer complaints, not from your systems", "Master data has not been audited in years; expect 5-15% of safety-stock values to be wrong"] },
+    { min: 12, max: 21, level: 2, name: "Structured", desc: "You have a cadence and you have measurements. But planning is still spreadsheet-driven and the S&OP meeting is mostly a status report.", gaps: ["Forecast accuracy is measured but not acted on", "Safety stock is rule-of-thumb — formula-based revision would unlock 10-20% inventory reduction with no service impact", "Capacity and demand are planned separately — synchronization gaps cost you 2-5% of revenue"] },
+    { min: 22, max: 30, level: 3, name: "Integrated", desc: "Planning is a real discipline. You have tooling, you have process, and the S&OP meeting produces decisions. Now the question is whether the tooling is the bottleneck.", gaps: ["Your team likely spends 20-30% of their week on data wrangling that purpose-built tooling would automate", "Scenario planning is ad-hoc — when disruption hits, you lose 1-2 weeks of reaction time", "Customer-level demand signal is partial — top customers visible, long tail invisible"] },
+    { min: 31, max: 38, level: 4, name: "Optimized", desc: "You are in the top 15% of mid-market manufacturers. The conversation is about marginal improvements and strategic edge cases, not foundational gaps.", gaps: ["The marginal lever is now AI-driven workflow automation — agents that execute your planners' SOPs without the planner present", "Cross-functional alignment (commercial / finance / supply) is the next maturity step, not internal planning maturity"] },
+    { min: 39, max: 48, level: 5, name: "Autonomous", desc: "You are in the top 1%. Most of the supply chain world is studying companies like yours. Honest answer: the marginal value of any tool, including ours, is small.", gaps: ["Your gap is no longer in process. It is in the next-generation talent and the next-generation tooling that lets your team focus on the strategic 5%."] }
+];
+
+let answers = new Array(QUESTIONS.length).fill(null);
+let currentQ = 0;
+
+function render() {
+    const wrap = document.getElementById('quiz');
+    const q = QUESTIONS[currentQ];
+    const progress = ((currentQ) / QUESTIONS.length) * 100;
+    document.getElementById('progress').style.width = progress + '%';
+
+    wrap.innerHTML = `
+        <div class="question-card">
+            <div class="question-num">Question ${currentQ + 1} of ${QUESTIONS.length}</div>
+            <div class="question-text">${q.q}</div>
+            ${q.opts.map((opt, i) => `
+                <label class="option ${answers[currentQ] === i ? 'selected' : ''}" data-i="${i}">
+                    <input type="radio" name="q${currentQ}" value="${i}">
+                    ${opt.l}
+                </label>
+            `).join('')}
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" id="prev" ${currentQ === 0 ? 'disabled' : ''}>Back</button>
+                <button class="btn btn-primary" id="next" ${answers[currentQ] === null ? 'disabled' : ''}>
+                    ${currentQ === QUESTIONS.length - 1 ? 'See my result' : 'Next →'}
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.querySelectorAll('.option').forEach(el => {
+        el.addEventListener('click', () => {
+            answers[currentQ] = parseInt(el.dataset.i);
+            render();
+        });
+    });
+    document.getElementById('prev').addEventListener('click', () => { if (currentQ > 0) { currentQ--; render(); } });
+    document.getElementById('next').addEventListener('click', () => {
+        if (answers[currentQ] === null) return;
+        if (currentQ === QUESTIONS.length - 1) {
+            showResult();
+        } else {
+            currentQ++;
+            render();
+        }
+    });
+}
+
+function showResult() {
+    const score = answers.reduce((sum, a, i) => sum + (a !== null ? QUESTIONS[i].opts[a].s : 0), 0);
+    const level = LEVELS.find(l => score >= l.min && score <= l.max);
+    document.getElementById('progress').style.width = '100%';
+    document.getElementById('quiz').style.display = 'none';
+    const resultEl = document.getElementById('result');
+    resultEl.style.display = 'block';
+    resultEl.innerHTML = `
+        <div class="result-card">
+            <h2>Your S&amp;OP maturity</h2>
+            <div class="result-level">Level ${level.level}</div>
+            <div class="result-level-name">${level.name}</div>
+            <p style="margin-top:16px;opacity:0.92;line-height:1.6">${level.desc}</p>
+            <div class="result-section">
+                <h3>What this likely means for you</h3>
+                <ul class="gap-list">${level.gaps.map(g => `<li>${g}</li>`).join('')}</ul>
+            </div>
+        </div>
+        <div class="email-gate">
+            <h3 style="margin:0 0 6px;font-size:1.2rem">Get the full PDF report</h3>
+            <p style="margin:0 0 20px;color:#475569;line-height:1.5">Personalized to your answers. Includes the next-3-steps roadmap for moving up a level. We will also send you a calendar link if you want to walk through it with us.</p>
+            <form id="email-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+                <label for="email">Work email</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" required placeholder="Company name">
+                <input type="hidden" name="access_key" value="0bd4c671-b693-48d8-bffd-575abc619096">
+                <input type="hidden" name="botcheck">
+                <input type="hidden" name="lead_source" value="magnet:sop-maturity">
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="assessment_level" value="${level.level}">
+                <input type="hidden" name="assessment_score" value="${score}">
+                <input type="hidden" name="assessment_answers" value="${answers.join(',')}">
+                <div class="cta-row">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Email me the report</button>
+                </div>
+                <p class="micro">We will only use your email to send this report and (rarely) related supply-chain content. Unsubscribe anytime.</p>
+            </form>
+            <div id="submit-status"></div>
+        </div>
+    `;
+
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign'].forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.value = params.get(k) || '';
+    });
+
+    document.getElementById('email-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const status = document.getElementById('submit-status');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        const form = e.target;
+        const data = {
+            access_key: form.access_key.value,
+            subject: `S&OP Maturity Assessment - Level ${level.level} Result`,
+            name: form.name.value,
+            email: form.email.value,
+            company: form.company.value,
+            lead_source: 'magnet:sop-maturity',
+            utm_source: form.utm_source.value,
+            utm_medium: form.utm_medium.value,
+            utm_campaign: form.utm_campaign.value,
+            assessment_level: level.level,
+            assessment_score: score,
+            assessment_answers: answers.join(','),
+            botcheck: form.botcheck.value
+        };
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const json = await res.json();
+            if (json.success) {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'magnet_download', { magnet: 'sop-maturity', level: level.level });
+                }
+                status.innerHTML = `<div style="margin-top:18px;padding:14px 18px;background:#ecfdf5;color:#065f46;border-radius:10px;font-weight:600">Sent. Check your inbox in the next minute.</div>`;
+                btn.textContent = 'Done';
+            } else {
+                throw new Error(json.message || 'Submission failed');
+            }
+        } catch (err) {
+            status.innerHTML = `<div style="margin-top:18px;padding:14px 18px;background:#fef2f2;color:#991b1b;border-radius:10px">Something went wrong. Email philip@omniaops.com and we'll send it manually.</div>`;
+            btn.disabled = false;
+            btn.textContent = 'Try again';
+        }
+    });
+}
+
+render();
+</script>
+
+<footer class="midnight-footer">
+    <div class="container">
+        <div class="footer-bottom">&copy; 2026 OmniaOps. <a href="../index.html" style="color:rgba(255,255,255,0.6)">Back to home</a> · <a href="../book-call.html" style="color:rgba(255,255,255,0.6)">Book a call</a></div>
+    </div>
+</footer>
+
+</body>
+</html>
