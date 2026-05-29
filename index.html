@@ -250,16 +250,6 @@
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         input[type="number"] { -moz-appearance: textfield; }
-
-        /* Exit intent popup */
-        #exit-popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); z-index: 9999; align-items: center; justify-content: center; padding: 24px; }
-        #exit-popup.open { display: flex; }
-        @media (max-width: 760px) { #exit-popup, #exit-popup.open { display: none !important; } }
-        #exit-popup .pop { background: white; color: #0d111c; max-width: 480px; padding: 36px 32px; border-radius: 18px; text-align: center; position: relative; }
-        #exit-popup h3 { margin: 0 0 12px; font-size: 1.5rem; }
-        #exit-popup p { color: #475569; line-height: 1.55; margin: 0 0 20px; }
-        #exit-popup a.dl { display: block; padding: 14px 22px; background: #0d111c; color: white; border-radius: 10px; text-decoration: none; font-weight: 700; }
-        #exit-popup .close { position: absolute; top: 12px; right: 14px; cursor: pointer; color: #94a3b8; background: none; border: none; font-size: 1.5rem; }
     </style>
 </head>
 <body>
@@ -984,17 +974,6 @@
 
     </main>
 
-    <!-- Exit-intent popup -->
-    <div id="exit-popup">
-        <div class="pop">
-            <button class="close" id="exit-close" aria-label="Close">×</button>
-            <h3>Before you go</h3>
-            <p>Try the free <strong>S&amp;OP Maturity Self-Assessment</strong>. 6 minutes, 12 questions, a personal benchmark for you and your team.</p>
-            <a class="dl" href="tools/sop-maturity.html?utm_source=home&utm_medium=exit_intent">Start the assessment</a>
-            <p style="margin-top:14px;font-size:0.85rem;color:#94a3b8">Or <a href="book-call.html?utm_source=home&utm_medium=exit_intent" style="color:#0d111c;font-weight:700">book a 20-min call</a> to talk about your specific bottleneck.</p>
-        </div>
-    </div>
-
     <footer class="midnight-footer">
         <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
@@ -1007,6 +986,7 @@
                         <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                     </a>
                     <p style="max-width: 300px;">The next major category in supply chain planning is autonomous.</p>
+                    <p style="max-width: 300px; margin-top: 12px;">CVR 46516834</p>
                 </div>
                 <div style="display: flex; gap: 80px;">
                     <div>
@@ -1028,7 +1008,6 @@
                         <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Contact</h4>
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
                             <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
-                            <li>CVR 46516834</li>
                         </ul>
                     </div>
                 </div>
@@ -1073,23 +1052,6 @@
         });
     });
 
-    // Exit-intent popup (desktop only, fires once per session)
-    (function() {
-        if (window.matchMedia('(max-width: 760px)').matches) return;
-        if (sessionStorage.getItem('omniaops_exit_shown')) return;
-        const pop = document.getElementById('exit-popup');
-        const close = () => { pop.classList.remove('open'); };
-        document.getElementById('exit-close').addEventListener('click', close);
-        pop.addEventListener('click', e => { if (e.target === pop) close(); });
-        document.addEventListener('mouseout', function trigger(e) {
-            if (e.clientY < 5 && !e.relatedTarget) {
-                pop.classList.add('open');
-                sessionStorage.setItem('omniaops_exit_shown', '1');
-                if (typeof gtag === 'function') gtag('event', 'exit_intent_shown');
-                document.removeEventListener('mouseout', trigger);
-            }
-        });
-    })();
     </script>
 </body>
 </html>
