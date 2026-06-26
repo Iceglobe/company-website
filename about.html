@@ -24,21 +24,19 @@
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding-top: 120px;
+            justify-content: flex-start;
+            padding-top: 200px;
             padding-bottom: 120px;
         }
 
         .about-hero h1 {
             font-size: clamp(3rem, 5vw, 5rem);
-            max-width: 1040px;
             margin-bottom: 24px;
         }
 
         .about-hero p {
             font-size: 1.25rem;
             color: rgba(255,255,255,0.7);
-            max-width: 832px;
             line-height: 1.7;
         }
 
@@ -218,6 +216,130 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Stories section */
+        .about-stories-header {
+            margin-bottom: 56px;
+            max-width: 720px;
+        }
+
+        .stories-eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-secondary);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .about-stories-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            margin-bottom: 20px;
+        }
+
+        .stories-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .story-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: var(--transition);
+        }
+
+        .story-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            cursor: pointer;
+        }
+
+        .story-card-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .story-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .story-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .story-read-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+            font-family: inherit;
+            margin-top: 20px;
+            transition: gap 0.2s;
+        }
+        .story-read-btn:hover { gap: 12px; }
+        .story-read-btn svg { transition: transform 0.2s; }
+        .story-read-btn:hover svg { transform: translateX(4px); }
+
+        /* Story modal */
+        .story-modal { position: fixed; inset: 0; z-index: 9000; display: flex; align-items: center; justify-content: center; padding: 24px; }
+        .story-modal[hidden] { display: none; }
+        .story-modal-backdrop { position: absolute; inset: 0; background: rgba(13,21,64,0.6); backdrop-filter: blur(4px); }
+        .story-modal-panel { position: relative; z-index: 1; background: white; border-radius: var(--radius-lg); width: 100%; max-width: 760px; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 80px rgba(13,21,64,0.22); }
+        .story-modal-close { position: sticky; top: 0; float: right; background: none; border: none; cursor: pointer; font-size: 1.6rem; color: #6B7BA8; padding: 24px 28px; line-height: 1; z-index: 2; font-family: inherit; }
+        .story-modal-close:hover { color: #0D1540; }
+        .story-modal-inner { padding: 0 64px 64px; }
+        .story-modal-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+        .story-modal-title { font-size: clamp(1.35rem, 2.5vw, 1.85rem); font-weight: 800; color: var(--text-primary); letter-spacing: -0.03em; line-height: 1.25; margin: 0 0 40px; }
+        .story-modal-body p { font-size: 1rem; line-height: 1.85; color: #374060; margin: 0 0 24px; }
+        .story-modal-body p:last-child { margin-bottom: 0; }
+        @media (max-width: 600px) { .story-modal-inner { padding: 0 28px 40px; } .story-modal-title { font-size: 1.25rem; } }
+
+        @media (max-width: 900px) {
+            .stories-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .stories-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Logo ticker wrapper */
+        .about-ticker-wrap {
+            background: #05080f;
+        }
+
+        .logo-ticker-disclaimer {
+            text-align: center;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            margin-top: 20px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -229,8 +351,9 @@
                     <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                 </a>
                 <ul class="nav-links" id="primary-nav">
-                    <li><a href="index.html#about" style="color: white;">Platform</a></li>
-                    <li><a href="index.html#process" style="color: white;">Our Process</a></li>
+                    <li><a href="index.html" style="color: white;">Home</a></li>
+                    <li><a href="index.html#platform" style="color: white;">The Platform</a></li>
+                    <li><a href="index.html#process" style="color: white;">Implementation</a></li>
                     <li><a href="index.html#cro-tools" style="color: white;">Tools</a></li>
                     <li><a href="about.html" style="color: white;">About Us</a></li>
                     <li class="mobile-only"><a href="book-call.html" style="color: white;">Book a call</a></li>
@@ -255,25 +378,77 @@
         <div class="about-body">
             <div class="container">
 
-                <!-- Story -->
-                <div class="about-story">
-                    <div>
-                        <h2>What we do</h2>
-                        <p>OmniaOps is an end-to-end Supply Chain Planning platform that is customized to how your business operates. We bring demand, supply, and inventory planning into one workspace, fully integrated with your ERP. Equally important, we build customized modules that address the exact challenges you're facing. Without costing a minor fortune.</p>
-                        <p>We built this for teams fighting with growing complexity, whose time is more and more getting eaten up by manual processes and fragmented systems that just don't really fit what they need.</p>
-                        <p>In short, we've built a platform that is easy to mold and adapt, allowing us to fit it to your business and processes. The goal is simple: get your people focused where they create the most value, not buried in spreadsheets or out fighting the same fires again and again.</p>
-                        <p>We know a tool without a process rarely lives up to its potential. A key element is therefore that we anchor the platform in process, ensuring your team is green to go from the start.</p>
+                <!-- Stories: What we've seen & done -->
+                <div class="about-stories">
+                    <div class="about-stories-header">
+                        <p class="stories-eyebrow">From the field</p>
+                        <h2>What we've seen and done</h2>
+                        <p class="stories-intro">Years inside supply chains across different industries gave us a clear picture of what works, what doesn't, and where the real pain lives. Here are some of the things we've experienced first-hand.</p>
                     </div>
-                    <div>
-                        <h2>Why we started this</h2>
-                        <p>After years working in different companies across different industries, we kept running into the same problems. The tools were either too rigid, too expensive, or too slow to adapt. Planning teams were smart and motivated, but they were spending most of their time managing data instead of making decisions.</p>
-                        <p>We believe planning tools should work the way your business works, not the other way around. Most systems force you to adapt your processes to fit the software. We think that's backwards. And we believe in honesty, we'll tell you upfront whether we're the right fit, what implementation will actually involve, and what results are realistic. We'd rather lose a deal than overpromise.</p>
-                        <p>So we built OmniaOps, a platform that removes the heavy lifting and lets planners focus on what actually matters: making the right call at the right time. And the best planning tools should get better over time, learning from your data, your adjustments, and your outcomes.</p>
+                    <div class="stories-grid">
+
+                        <div class="story-card" data-story="0">
+                            <h3>The S&amp;OP process ran every month. And every month, the targets it produced changed.</h3>
+                            <p>Hearing aids. Six months to train one person on a single production step. And headquarters in Denmark sending different volume targets every thirty days. The people in the Philippines were not failing. They were being set up to.</p>
+                            <button class="story-read-btn" aria-label="Read full story">Read story <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+
+                        <div class="story-card" data-story="1">
+                            <h3>The demand planning team spent most of the month preparing for the review call. Improving the forecast came second.</h3>
+                            <p>Fifteen countries. Monthly forecasts. And a process where most of the planning team's time went into building PowerPoint slides for calls that were about to happen, instead of improving the numbers on those slides. Nobody had designed it that way. It had just become that way, gradually, one process step at a time.</p>
+                            <button class="story-read-btn" aria-label="Read full story">Read story <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+
+                        <div class="story-card" data-story="2">
+                            <h3>The warehouse was at its limit nearly every week. We usually didn't see it until the line went down.</h3>
+                            <p>Novo Nordisk's most advanced production site. Drones moving product through the building. Fully automated assembly lines. And a cold warehouse running at ninety-five percent utilization every week, causing four to eight hours of lost production. The team managing it was not incompetent. They simply had no way to see what was coming.</p>
+                            <button class="story-read-btn" aria-label="Read full story">Read story <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+
+                        <div class="story-card" data-story="3">
+                            <h3>The capacity model sat in one specialist's file. When he left, nobody else could open it and trust what they found.</h3>
+                            <p>The site making Wegovy and Ozempic could sell everything it produced. Which meant the capacity model sitting in one specialist's Excel file was one of the most important documents in the building. When he moved on, nobody else could run it. And buried inside it was a number that had been wrong for years.</p>
+                            <button class="story-read-btn" aria-label="Read full story">Read story <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </div>
+
+    <!-- Logo ticker -->
+    <div class="about-ticker-wrap" style="display: none;">
+        <div class="logo-ticker">
+            <div class="container">
+                <p style="text-align: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); margin-bottom: 12px; font-weight: 700; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">We bring hands-on experience leading and optimizing global supply chains across different industries</p>
+                <p class="logo-ticker-disclaimer">Logos shown are organizations where our team and advisors have led or contributed to supply chain operations.</p>
+                <div style="height: 24px"></div>
+                <div class="logo-ticker-track">
+                    <div class="logo-ticker-item"><img src="assets/logos/novo-nordisk.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/wsa.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ambu.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ferrosan.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/pfizer.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/dana-lim.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/globus-wine.svg?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/nomeco.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/mission-pharma.png?v=4" alt=""></div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="logo-ticker-item"><img src="assets/logos/novo-nordisk.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/wsa.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ambu.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ferrosan.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/pfizer.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/dana-lim.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/globus-wine.svg?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/nomeco.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/mission-pharma.png?v=4" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </main>
 
     <!-- Team Section -->
@@ -292,7 +467,7 @@
                         <div class="team-dark-name">Philip L. Valentin</div>
                         <div class="team-dark-role">Founder</div>
                         <ul class="team-dark-bio">
-                            <li>Department head with +8 years of experience in Supply Chain &amp; Operations leading international teams at companies such as Novo Nordisk, Ambu, and WSA, specializing in process development, analytics and team leadership.</li>
+                            <li>Department head with +8 years of experience in Supply Chain &amp; Operations leading international teams at companies such as Novo Nordisk, Ambu, and WSA, specializing in supply chain planning, process development, analytics and team leadership.</li>
                         </ul>
                     </div>
                 </div>
@@ -394,6 +569,75 @@
         </div>
     </footer>
 
+    <!-- Story modal -->
+    <div id="story-modal" class="story-modal" role="dialog" aria-modal="true" hidden>
+        <div class="story-modal-backdrop"></div>
+        <div class="story-modal-panel">
+            <button class="story-modal-close" aria-label="Close">&times;</button>
+            <div class="story-modal-inner">
+                <div class="story-modal-label" id="story-modal-label"></div>
+                <h2 class="story-modal-title" id="story-modal-title"></h2>
+                <div class="story-modal-body" id="story-modal-body"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js?v=20260505"></script>
+    <script>
+    (function() {
+        var stories = [
+            {
+                headline: 'Supply Planning',
+                title: 'The call happened every month. And every month, the number changed.',
+                paragraphs: ['Picture a phone call.','It happens every month, same people, same agenda. On one end, the VP of Production in the Philippines. On the other, a senior ops manager from headquarters in Denmark. They are trying to agree on what needs to be produced over the next six months.','The problem is that nobody really knows what the next six months look like.','So Denmark says five hundred units a day. The Philippines team hires for that, trains for that, sets their lines for that. A month later, Denmark calls back. Things have shifted. Three hundred and fifty now. And then the month after, a big order comes in, a tender gets won, and suddenly the number is six hundred.','This has been going on for years.','Here is what you need to understand about the Philippines site. These are not factory workers doing simple, repetitive work. Each person is trained on a specific tool, a specific task, in the production of hearing aids. It takes six months to get someone genuinely proficient on a single step. Six months of salary, six months of training, before they are fully useful.','So when the volume drops, you cannot just send people home. You spent six months building them. You find them something else to do. You move them around. You keep them on, underutilized, waiting for the number to swing back.','And when the number swings back, you run night shifts. You pay overtime. Tired people, working faster than they should, on tasks they have not done in weeks. The quality suffers. When everything needs to ship to Denmark faster than usual to meet a deadline, it goes by air instead of sea. The cost difference is significant.','And then there is purchasing. Hearing aids need chips, electrical components, parts with long lead times. When production swings from three hundred to six hundred, procurement has to follow. Emergency orders come in from outside the planned supplier base at thirty to fifty percent premiums. Not occasionally. Regularly.','We are talking about millions of dollars. Not in theory. Actually, in the accounts, every year.','When I came in, I did not find a team that was failing. I found a team that was reacting intelligently to an impossible situation. The problem was not the Philippines. The problem was that nobody had ever given them a stable horizon to plan against.','I connected the three production steps in the value chain into one consolidated view. Inbound demand, outbound orders, planned production, all together, all visible, twelve months out.','Then I changed the objective. Before, everyone was trying to hit a precise inventory number at the end of each month. That meant production would swing violently to compensate for whatever had happened in the weeks before. I smoothed it. If inventory needed to come down, it came down over three to six months, not overnight. What looked like a crisis became a gentle slope. The Philippines site could see it coming and plan people around it.','I also ran a weekly check. Did you produce what we agreed? Do you have what you need for the next two weeks? It sounds simple. But internal production, everywhere, has a tendency to produce what is easiest to set up, not what is most urgently needed. That weekly rhythm matters more than most people expect.','Inventory dropped ten to twenty percent. More importantly, the composition of that inventory improved. The right things were in stock.','People churn fell sharply. Planned downtime became cross-training time. When demand needed to ramp, the site could do it without the chaos.','And the Philippines team, for the first time, could see six months ahead.','That is not a small thing. When you can see what is coming, you can prepare. When you cannot see it, all you can do is react.']
+            },
+            {
+                headline: 'Demand Planning',
+                title: 'They were spending most of the month preparing to talk about planning. Not actually doing it.',
+                paragraphs: ['Once a month, the demand planning team at WS Audiology sent Excel templates to fifteen country affiliates.','Each affiliate got a statistical forecast, their sales history, and their prior submission. They marked up their numbers and sent the file back. Then the planning team consolidated everything into a central database and prepared for the review calls.','That consolidation was harder than it sounds. Files came back with errors. Countries revised after submitting. Re-uploads, corrections, version confusion. By the time the data was clean, a meaningful portion of the month had passed.','Then came the review calls. And for each call, the planners needed slides. Charts showing the old forecast against the new one. Gap analysis versus the prior month. Questions for each country. That preparation took most of the remaining time.','So by the time the actual conversations happened, the team had spent the majority of their working hours getting ready to have them. The time left for genuine demand management, catching errors early in the month, thinking about upcoming tenders, reading medium-term signals in the market, was whatever was left over. Which was not much.','Nobody had designed it this way. It had simply become that way, one workaround at a time, one file at a time, until the process owned the people instead of the other way around.','I built a Power BI dashboard connected directly to the forecast model and the sales history. A planner could filter by country and immediately see everything they needed for the call. Old forecast, new forecast, gap to prior month, the trend, the questions worth asking.','No manual chart building. No file chasing. No aggregation work.','The calls still happened. But they changed. Instead of walking a country through slides they had largely submitted themselves, the planner could open with the thing that actually mattered.','You sold three times what we planned last month. What happened?','That is a different conversation. That is the conversation you pay a demand planner to have.','I also rebuilt the spare parts forecasting model across roughly ten thousand SKUs using more advanced statistical methods, and accuracy improved fifteen to twenty percent. The honest caveat is that spare parts were not a strategic priority for the business, so the commercial impact was modest. The same approach applied to primary products, which nobody had done yet, would have looked very different on the revenue line.','But the biggest change was time.','The team got back hours every cycle. Hours that had been spent building slides for conversations they already knew how to have. And when you give a good planner their time back, they know exactly what to do with it.']
+            },
+            {
+                headline: 'Supply Planning',
+                title: 'When it filled up, everything stopped. And that time never came back.',
+                paragraphs: ['Let me describe the building, because it matters.','The Hillerød site is Novo Nordisk\'s Factory of the Future. Nearly everything is automated. Small autonomous drones move product between locations. Assembly lines run continuously. Even the material handling runs without people. The whole facility moves like a single organism, everything connected, everything timed.','The production flow works like this. Drug arrives in small capsules, enters the cold warehouse, travels to the assembly lines where it is loaded into plastic injection pens, and then returns to the cold warehouse. When a customer order is confirmed, the assembled pen moves from cold storage to the packaging lines. Gets labeled. Gets boxed. Goes to finished goods. Ships the same day.','The cold warehouse is the center of gravity. Everything flows through it, in one direction and then back in the other.','If it fills up, assembled pens cannot return after production. Which means the assembly line has to stop. And because the entire facility runs on shared belts, one full location in the cold warehouse ripples across the whole operation within minutes.','The warehouse nominally held five days of production volume. In practice, accounting for the natural variation in how inventory moves, usable space was closer to two to three days. The margins were thin.','Four to eight hours of lost production per week, every week, from warehouse constraints alone. On a site where demand was essentially unlimited and capacity was under constant commercial pressure, every lost hour was gone for good. There was no making it up on a Saturday.','The planning team was not failing. They were watching a number on a screen and trying to stay below a threshold they could not predict. At ninety percent utilization, they would start pulling product more aggressively to packaging. Sometimes that worked. Sometimes the line stopped anyway.','They were managing reactively because they had no other option. Nobody had built them a way to see what the inventory level would look like tomorrow, or the day after.','I built a day-by-day simulation of projected cold warehouse inventory. It factored in confirmed customer orders, the packaging volumes needed to fulfill them, and therefore what assembly needed to produce each day, and therefore what would be sitting in the cold warehouse at the end of each shift.','The same logic a supply planner applies to any inventory projection. Applied here to a physical space.','With that view, the team could see three days ahead. Five days ahead. They could see when utilization was tracking toward the ceiling and adjust before arriving there. Slow assembly down today. Pull a little more to packaging tomorrow. Create the margin before it disappears.','Utilization dropped from a consistent ninety-five percent to around eighty-five percent. That ten-point difference turned out to be the threshold at which the system stabilized. Normal variation absorbed itself. The line ran.','Production stops from warehouse constraints fell from four to eight hours per week to around one and a half to two hours. Across a high-value automated facility, that translated into multiple percentage points of recovered capacity on the assembly lines.','The middle-of-the-night calls stopped. The ones where a warehouse is full, a line is about to go down, and people are being pulled in on short notice to manage a situation that should never have reached that point.','Less scrap. Less replanning. Less overtime. Less everything that comes from not knowing what the next day looks like until the next day arrives.','The team did not get smarter. They got visibility. And visibility changed everything.']
+            },
+            {
+                headline: 'Capacity Planning',
+                title: 'One person knew how it worked. Then he left.',
+                paragraphs: ['There are moments when you walk into something and understand very quickly that the situation is more fragile than anyone has said out loud.','The Novo Nordisk site responsible for Wegovy and Ozempic was running at maximum pressure. At the time, demand for these drugs was essentially unlimited. Whatever the site could make, it could sell. Which made two things critical above all else: knowing what the site could actually deliver over the coming year, and keeping buffer inventory balanced across each level of the production process so that the packaging lines, where the real bottleneck lived, never ran short.','One specialist had built a model to manage both. A complex Excel file. He understood it deeply. It worked, more or less. He spent his days maintaining it with small manual updates and preparing the numbers for weekly meetings with the production directors. It was not elegant, but it held.','Then he left the company.','What remained was a file that sat at the center of a commercially critical process, and a team that could not run it with confidence. Get the inventory balance wrong across production stages and the packaging lines stop. The packaging lines stop and assembly has to slow, because there is only so much you can hold in the cold warehouse before the constraints compound on each other. Everyone who worked there understood what was at stake.','But when I started working through the model, I found something else. Something quieter, and more damaging over time.','The capacity assumptions were wrong.','Not by a little. Systematically wrong. The model had been projecting what the site should deliver under ideal conditions, not what it had actually been delivering in practice. The gap was ten to twenty percent. Which meant that for an extended period, headquarters had been receiving delivery commitments the site had no realistic chance of meeting.','The effects were real. Projects that needed production time had been cancelled because the model said there was no capacity. Teams had absorbed the blame for underperformance that was actually the result of targets set against numbers that did not reflect reality.','And the people who showed up every day and did good work knew, in the way that people always know, that they were perpetually behind. That knowledge accumulates. It changes how a team feels about coming to work. You cannot measure it on a spreadsheet, but it is there.','We rebuilt the model from the ground up.','First, we replaced the manual process with an automated inventory projection covering all production stages, planned shutdowns, line maintenance, optimization windows. On Monday morning, you could see last week\'s actual performance, understand its impact on year-end delivery, and update the forward plan so other parts of the operation could adjust. Something only one person had been able to run became something any planner on the team could use.','Second, we corrected the capacity numbers. We anchored them to recent actuals, to what the site had genuinely been producing week over week, and to how that performance was trending. Not what it should be capable of in theory. What it was actually doing.','From there, the commitments to headquarters became honest. Realistic. And because they were honest, the site stopped being perpetually behind. The targets were finally set at a level the operation could reach.','Fewer unplanned stops. Less replanning. Less of the noise that accumulates when the numbers you are working toward are disconnected from the reality you are working in.','And when the capacity planner eventually moved on as well, the handover took a few days. The next person was running the model within a week.','That is the part I keep coming back to. A process that only one person understands is not really a process. It is a dependency. And when that person leaves, the dependency leaves with them.','The goal is not a model that works. The goal is a model that anyone can run, that reflects what is actually happening, and that the people using it can trust.','Everything else follows from that.']
+            }
+        ];
+
+        var modal = document.getElementById('story-modal');
+        var modalLabel = document.getElementById('story-modal-label');
+        var modalTitle = document.getElementById('story-modal-title');
+        var modalBody = document.getElementById('story-modal-body');
+        var backdrop = modal.querySelector('.story-modal-backdrop');
+        var closeBtn = modal.querySelector('.story-modal-close');
+
+        function openStory(index) {
+            var s = stories[index];
+            modalLabel.textContent = s.headline;
+            modalTitle.textContent = s.title;
+            modalBody.innerHTML = s.paragraphs.map(function(p) { return '<p>' + p + '</p>'; }).join('');
+            modal.hidden = false;
+            modal.querySelector('.story-modal-panel').scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeStory() {
+            modal.hidden = true;
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.story-card').forEach(function(card) {
+            card.addEventListener('click', function() { openStory(+card.dataset.story); });
+        });
+
+        backdrop.addEventListener('click', closeStory);
+        closeBtn.addEventListener('click', closeStory);
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeStory(); });
+    })();
+    </script>
 </body>
 </html>
