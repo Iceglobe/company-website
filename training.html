@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WJZ5450Y0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3WJZ5450Y0');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Videos | OmniaOps</title>
+    <meta name="description" content="Free training video series on demand planning and S&amp;OP, supply planning and capacity, and executive S&amp;OP. Taught by supply chain practitioners.">
+    <link rel="canonical" href="https://omniaops.com/training.html">
+    <link rel="stylesheet" href="style.css?v=40260505c">
+    <style>
+        .training-hero {
+            min-height: 52vh;
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 200px;
+            padding-bottom: 100px;
+        }
+        .training-hero .eyebrow {
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5); font-weight: 700; margin-bottom: 16px;
+        }
+        .training-hero h1 { font-size: clamp(2.6rem, 5vw, 4.5rem); margin-bottom: 24px; max-width: 900px; }
+        .training-hero p.lede { font-size: 1.2rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 720px; }
+
+        .training-body { padding: 40px 0 120px; }
+        .series { padding: 80px 0 0; scroll-margin-top: 80px; }
+        .series + .series { border-top: 1px solid var(--border); margin-top: 80px; }
+        .series-head { margin-bottom: 40px; }
+        .series-head h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 14px; }
+        .series-head p { color: var(--text-secondary); font-size: 1.08rem; line-height: 1.7; }
+
+        .episode-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
+        .episode {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md);
+            overflow: hidden; display: flex; flex-direction: column;
+        }
+        .episode-media { position: relative; aspect-ratio: 16 / 9; background: #0a0e1a; }
+        .episode-media img, .episode-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+        .episode-play {
+            position: absolute; inset: 0; width: 100%; border: 0; padding: 0; cursor: pointer;
+            background: transparent; display: flex; align-items: center; justify-content: center;
+        }
+        .episode-play .play-icon {
+            width: 64px; height: 64px; border-radius: 50%; background: rgba(0,0,0,0.65);
+            display: flex; align-items: center; justify-content: center; transition: var(--transition);
+            box-shadow: 0 0 0 2px var(--series-color);
+        }
+        .episode-play:hover .play-icon, .episode-play:focus-visible .play-icon { background: var(--series-color); }
+        .episode-soon {
+            position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+            background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--series-color) 28%, transparent), transparent 60%), #0a0e1a;
+            color: rgba(255,255,255,0.55); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+        }
+        .episode-soon .ep-num { font-size: 2.6rem; color: white; letter-spacing: -0.03em; text-transform: none; }
+        .episode-info { padding: 20px 22px 24px; }
+        .episode-meta { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; }
+        .episode-info h3 { font-size: 1.15rem; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .episode-info p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; }
+
+        .series-playlist-link { display: inline-block; margin-top: 28px; font-weight: 600; color: var(--text-primary); }
+
+        .training-cta { text-align: center; padding: 100px 0 0; }
+        .training-cta h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 16px; }
+        .training-cta p { color: var(--text-secondary); font-size: 1.08rem; margin-bottom: 28px; }
+        .training-cta .cta-btn {
+            display: inline-block; background: #000; color: #fff; padding: 14px 28px; border-radius: 4px;
+            text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em;
+            transition: var(--transition);
+        }
+        .training-cta .cta-btn:hover { opacity: 0.85; }
+
+        @media (max-width: 768px) {
+            .training-hero { padding-top: 140px; padding-bottom: 72px; }
+            .series { padding-top: 56px; }
+            .series + .series { margin-top: 56px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <nav class="nav-content">
+                <a href="index.html" class="logo logo-white">
+                    <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                </a>
+                <ul class="nav-links" id="primary-nav">
+                    <li><a href="index.html" style="color: white;">Home</a></li>
+                    <li><a href="index.html#platform" style="color: white;">The Platform</a></li>
+                    <li><a href="index.html#process" style="color: white;">Implementation</a></li>
+                    <li><a href="index.html#cro-tools" style="color: white;">Tools</a></li>
+                    <li><a href="training.html" style="color: white;">Training</a></li>
+                    <li><a href="about.html" style="color: white;">About Us</a></li>
+                    <li class="mobile-only"><a href="book-call.html" style="color: white;">Book a call</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="book-call.html" class="nav-cta">Book a call</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="training-hero">
+            <div class="container">
+                <p class="eyebrow">Training</p>
+                <h1>Learn supply chain planning from people who have run it</h1>
+                <p class="lede">Three short video series on how planning works in practice: from the first forecast, through the supply and capacity plan, to the decisions made in the executive S&amp;OP meeting. Free to watch, no sign-up.</p>
+            </div>
+        </section>
+
+        <div class="training-body">
+            <div class="container" id="series-container"></div>
+
+            <div class="container training-cta">
+                <h2>Want this running in your own business?</h2>
+                <p>We help mid-market manufacturers set up the process and the tool behind it.</p>
+                <a href="book-call.html" class="cta-btn">Book a call</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="midnight-footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom: 24px; color: white;">
+                        <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                    </a>
+                    <p style="max-width: 300px;">The next major category in supply chain planning is autonomous.</p>
+                    <p style="max-width: 300px; margin-top: 12px;">CVR 46516834</p>
+                </div>
+                <div style="display: flex; gap: 80px;">
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Company</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="training.html">Training</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Contact</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                            <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 OmniaOps Autonomous Planning. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=40260505"></script>
+    <script>
+    /* ------------------------------------------------------------
+       VIDEO LIST - edit this to add videos.
+       Upload the video to YouTube, then paste its ID into "youtube".
+       The ID is the part after "v=" in the link:
+         https://www.youtube.com/watch?v=dQw4w9WgXcQ  ->  "dQw4w9WgXcQ"
+       Leave "youtube" empty ("") to show the episode as "Coming soon".
+       "playlist" (optional) is the series' YouTube playlist ID
+       (the part after "list=" in a playlist link).
+       ------------------------------------------------------------ */
+    var SERIES = [
+        {
+            id: 'demand-sop',
+            color: '#4F9DFF',
+            title: 'Demand Planning & S&OP',
+            intro: 'Build a forecast the business trusts and run the demand review.',
+            playlist: '',
+            episodes: [
+                { title: 'Building the statistical baseline', desc: 'Where the first forecast comes from, and when to trust the model over your gut.', duration: '', youtube: '' },
+                { title: 'Forecast accuracy and bias', desc: 'MAPE, bias and forecast value added: what to measure and what to do with it.', duration: '', youtube: '' },
+                { title: 'From baseline to consensus', desc: 'Adding market intelligence from sales and marketing without turning it into politics.', duration: '', youtube: '' },
+                { title: 'Running the demand review', desc: 'The agenda, the inputs and the decisions that make the demand review worth attending.', duration: '', youtube: '' }
+            ]
+        },
+        {
+            id: 'supply-capacity',
+            color: '#34D399',
+            title: 'Supply Planning & Capacity',
+            intro: 'Turn the demand plan into a supply plan that fits real capacity.',
+            playlist: '',
+            episodes: [
+                { title: 'From demand plan to supply plan', desc: 'How MRP turns demand into orders, and where it goes wrong.', duration: '', youtube: '' },
+                { title: 'Safety stock and inventory targets', desc: 'Setting stock levels from service targets and variability, not habit.', duration: '', youtube: '' },
+                { title: 'Rough-cut capacity planning', desc: 'Checking the plan against lines, people and bottlenecks months before it bites.', duration: '', youtube: '' },
+                { title: 'Running the supply review', desc: 'Constraints, scenarios and the trade-offs to escalate to the executive meeting.', duration: '', youtube: '' }
+            ]
+        },
+        {
+            id: 'executive-sop',
+            color: '#FB923C',
+            title: 'Executive S&OP',
+            intro: 'One integrated plan, clear scenarios and monthly decisions.',
+            playlist: '',
+            episodes: [
+                { title: 'What executive S&OP is for', desc: 'Why the meeting exists, and how it differs from an operations review.', duration: '', youtube: '' },
+                { title: 'Reading the integrated plan', desc: 'Volume, revenue, inventory and capacity on one page, and what to look for.', duration: '', youtube: '' },
+                { title: 'Scenarios and trade-offs', desc: 'Comparing options on service, cost and cash before deciding.', duration: '', youtube: '' },
+                { title: 'Chairing the monthly meeting', desc: 'Agenda, decision log and follow-up that keep S&OP from becoming a status update.', duration: '', youtube: '' }
+            ]
+        }
+    ];
+
+    (function () {
+        function esc(s) {
+            return String(s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        var playSvg = '<svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+        var container = document.getElementById('series-container');
+
+        SERIES.forEach(function (s) {
+            var eps = s.episodes.map(function (ep, i) {
+                var n = i + 1;
+                var meta = 'Episode ' + n + (ep.duration ? ' · ' + esc(ep.duration) : '') + (ep.youtube ? '' : ' · Coming soon');
+                var media;
+                if (ep.youtube) {
+                    media = '<img src="https://i.ytimg.com/vi/' + esc(ep.youtube) + '/hqdefault.jpg" alt="" loading="lazy">' +
+                        '<button class="episode-play" data-yt="' + esc(ep.youtube) + '" aria-label="Play: ' + esc(ep.title) + '">' +
+                        '<span class="play-icon">' + playSvg + '</span></button>';
+                } else {
+                    media = '<div class="episode-soon"><span class="ep-num">' + String(n).padStart(2, '0') + '</span>Coming soon</div>';
+                }
+                return '<article class="episode">' +
+                    '<div class="episode-media">' + media + '</div>' +
+                    '<div class="episode-info"><div class="episode-meta">' + meta + '</div>' +
+                    '<h3>' + esc(ep.title) + '</h3><p>' + esc(ep.desc) + '</p></div></article>';
+            }).join('');
+
+            var section = document.createElement('section');
+            section.className = 'series';
+            section.id = s.id;
+            section.style.setProperty('--series-color', s.color);
+            section.innerHTML =
+                '<div class="series-head"><div>' +
+                    '<h2>' + esc(s.title) + '</h2></div>' +
+                    '<div><p>' + esc(s.intro) + '</p></div>' +
+                '</div>' +
+                '<div class="episode-grid">' + eps + '</div>' +
+                (s.playlist ? '<a class="series-playlist-link" href="https://www.youtube.com/playlist?list=' + esc(s.playlist) + '" target="_blank" rel="noopener">Watch the full series on YouTube &rarr;</a>' : '');
+            container.appendChild(section);
+        });
+
+        // Load the YouTube player only when someone clicks play.
+        // youtube-nocookie.com sets no tracking cookies until the video plays.
+        container.addEventListener('click', function (e) {
+            var btn = e.target.closest('.episode-play');
+            if (!btn) return;
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.yt) + '?autoplay=1&rel=0&modestbranding=1';
+            iframe.title = btn.getAttribute('aria-label');
+            iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            btn.parentNode.replaceChildren(iframe);
+            if (typeof gtag === 'function') gtag('event', 'training_video_play', { video_id: btn.dataset.yt });
+        });
+    })();
+    </script>
+</body>
+</html>
