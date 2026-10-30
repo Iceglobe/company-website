@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Videos | OmniaOps</title>
-    <meta name="description" content="Free training video series on demand planning and S&amp;OP, supply planning and capacity, and executive S&amp;OP. Taught by supply chain practitioners.">
+    <meta name="description" content="Free training video series on S&amp;OP and demand planning, S&amp;OE, MPS and supply/capacity planning, and executive S&amp;OP governance. Taught by supply chain practitioners.">
     <link rel="canonical" href="https://omniaops.com/training.html">
     <link rel="stylesheet" href="style.css?v=40260505c">
     <style>
@@ -121,8 +121,8 @@
         <section class="training-hero">
             <div class="container">
                 <p class="eyebrow">Training</p>
-                <h1>Learn supply chain planning from people who have run it</h1>
-                <p class="lede">Three short video series on how planning works in practice: from the first forecast, through the supply and capacity plan, to the decisions made in the executive S&amp;OP meeting. Free to watch, no sign-up.</p>
+                <h1>Learn S&amp;OP from people who have run it</h1>
+                <p class="lede">Three video series on how planning works in practice: S&amp;OP and demand planning, then S&amp;OE, the master schedule and supply and capacity planning, and finally the executive S&amp;OP governance that ties it together. Free to watch, no sign-up.</p>
             </div>
         </section>
 
@@ -182,36 +182,41 @@
        ------------------------------------------------------------ */
     var SERIES = [
         {
-            id: 'demand-sop',
+            id: 'sop-training',
             color: '#4F9DFF',
-            title: 'Demand Planning & S&OP',
-            intro: 'Build a forecast the business trusts and run the demand review.',
+            title: 'S&OP & Demand Planning',
+            intro: 'Why S&OP matters, then the monthly demand cycle one step at a time.',
             playlist: '',
             episodes: [
-                { title: 'Building the statistical baseline', desc: 'Where the first forecast comes from, and when to trust the model over your gut.', duration: '', youtube: '' },
-                { title: 'Forecast accuracy and bias', desc: 'MAPE, bias and forecast value added: what to measure and what to do with it.', duration: '', youtube: '' },
-                { title: 'From baseline to consensus', desc: 'Adding market intelligence from sales and marketing without turning it into politics.', duration: '', youtube: '' },
-                { title: 'Running the demand review', desc: 'The agenda, the inputs and the decisions that make the demand review worth attending.', duration: '', youtube: '' }
+                { title: 'Introduction: why S&OP matters', desc: 'What good S&OP gives you beyond the hard metrics: less firefighting, and a team that can look ahead.', duration: '9 min', youtube: 'paxvzhMDQ7M' },
+                { title: 'Step 1: Run the statistical forecast', desc: 'Where the monthly cycle starts: the baseline forecast built from history.', duration: '', youtube: '' },
+                { title: 'Step 2: Prompt sales affiliates for input', desc: 'Sending the baseline to the sales affiliates and asking for their view of the market.', duration: '', youtube: '' },
+                { title: 'Step 3: Affiliates override and comment', desc: 'Affiliates adjust the forecast and note why, so every change has a reason behind it.', duration: '', youtube: '' },
+                { title: 'Step 4: Input from global teams', desc: 'Adding what the global teams know before the plan goes to review.', duration: '', youtube: '' },
+                { title: 'Step 5: S&OP review and sign-off', desc: 'Reviewing the consolidated plan, settling open questions and signing it off.', duration: '', youtube: '' },
+                { title: 'Step 6: Communicate and publish', desc: 'Getting the signed-off plan to everyone who works from it.', duration: '', youtube: '' }
             ]
         },
         {
             id: 'supply-capacity',
             color: '#34D399',
-            title: 'Supply Planning & Capacity',
-            intro: 'Turn the demand plan into a supply plan that fits real capacity.',
+            title: 'S&OE, MPS & Supply/Capacity Planning',
+            intro: 'Turn the demand plan into a supply plan that fits real capacity, and keep execution on track week to week.',
             playlist: '',
             episodes: [
                 { title: 'From demand plan to supply plan', desc: 'How MRP turns demand into orders, and where it goes wrong.', duration: '', youtube: '' },
+                { title: 'The master production schedule', desc: 'Setting the MPS so production builds what the plan needs, not what is easiest to set up.', duration: '', youtube: '' },
                 { title: 'Safety stock and inventory targets', desc: 'Setting stock levels from service targets and variability, not habit.', duration: '', youtube: '' },
                 { title: 'Rough-cut capacity planning', desc: 'Checking the plan against lines, people and bottlenecks months before it bites.', duration: '', youtube: '' },
-                { title: 'Running the supply review', desc: 'Constraints, scenarios and the trade-offs to escalate to the executive meeting.', duration: '', youtube: '' }
+                { title: 'Running the supply review', desc: 'Constraints, scenarios and the trade-offs to escalate to the executive meeting.', duration: '', youtube: '' },
+                { title: 'S&OE: the weekly execution check', desc: 'Did we produce what we agreed, and do we have what we need for the next two weeks?', duration: '', youtube: '' }
             ]
         },
         {
             id: 'executive-sop',
             color: '#FB923C',
-            title: 'Executive S&OP',
-            intro: 'One integrated plan, clear scenarios and monthly decisions.',
+            title: 'Executive S&OP Governance',
+            intro: 'One integrated plan, clear decision rights and a monthly rhythm the leadership team owns.',
             playlist: '',
             episodes: [
                 { title: 'What executive S&OP is for', desc: 'Why the meeting exists, and how it differs from an operations review.', duration: '', youtube: '' },
@@ -235,7 +240,7 @@
         SERIES.forEach(function (s) {
             var eps = s.episodes.map(function (ep, i) {
                 var n = i + 1;
-                var meta = 'Episode ' + n + (ep.duration ? ' · ' + esc(ep.duration) : '') + (ep.youtube ? '' : ' · Coming soon');
+                var meta = 'Part ' + n + (ep.duration ? ' · ' + esc(ep.duration) : '') + (ep.youtube ? '' : ' · Coming soon');
                 var media;
                 if (ep.youtube) {
                     media = '<img src="https://i.ytimg.com/vi/' + esc(ep.youtube) + '/hqdefault.jpg" alt="" loading="lazy">' +
