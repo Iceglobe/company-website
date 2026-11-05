@@ -283,69 +283,366 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-dark">
-            <div class="container">
-                <div style="padding: 100px 0 60px;">
-                    <h1>Turning Supply Chain Planning Into A Competitive Advantage</h1>
-                    <div class="hero-subtitle">
-                        <p>We want to help supply chain professionals take the lead in a world that is increasingly fuzzy. That means getting them out of homebrewed spreadsheets and fragmented systems that were never really built for how your business operates.</p>
-                        <p>The OmniaOps Platform gives you the ability to act, to make the right decisions at the right time with a holistic view of your supply chain. Founded in data. Every time.</p>
-                        <ul class="hero-list">
-                            <li><strong>Holistic planning</strong> with S&amp;OP, supply review, and inventory management all anchored in one platform that integrates with your ERP, replacing fragmented processes and spreadsheets</li>
-                            <li><strong>Fast implementation</strong>, the OmniaOps Platform is AI native allowing us to quickly connect to your ERP and build modules tailored to your specific business challenges, going from idea to deployment in just a handful of weeks</li>
-                            <li><strong>Automated analytics</strong>, helps you stay ontop of your performance with executive dashboards and run scenarios on the fly with the platform doing the data crunching in seconds keeping you ahead of the curve</li>
-                            <li><strong>Frictionless from day one</strong>, secure SSO login means zero credential friction for your team, while live ERP sync keeps your data current across every module the moment it changes</li>
-                            <li><strong>Ensuring you get the most value possible,</strong> our team are experienced supply chain leaders and specialists who will lead the implementation from start to finish. We ensure your people are trained, your IT department onboarded, help you with the change management &amp; communcation, and ensure the platform is anchored squarely in your processes. All as part of the implementation.</li>
-                        </ul>
-                    </div>
+        <!-- Hero Section (v2) -->
+        <style>
+            .hv2 {
+                min-height: 100vh;
+                background-image: radial-gradient(ellipse at 50% 30%, rgba(79,157,255,0.10), transparent 60%), linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.92)), url('assets/circuit_bg.png');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                padding: 150px 0 100px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .hv2 .container { max-width: 1600px; }
+            .hv2 h1 {
+                font-size: clamp(2.2rem, 3.35vw, 3.5rem);
+                line-height: 1.1;
+                letter-spacing: -0.035em;
+                font-weight: 800;
+                max-width: none;
+                margin: 0 auto 32px;
+                color: #fff;
+                text-wrap: balance;
+            }
+            .hv2 h1 .hv2-accent { color: rgba(255,255,255,0.74); }
+            .hv2-sub {
+                max-width: 1400px;
+                margin: 0 auto;
+                font-size: clamp(1.1rem, 1.5vw, 1.45rem);
+                line-height: 1.6;
+                color: rgba(255,255,255,0.78);
+                text-wrap: balance;
+            }
 
-                    <div class="hero-impact-row">
-                        <div class="hero-impact-item">
-                            <span class="hero-impact-num">2-5%</span>
-                            <span class="hero-impact-label">Sales Increase</span>
-                            <ul class="hero-impact-bullets">
-                                <li>Fewer stockouts</li>
-                                <li>Higher customer satisfaction</li>
-                                <li>Proactive communication</li>
+            /* Three pillars, arrows 1 -> 2 -> 3, value cards inside each */
+            .hv2-flow { max-width: 1400px; margin: 50px auto 0; }
+            .hv2-arrows { display: block; width: 100%; aspect-ratio: 1000 / 80; overflow: visible; }
+            .hv2-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 20px; align-items: stretch; }
+            .hv2-down { display: none; }
+            .hv2-pillar {
+                display: flex;
+                flex-direction: column;
+            }
+            .hv2-pillar-head {
+                position: relative;
+                align-self: center;
+                white-space: nowrap;
+                padding: 22px 48px;
+                font-size: clamp(1.45rem, 1.9vw, 2rem);
+                font-weight: 800;
+                letter-spacing: -0.025em;
+                line-height: 1.15;
+                color: #fff;
+            }
+            /* Hand-drawn pen loop around each title, same ink as the arrows */
+            .hv2-loop {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                overflow: visible;
+                pointer-events: none;
+            }
+            .hv2-loop path { stroke: rgba(255,255,255,0.5) !important; stroke-width: 1.8 !important; }
+            .hv2-ink .loopline { opacity: 0; animation: hv2-fade 0.6s ease-out forwards; }
+            .hv2-cards {
+                list-style: none;
+                margin: 0;
+                padding: 36px 0 0;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hv2-card {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 11px 16px 11px 12px;
+                border-radius: 16px;
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.14);
+                text-align: left;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                color: rgba(255,255,255,0.82);
+                text-wrap: pretty;
+                transition: background .25s ease, border-color .25s ease;
+            }
+            .hv2-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.26); }
+            .hv2-viz {
+                flex: none;
+                width: 64px; height: 44px;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.04);
+                border: 1px solid rgba(255,255,255,0.10);
+            }
+            .hv2-viz .s  { fill: none; stroke: rgba(255,255,255,0.85); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+            .hv2-viz .d  { fill: none; stroke: rgba(255,255,255,0.32); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+            .hv2-viz .dash { stroke-dasharray: 2.5 2.5; }
+            .hv2-viz .f  { fill: rgba(255,255,255,0.10); stroke: none; }
+            .hv2-viz .fb { fill: rgba(255,255,255,0.85); stroke: none; }
+            .hv2-viz .fd { fill: rgba(255,255,255,0.30); stroke: none; }
+
+            .hv2-ink path {
+                fill: none;
+                stroke: rgba(255,255,255,0.6);
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .hv2-ink .line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: hv2-draw 0.9s ease-out forwards; }
+            .hv2-ink .head { opacity: 0; animation: hv2-fade 0.2s ease-out forwards; }
+            .hv2-ink .l1 { animation-delay: 0.2s; }
+            .hv2-ink .l2 { animation-delay: 0.45s; }
+            .hv2-ink .l3 { animation-delay: 0.7s; }
+            .hv2-ink .a1 { animation-delay: 1.2s; }
+            .hv2-ink .a2 { animation-delay: 1.9s; }
+            .hv2-ink .head.a1 { animation-delay: 2.05s; }
+            .hv2-ink .head.a2 { animation-delay: 2.75s; }
+            @keyframes hv2-draw { to { stroke-dashoffset: 0; } }
+            @keyframes hv2-fade { to { opacity: 1; } }
+            @media (prefers-reduced-motion: reduce) {
+                .hv2-ink .line { animation: none; stroke-dashoffset: 0; }
+                .hv2-ink .head, .hv2-ink .loopline { animation: none; opacity: 1; }
+            }
+
+            .hv2-cta-wrap {
+                margin-top: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .hv2-cta-text {
+                max-width: 620px;
+                margin: 0;
+                text-align: right;
+                font-size: clamp(1rem, 1.25vw, 1.2rem);
+                line-height: 1.55;
+                color: rgba(255,255,255,0.8);
+                text-wrap: balance;
+            }
+            .hv2-cta-text strong { color: #fff; font-weight: 700; }
+            .hv2-cta {
+                display: inline-flex; align-items: center; gap: 10px;
+                flex: none; white-space: nowrap;
+                background: #fff; color: #0a0e1a; text-decoration: none;
+                font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;
+                padding: 18px 40px; border-radius: 999px;
+                box-shadow: 0 10px 40px rgba(79,157,255,0.25);
+                transition: transform .25s ease, box-shadow .25s ease;
+            }
+            .hv2-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 48px rgba(79,157,255,0.4); }
+            .hv2-cta svg { transition: transform .25s ease; }
+            .hv2-cta:hover svg { transform: translateX(3px); }
+
+            /* Narrow screens: stack the pillars with a drawn arrow down between them */
+            @media (max-width: 1000px) {
+                .hv2 { padding: 120px 0 64px; }
+                .hv2-flow { margin-top: 44px; max-width: 520px; }
+                .hv2-arrows { display: none; }
+                .hv2-cols { grid-template-columns: 1fr; gap: 0; }
+                .hv2-down { display: block; width: 24px; height: 56px; margin: 14px auto; }
+                .hv2-br { display: none; }
+                .hv2-cta-wrap { flex-direction: column; gap: 22px; }
+                .hv2-cta-text { text-align: center; }
+            }
+        </style>
+        <section class="hv2">
+            <div class="container">
+                <h1>Take control of your supply chain and secure your<br class="hv2-br"> growth <span class="hv2-accent">with a <span style="white-space:nowrap">state-of-the-art</span> planning platform<br class="hv2-br"> designed for tech and pharma production&nbsp;SMEs</span></h1>
+                <p class="hv2-sub">Easy integration gets you online in less than two weeks, so you start seeing results immediately, with implementation led by supply chain professionals who have been where you are and know what good looks like.</p>
+
+                <div class="hv2-flow">
+                    <svg class="hv2-ink hv2-arrows" viewBox="0 0 1000 80" aria-hidden="true">
+                        <path class="line a1" pathLength="1" d="M 228 78 C 275 18, 395 16, 442 76"/>
+                        <path class="head a1" d="M 439.6 62.2 L 442 76 L 429.2 70.3"/>
+                        <path class="line a2" pathLength="1" d="M 561 78 C 608 18, 728 16, 775 76"/>
+                        <path class="head a2" d="M 772.6 62.2 L 775 76 L 762.2 70.3"/>
+                    </svg>
+                    <div class="hv2-cols">
+                        <div class="hv2-pillar">
+                            <div class="hv2-pillar-head">Forecasting<svg class="hv2-ink hv2-loop" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="loopline l1" vector-effect="non-scaling-stroke" d="M 28 12 C 80 2, 172 4, 192 30 C 206 56, 150 78, 96 76 C 40 74, 2 60, 7 38 C 12 16, 62 6, 124 9"/></svg></div>
+                            <ul class="hv2-cards">
+                                <li class="hv2-card">
+                                    <!-- Actuals into an AI forecast with a confidence band -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <path class="f" d="M34 24 L42 15 L50 15 L59 8 L59 21 L50 26 L42 24 Z"/>
+                                        <path class="d dash" d="M34 6 V38"/>
+                                        <path class="s" d="M5 32 L12 27 L19 30 L27 21 L34 24"/>
+                                        <path class="s dash" d="M34 24 L42 19 L50 21 L59 14"/>
+                                    </svg>
+                                    <span>Understand what drives your demand with <span style="white-space:nowrap">AI-driven</span> statistical forecasting</span>
+                                </li>
+                                <li class="hv2-card">
+                                    <!-- Plan rows with a comment bubble -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <path class="d" d="M7 12 H30 M7 20 H26 M7 28 H30 M7 36 H22"/>
+                                        <path class="s" d="M33 9 H55 Q58 9 58 12 V24 Q58 27 55 27 H43 L38 32 V27 H36 Q33 27 33 24 V12 Q33 9 36 9 Z"/>
+                                        <path class="s" d="M38 15 H53 M38 21 H48"/>
+                                    </svg>
+                                    <span>One version of the truth, with comments and collaboration in one place</span>
+                                </li>
+                                <li class="hv2-card">
+                                    <!-- Scattered sheets merging into one -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <rect class="d" x="5" y="8" width="13" height="10" rx="1.5"/>
+                                        <rect class="d" x="9" y="17" width="13" height="10" rx="1.5"/>
+                                        <rect class="d" x="5" y="26" width="13" height="10" rx="1.5"/>
+                                        <path class="s" d="M26 22 H35 M32 19 L35 22 L32 25"/>
+                                        <rect class="s" x="40" y="10" width="19" height="24" rx="2"/>
+                                        <path class="s" d="M40 18 H59 M40 26 H59 M49 10 V34"/>
+                                    </svg>
+                                    <span>No more scattered spreadsheets</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="hero-impact-divider"></div>
-                        <div class="hero-impact-item">
-                            <span class="hero-impact-num">10-30%</span>
-                            <span class="hero-impact-label">Inventory Reduction</span>
-                            <ul class="hero-impact-bullets">
-                                <li>Increased forecast accuracy</li>
-                                <li>Optimized safety stock</li>
-                                <li>Improved cashflow</li>
+                        <svg class="hv2-ink hv2-down" viewBox="0 0 24 56" aria-hidden="true">
+                            <path class="line a1" pathLength="1" d="M 12 4 C 8 20, 16 34, 12 50"/>
+                            <path class="head a1" d="M 5 41 L 12 50 L 19 41"/>
+                        </svg>
+                        <div class="hv2-pillar">
+                            <div class="hv2-pillar-head">Supply &amp; Inventory<svg class="hv2-ink hv2-loop" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="loopline l2" vector-effect="non-scaling-stroke" d="M 40 9 C 100 0, 180 6, 194 34 C 204 60, 140 78, 90 75 C 36 72, 3 56, 8 34 C 13 14, 70 4, 132 8"/></svg></div>
+                            <ul class="hv2-cards">
+                                <li class="hv2-card">
+                                    <!-- Timeline: today, then a flagged issue ahead -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <path class="s" d="M5 31 H17"/>
+                                        <path class="d dash" d="M17 31 H59"/>
+                                        <circle class="fb" cx="17" cy="31" r="2.6"/>
+                                        <path class="d" d="M29 29 V33 M51 29 V33"/>
+                                        <path class="s" d="M40 9 L48 23 H32 Z"/>
+                                        <path class="s" d="M40 14 V18"/>
+                                        <circle class="fb" cx="40" cy="20.6" r="0.9"/>
+                                        <path class="d dash" d="M40 25 V31"/>
+                                    </svg>
+                                    <span>Stay reliable to your customers by spotting delivery issues before they happen</span>
+                                </li>
+                                <li class="hv2-card">
+                                    <!-- Inventory settling inside its target band -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <rect class="f" x="5" y="18" width="54" height="12"/>
+                                        <path class="d dash" d="M5 18 H59 M5 30 H59"/>
+                                        <path class="s" d="M5 7 L12 10 L19 15 L26 21 L33 24 L40 22 L47 25 L54 23 L59 24"/>
+                                    </svg>
+                                    <span>Keep inventory in control with the right orders, in the right amounts, at the right time</span>
+                                </li>
+                                <li class="hv2-card">
+                                    <!-- Scattered sheets merging into one -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <rect class="d" x="5" y="8" width="13" height="10" rx="1.5"/>
+                                        <rect class="d" x="9" y="17" width="13" height="10" rx="1.5"/>
+                                        <rect class="d" x="5" y="26" width="13" height="10" rx="1.5"/>
+                                        <path class="s" d="M26 22 H35 M32 19 L35 22 L32 25"/>
+                                        <rect class="s" x="40" y="10" width="19" height="24" rx="2"/>
+                                        <path class="s" d="M40 18 H59 M40 26 H59 M49 10 V34"/>
+                                    </svg>
+                                    <span>No more scattered spreadsheets</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="hero-impact-divider"></div>
-                        <div class="hero-impact-item">
-                            <span class="hero-impact-num">2-10%</span>
-                            <span class="hero-impact-label">Cost Savings</span>
-                            <ul class="hero-impact-bullets">
-                                <li>Reduced scrap and warehouse costs</li>
-                                <li>Fewer costly manual errors</li>
-                                <li>Workhours saved from improved process</li>
-                            </ul>
-                        </div>
-                        <div class="hero-impact-divider"></div>
-                        <div class="hero-impact-item">
-                            <span class="hero-impact-num">+5%</span>
-                            <span class="hero-impact-label">Capacity Gain</span>
-                            <ul class="hero-impact-bullets">
-                                <li>Fewer changeovers</li>
-                                <li>Larger batches</li>
+                        <svg class="hv2-ink hv2-down" viewBox="0 0 24 56" aria-hidden="true">
+                            <path class="line a2" pathLength="1" d="M 12 4 C 8 20, 16 34, 12 50"/>
+                            <path class="head a2" d="M 5 41 L 12 50 L 19 41"/>
+                        </svg>
+                        <div class="hv2-pillar">
+                            <div class="hv2-pillar-head">Capacity<svg class="hv2-ink hv2-loop" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path class="loopline l3" vector-effect="non-scaling-stroke" d="M 34 14 C 90 0, 176 8, 193 32 C 204 58, 146 77, 98 77 C 44 77, 4 62, 6 40 C 9 18, 58 5, 118 7"/></svg></div>
+                            <ul class="hv2-cards">
+                                <li class="hv2-card">
+                                    <!-- Load bars against a capacity line, one over -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <rect class="fd" x="7"  y="22" width="6" height="15" rx="1"/>
+                                        <rect class="fd" x="16" y="19" width="6" height="18" rx="1"/>
+                                        <rect class="fd" x="25" y="24" width="6" height="13" rx="1"/>
+                                        <rect class="fd" x="34" y="18" width="6" height="19" rx="1"/>
+                                        <rect class="fb" x="43" y="9"  width="6" height="28" rx="1"/>
+                                        <rect class="fd" x="52" y="21" width="6" height="16" rx="1"/>
+                                        <path class="s dash" d="M5 15 H60"/>
+                                    </svg>
+                                    <span>Get the most out of your production and address bottlenecks upfront</span>
+                                </li>
+                                <li class="hv2-card">
+                                    <!-- Capacity stepping up ahead of rising demand -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <path class="d dash" d="M5 37 L59 17"/>
+                                        <path class="s" d="M5 31 H21 V24 H39 V15 H59"/>
+                                        <circle class="fb" cx="21" cy="24" r="1.8"/>
+                                        <circle class="fb" cx="39" cy="15" r="1.8"/>
+                                    </svg>
+                                    <span>Stay ahead of your growth, making the right investments to scale production when you need to</span>
+                                </li>
+                                <li class="hv2-card">
+                                    <!-- Scattered sheets merging into one -->
+                                    <svg class="hv2-viz" viewBox="0 0 64 44" aria-hidden="true">
+                                        <rect class="d" x="5" y="8" width="13" height="10" rx="1.5"/>
+                                        <rect class="d" x="9" y="17" width="13" height="10" rx="1.5"/>
+                                        <rect class="d" x="5" y="26" width="13" height="10" rx="1.5"/>
+                                        <path class="s" d="M26 22 H35 M32 19 L35 22 L32 25"/>
+                                        <rect class="s" x="40" y="10" width="19" height="24" rx="2"/>
+                                        <path class="s" d="M40 18 H59 M40 26 H59 M49 10 V34"/>
+                                    </svg>
+                                    <span>&hellip;you guessed it, no more scattered spreadsheets</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
+                </div>
+
+                <div class="hv2-cta-wrap">
+                    <p class="hv2-cta-text"><strong>Get a free review of your planning setup</strong>, with recommendations on how to improve both your processes and your systems.</p>
+                    <a href="book-call.html" class="hv2-cta">Find a time to talk
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
 
 
 
+
+        <style>
+            /* Result callouts at the bottom of the paired platform blocks */
+            .v23-block--paired .v23-feats { margin-bottom: 36px; }
+            .v23-results {
+                margin-top: auto;
+                padding-top: 28px;
+                border-top: 1px solid #e4e7f0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+            .v23-result-num {
+                display: block;
+                font-size: clamp(2rem, 2.6vw, 2.5rem);
+                font-weight: 900;
+                letter-spacing: -0.04em;
+                line-height: 1;
+                color: #172054;
+            }
+            .v23-result-label {
+                display: block;
+                margin-top: 8px;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #6B7BA8;
+            }
+            .v23-result ul { list-style: none; margin: 12px 0 0; padding: 0; }
+            .v23-result li {
+                position: relative;
+                padding-left: 12px;
+                font-size: 12.5px;
+                line-height: 1.55;
+                color: #6B7BA8;
+            }
+            .v23-result li::before { content: '-'; position: absolute; left: 0; }
+        </style>
         <!-- Section 1: Platform -->
         <section id="platform">
             <div class="container">
@@ -483,6 +780,10 @@
                                 <div class="v23-feat-body"><h4>S&amp;OP Alignment</h4><p>Sales, finance, and operations on one integrated planning cycle with a shared view of the numbers.</p></div>
                             </div>
                         </div>
+                        <div class="v23-results">
+                            <div class="v23-result"><span class="v23-result-num">2-5%</span><span class="v23-result-label">Sales increase</span><ul><li>Better forecast accuracy</li><li>Fewer stockouts</li><li>Higher customer satisfaction</li></ul></div>
+                            <div class="v23-result"><span class="v23-result-num">+5%</span><span class="v23-result-label">Capacity gain</span><ul><li>Fewer changeovers</li><li>Larger batches</li></ul></div>
+                        </div>
                     </div>
                     <!-- Supply Planning -->
                     <div class="v23-txt">
@@ -508,6 +809,10 @@
                                 </div>
                                 <div class="v23-feat-body"><h4>Risk Flagging</h4><p>Automatically surfaces stockout risks before they happen so planners can act, not react.</p></div>
                             </div>
+                        </div>
+                        <div class="v23-results">
+                            <div class="v23-result"><span class="v23-result-num">10-30%</span><span class="v23-result-label">Inventory reduction</span><ul><li>Optimised safety stock</li><li>Improved cashflow</li></ul></div>
+                            <div class="v23-result"><span class="v23-result-num">2-10%</span><span class="v23-result-label">Cost savings</span><ul><li>Reduced scrap and warehouse costs</li><li>Fewer costly manual errors</li><li>Hours saved from better processes</li></ul></div>
                         </div>
                     </div>
                 </div>
