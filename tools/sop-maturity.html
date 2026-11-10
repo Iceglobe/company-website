@@ -12,12 +12,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S&amp;OP Maturity Self-Assessment | OmniaOps</title>
-    <meta name="description" content="A 6-minute self-assessment that benchmarks your S&amp;OP cycle against 5 maturity levels. Built by supply chain leaders out of Novo Nordisk, Ambu, Pfizer.">
+    <meta name="description" content="A 6-minute self-assessment that benchmarks your S&amp;OP cycle against 5 maturity levels. Built by supply chain leaders out of Novo Nordisk, Ambu, and WSA.">
     <meta property="og:title" content="S&amp;OP Maturity Self-Assessment | OmniaOps">
     <meta property="og:description" content="Score your S&amp;OP cycle in 6 minutes. Get a personalized PDF report.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://omniaops.com/tools/sop-maturity.html">
-    <link rel="stylesheet" href="../style.css?v=40260505b">
+    <link rel="preload" href="../assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style.css?v=20261109">
     <style>
         .assessment-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 120px; color: #0d111c; }
         .assessment-wrap h1 { font-size: 2.2rem; margin: 0 0 12px; line-height: 1.15; }
@@ -55,6 +56,14 @@
         .micro { font-size: 0.85rem; color: #94a3b8; margin-top: 12px; }
         .back-link { display: inline-block; margin-bottom: 24px; color: #475569; text-decoration: none; font-size: 0.95rem; }
         .back-link:hover { color: #0d111c; }
+
+        .tool-guide { margin-top: 72px; color: #0d111c; }
+        .tool-guide h2 { font-size: 1.6rem; margin: 0 0 14px; line-height: 1.2; }
+        .tool-guide h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+        .tool-guide p, .tool-guide li { font-size: 1.02rem; line-height: 1.7; color: #334155; }
+        .tool-guide ul { padding-left: 20px; margin: 0 0 12px; }
+        .tool-guide li { margin-bottom: 6px; }
+        .tool-guide a { color: #1d4ed8; }
     </style>
     <meta property="og:url" content="https://omniaops.com/tools/sop-maturity.html">
     <meta property="og:site_name" content="OmniaOps">
@@ -70,7 +79,7 @@
       "@type": "WebApplication",
       "name": "S&OP Maturity Self-Assessment",
       "url": "https://omniaops.com/tools/sop-maturity.html",
-      "description": "A 6-minute self-assessment that benchmarks your S&OP cycle against 5 maturity levels. Built by supply chain leaders out of Novo Nordisk, Ambu, Pfizer.",
+      "description": "A 6-minute self-assessment that benchmarks your S&OP cycle against 5 maturity levels. Built by supply chain leaders out of Novo Nordisk, Ambu, and WSA.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "offers": {
@@ -103,40 +112,64 @@
 }
 </script>
 </head>
-<body>
+<body class="light-page">
 
 <header id="main-header">
-    <div class="container">
-        <nav class="nav-content">
-            <a href="../index.html" class="logo logo-white">
-                <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
-            </a>
-            <ul class="nav-links" id="primary-nav">
-                <li><a href="../index.html" style="color: white;">Home</a></li>
-                <li><a href="../index.html#platform" style="color: white;">The Platform</a></li>
-                <li><a href="../index.html#process" style="color: white;">Implementation</a></li>
-                <li><a href="../index.html#cro-tools" style="color: white;">Tools</a></li>
-                <li><a href="../training.html" style="color: white;">Training</a></li>
-                <li><a href="../about.html" style="color: white;">About Us</a></li>
-                <li class="mobile-only"><a href="../book-call.html" style="color: white;">Book a call</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="../book-call.html" class="nav-cta">Book a call</a>
-            </div>
-        </nav>
-    </div>
-</header>
+        <div class="container">
+            <nav class="nav-content" aria-label="Main">
+                <a href="../index.html" class="logo logo-white" aria-label="OmniaOps home">
+                    <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                </a>
+                <ul class="nav-links" id="primary-nav">
+                    <li><a href="../index.html" style="color: white;">Home</a></li>
+                    <li><a href="../index.html#platform" style="color: white;">The Platform</a></li>
+                    <li><a href="../index.html#process" style="color: white;">Implementation</a></li>
+                    <li><a href="../index.html#cro-tools" style="color: white;">Tools</a></li>
+                    <li><a href="../training.html" style="color: white;">Training</a></li>
+                    <li><a href="../blog/" style="color: white;">Blog</a></li>
+                    <li><a href="../about.html" style="color: white;">About Us</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="../book-call.html" class="nav-cta">Book a call</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
 <div class="assessment-wrap">
     <a href="../index.html" class="back-link">← Back to OmniaOps</a>
     <h1>S&amp;OP Maturity Self-Assessment</h1>
-    <p class="lede">Six minutes. 12 questions. A personal benchmark on the 5-level maturity scale we use to advise supply chain leaders. Built by ops practitioners out of Novo Nordisk, Ambu, and Pfizer.</p>
+    <p class="lede">Six minutes. 12 questions. A personal benchmark on the 5-level maturity scale we use to advise supply chain leaders. Built by ops practitioners out of Novo Nordisk, Ambu, and WSA.</p>
 
     <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 
     <div id="quiz"></div>
 
     <div id="result" style="display:none"></div>
+
+    <section class="tool-guide" aria-labelledby="about-assessment">
+        <h2 id="about-assessment">How the S&amp;OP maturity assessment works</h2>
+        <p>Twelve questions cover the parts of the planning cycle that decide whether S&amp;OP produces decisions or just slides: demand consensus, forecast accuracy, master data, safety stock, capacity, scenarios, meeting output and how well knowledge survives when a planner moves on. Each answer scores 0-4 points, for a total between 0 and 48. Your total places you on one of five levels.</p>
+
+        <h3>The five levels</h3>
+        <ul>
+            <li><strong>Level 1, Reactive (0-11):</strong> planning runs on spreadsheets and quick reactions. The team keeps things moving through sheer effort.</li>
+            <li><strong>Level 2, Structured (12-21):</strong> there is a monthly cadence and the key numbers are measured, but the S&amp;OP meeting is mostly a status update.</li>
+            <li><strong>Level 3, Integrated (22-30):</strong> planning is a real discipline and the meeting produces decisions. The tooling is often what limits the next step.</li>
+            <li><strong>Level 4, Optimized (31-38):</strong> the foundations are solid. The gains now come from scenario planning, automation and sharper safety stock.</li>
+            <li><strong>Level 5, Autonomous (39-48):</strong> routine planning work runs largely by itself, and planners spend their time on judgement calls and strategy.</li>
+        </ul>
+
+        <h3>How to use your result</h3>
+        <p>The level matters less than the questions where you scored lowest. Those are the specific habits holding the cycle back, and most companies move up a level by fixing two or three of them rather than by replacing everything at once. Run the assessment again after a quarter to see whether the changes held.</p>
+        <p>Answer for how planning actually runs on a normal month, not how the process document says it should. Taking it with your demand and supply planners separately is a good way to find where the views differ.</p>
+
+        <h3>Where the model comes from</h3>
+        <p>The five levels follow the same staged logic as widely used S&amp;OP maturity models, such as Gartner's, adapted to mid-market manufacturers and the questions we ask when we review a planning process with a new customer. The scoring is simple on purpose: it is a starting point for a conversation, not an audit. If you want to talk through your result, <a href="../book-call.html?utm_source=sop_maturity&amp;utm_medium=guide">book a 20-minute call</a>.</p>
+    </section>
 </div>
 
 <script>
@@ -407,10 +440,61 @@ render();
 </script>
 
 <footer class="midnight-footer">
-    <div class="container">
-        <div class="footer-bottom">&copy; 2026 OmniaOps. <a href="../index.html" style="color:rgba(255,255,255,0.6)">Back to home</a> · <a href="../book-call.html" style="color:rgba(255,255,255,0.6)">Book a call</a></div>
-    </div>
-</footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo" style="margin-bottom: 24px; color: white;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 2px; vertical-align: middle;" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="1.5" stroke="white" stroke-width="2.5"/>
+                            <path d="M3 21L21 3" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                    </a>
+                    <h2 class="footer-what-h">What is OmniaOps?</h2>
+                    <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <h4 class="footer-h">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="../about.html">About us</a></li>
+                            <li><a href="../training.html">Training</a></li>
+                            <li><a href="../blog/">Blog</a></li>
+                            <li><a href="../book-call.html">Book a call</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Platform</h4>
+                        <ul class="footer-list">
+                            <li><a href="../sop-software.html">S&amp;OP software</a></li>
+                            <li><a href="../demand-planning-software.html">Demand planning</a></li>
+                            <li><a href="../index.html#platform">All modules</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Free tools</h4>
+                        <ul class="footer-list">
+                            <li><a href="../tools/sop-maturity.html">S&amp;OP maturity</a></li>
+                            <li><a href="../tools/stockout-calculator.html">Stockout calculator</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Contact</h4>
+                        <ul class="footer-list">
+                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
+                            <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="../privacy.html">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 OmniaOps ApS. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
+    <script src="../nav.js" defer></script>
 </body>
 </html>

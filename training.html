@@ -15,11 +15,12 @@
     <title>Training Videos | OmniaOps</title>
     <meta name="description" content="Free training video series on S&amp;OP and demand planning, S&amp;OE, MPS and supply/capacity planning, and executive S&amp;OP governance. Taught by supply chain practitioners.">
     <link rel="canonical" href="https://omniaops.com/training.html">
-    <link rel="stylesheet" href="style.css?v=40260505c">
+    <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css?v=20261109">
     <style>
         .training-hero {
             min-height: 52vh;
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.png');
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.webp');
             background-size: cover;
             background-position: center;
             color: white;
@@ -88,6 +89,8 @@
             .series { padding-top: 56px; }
             .series + .series { margin-top: 56px; }
         }
+            .episode-article { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.92rem; color: #fcd34d; text-decoration: none; }
+        .episode-article:hover { text-decoration: underline; }
     </style>
     <meta property="og:title" content="Training Videos | OmniaOps">
     <meta property="og:description" content="Free training video series on S&amp;OP and demand planning, S&amp;OE, MPS and supply/capacity planning, and executive S&amp;OP governance. Taught by supply chain practitioners.">
@@ -118,6 +121,66 @@
           "item": "https://omniaops.com/training.html"
         }
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://omniaops.com/training.html#video-paxvzhMDQ7M",
+      "name": "S&OP training: Introduction: why S&OP matters",
+      "description": "What good S&OP gives you beyond the hard metrics: less firefighting, and a team that can look ahead.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/paxvzhMDQ7M/hqdefault.jpg",
+      "uploadDate": "2026-10-30T06:45:58-07:00",
+      "duration": "PT9M",
+      "contentUrl": "https://www.youtube.com/watch?v=paxvzhMDQ7M",
+      "embedUrl": "https://www.youtube.com/embed/paxvzhMDQ7M",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://omniaops.com/#org"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://omniaops.com/training.html#video-psxydlAo_kc",
+      "name": "S&OP training: Step 1: Run the statistical forecast",
+      "description": "Where the monthly cycle starts: the baseline forecast built from history.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/psxydlAo_kc/hqdefault.jpg",
+      "uploadDate": "2026-11-01T03:06:34-08:00",
+      "duration": "PT7M",
+      "contentUrl": "https://www.youtube.com/watch?v=psxydlAo_kc",
+      "embedUrl": "https://www.youtube.com/embed/psxydlAo_kc",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://omniaops.com/#org"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://omniaops.com/training.html#video-qZbghVknli0",
+      "name": "S&OP training: Step 2: Prompt sales affiliates for input",
+      "description": "Sending the baseline to the sales affiliates and asking for their view of the market.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/qZbghVknli0/hqdefault.jpg",
+      "uploadDate": "2026-11-02T05:02:13-08:00",
+      "duration": "PT3M",
+      "contentUrl": "https://www.youtube.com/watch?v=qZbghVknli0",
+      "embedUrl": "https://www.youtube.com/embed/qZbghVknli0",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://omniaops.com/#org"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://omniaops.com/training.html#video-2rCoF0zvl3k",
+      "name": "S&OP training: Step 3: Affiliates override with input",
+      "description": "Affiliates adjust the forecast and note why, so every change has a reason behind it.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/2rCoF0zvl3k/hqdefault.jpg",
+      "uploadDate": "2026-11-04T05:50:12-08:00",
+      "duration": "PT17M",
+      "contentUrl": "https://www.youtube.com/watch?v=2rCoF0zvl3k",
+      "embedUrl": "https://www.youtube.com/embed/2rCoF0zvl3k",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://omniaops.com/#org"
+      }
     }
   ]
 }
@@ -127,8 +190,8 @@
 
     <header id="main-header">
         <div class="container">
-            <nav class="nav-content">
-                <a href="index.html" class="logo logo-white">
+            <nav class="nav-content" aria-label="Main">
+                <a href="index.html" class="logo logo-white" aria-label="OmniaOps home">
                     <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                 </a>
                 <ul class="nav-links" id="primary-nav">
@@ -137,8 +200,8 @@
                     <li><a href="index.html#process" style="color: white;">Implementation</a></li>
                     <li><a href="index.html#cro-tools" style="color: white;">Tools</a></li>
                     <li><a href="training.html" style="color: white;">Training</a></li>
+                    <li><a href="blog/" style="color: white;">Blog</a></li>
                     <li><a href="about.html" style="color: white;">About Us</a></li>
-                    <li class="mobile-only"><a href="book-call.html" style="color: white;">Book a call</a></li>
                 </ul>
                 <div class="nav-right">
                     <a href="book-call.html" class="nav-cta">Book a call</a>
@@ -160,7 +223,7 @@
         </section>
 
         <div class="training-body">
-            <div class="container" id="series-container"></div>
+            <div class="container" id="series-container"><section class="series" id="sop-training" style="--series-color: #4F9DFF;"><div class="series-head"><div><h2 style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">S&amp;OP &amp; Demand Planning</h2></div><div><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Why S&amp;OP matters, then the monthly demand cycle one step at a time.</p></div></div><div class="episode-grid"><article class="episode"><div class="episode-media"><img src="https://i.ytimg.com/vi/paxvzhMDQ7M/hqdefault.jpg" alt="Introduction: why S&amp;OP matters" loading="lazy"><button class="episode-play" data-yt="paxvzhMDQ7M" aria-label="Play: Introduction: why S&amp;OP matters"><span class="play-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span></button></div><div class="episode-info"><div class="episode-meta">Part 1 · 9 min</div><h3>Introduction: why S&amp;OP matters</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">What good S&amp;OP gives you beyond the hard metrics: less firefighting, and a team that can look ahead.</p><a class="episode-article" href="blog/why-sop-matters.html">Read the article →</a></div></article><article class="episode"><div class="episode-media"><img src="https://i.ytimg.com/vi/psxydlAo_kc/hqdefault.jpg" alt="Step 1: Run the statistical forecast" loading="lazy"><button class="episode-play" data-yt="psxydlAo_kc" aria-label="Play: Step 1: Run the statistical forecast"><span class="play-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span></button></div><div class="episode-info"><div class="episode-meta">Part 2 · 7 min</div><h3>Step 1: Run the statistical forecast</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Where the monthly cycle starts: the baseline forecast built from history.</p><a class="episode-article" href="blog/statistical-forecasting-for-sop.html">Read the article →</a></div></article><article class="episode"><div class="episode-media"><img src="https://i.ytimg.com/vi/qZbghVknli0/hqdefault.jpg" alt="Step 2: Prompt sales affiliates for input" loading="lazy"><button class="episode-play" data-yt="qZbghVknli0" aria-label="Play: Step 2: Prompt sales affiliates for input"><span class="play-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span></button></div><div class="episode-info"><div class="episode-meta">Part 3 · 3 min</div><h3>Step 2: Prompt sales affiliates for input</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Sending the baseline to the sales affiliates and asking for their view of the market.</p><a class="episode-article" href="blog/sop-sales-affiliates.html">Read the article →</a></div></article><article class="episode"><div class="episode-media"><img src="https://i.ytimg.com/vi/2rCoF0zvl3k/hqdefault.jpg" alt="Step 3: Affiliates override with input" loading="lazy"><button class="episode-play" data-yt="2rCoF0zvl3k" aria-label="Play: Step 3: Affiliates override with input"><span class="play-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span></button></div><div class="episode-info"><div class="episode-meta">Part 4 · 17 min</div><h3>Step 3: Affiliates override with input</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Affiliates adjust the forecast and note why, so every change has a reason behind it.</p><a class="episode-article" href="blog/sop-tenders-launches-forecast-overrides.html">Read the article →</a></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">05</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 5 · Coming soon</div><h3>Step 4: Gather input from global teams</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Adding what the global teams know before the plan goes to review.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">06</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 6 · Coming soon</div><h3>Step 5: S&amp;OP review and sign-off</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Reviewing the consolidated plan, settling open questions and signing it off.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">07</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 7 · Coming soon</div><h3>Step 6: Communicate and publish</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Getting the signed-off plan to everyone who works from it.</p></div></article></div></section><section class="series" id="supply-capacity" style="--series-color: #34D399;"><div class="series-head"><div><h2 style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">S&amp;OE, MPS &amp; Supply/Capacity Planning</h2></div><div><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Turn the demand plan into a supply plan that fits real capacity, and keep execution on track week to week.</p></div></div><div class="episode-grid"><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">01</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 1 · Coming soon</div><h3>From demand plan to supply plan</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">How MRP turns demand into orders, and where it goes wrong.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">02</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 2 · Coming soon</div><h3>The master production schedule</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Setting the MPS so production builds what the plan needs, not what is easiest to set up.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">03</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 3 · Coming soon</div><h3>Safety stock and inventory targets</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Setting stock levels from service targets and variability, not habit.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">04</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 4 · Coming soon</div><h3>Rough-cut capacity planning</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Checking the plan against lines, people and bottlenecks months before it bites.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">05</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 5 · Coming soon</div><h3>Running the supply review</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Constraints, scenarios and the trade-offs to escalate to the executive meeting.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">06</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 6 · Coming soon</div><h3>S&amp;OE: the weekly execution check</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Did we produce what we agreed, and do we have what we need for the next two weeks?</p></div></article></div></section><section class="series" id="executive-sop" style="--series-color: #FB923C;"><div class="series-head"><div><h2 style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Executive S&amp;OP Governance</h2></div><div><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">One integrated plan, clear decision rights and a monthly rhythm the leadership team owns.</p></div></div><div class="episode-grid"><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">01</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 1 · Coming soon</div><h3>What executive S&amp;OP is for</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Why the meeting exists, and how it differs from an operations review.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">02</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 2 · Coming soon</div><h3>Reading the integrated plan</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Volume, revenue, inventory and capacity on one page, and what to look for.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">03</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 3 · Coming soon</div><h3>Scenarios and trade-offs</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Comparing options on service, cost and cash before deciding.</p></div></article><article class="episode"><div class="episode-media"><div class="episode-soon"><span class="ep-num">04</span>Coming soon</div></div><div class="episode-info"><div class="episode-meta">Part 4 · Coming soon</div><h3>Chairing the monthly meeting</h3><p style="opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);">Agenda, decision log and follow-up that keep S&amp;OP from becoming a status update.</p></div></article></div></section></div>
 
             <div class="container training-cta">
                 <h2>Want this running in your own business?</h2>
@@ -172,37 +235,61 @@
 
     <footer class="midnight-footer">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
-                <div>
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <a href="index.html" class="logo" style="margin-bottom: 24px; color: white;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 2px; vertical-align: middle;" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="1.5" stroke="white" stroke-width="2.5"/>
+                            <path d="M3 21L21 3" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
                         <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                     </a>
-                    <p style="max-width: 300px;">The next major category in supply chain planning is autonomous.</p>
-                    <p style="max-width: 300px; margin-top: 12px;">CVR 46516834</p>
+                    <h2 class="footer-what-h">What is OmniaOps?</h2>
+                    <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
                 </div>
-                <div style="display: flex; gap: 80px;">
+                <div class="footer-cols">
                     <div>
-                        <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Company</h4>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                            <li><a href="about.html">About Us</a></li>
+                        <h4 class="footer-h">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="about.html">About us</a></li>
                             <li><a href="training.html">Training</a></li>
+                            <li><a href="blog/">Blog</a></li>
+                            <li><a href="book-call.html">Book a call</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Contact</h4>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <h4 class="footer-h">Platform</h4>
+                        <ul class="footer-list">
+                            <li><a href="sop-software.html">S&amp;OP software</a></li>
+                            <li><a href="demand-planning-software.html">Demand planning</a></li>
+                            <li><a href="index.html#platform">All modules</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Free tools</h4>
+                        <ul class="footer-list">
+                            <li><a href="tools/sop-maturity.html">S&amp;OP maturity</a></li>
+                            <li><a href="tools/stockout-calculator.html">Stockout calculator</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Contact</h4>
+                        <ul class="footer-list">
+                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
                             <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="privacy.html">Privacy policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 OmniaOps Autonomous Planning. All rights reserved.
+                &copy; 2026 OmniaOps ApS. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <script src="script.js?v=40260505"></script>
+    <script src="script.js?v=20261109" defer></script>
     <script>
     /* ------------------------------------------------------------
        VIDEO LIST - edit this to add videos.
@@ -221,10 +308,10 @@
             intro: 'Why S&OP matters, then the monthly demand cycle one step at a time.',
             playlist: '',
             episodes: [
-                { title: 'Introduction: why S&OP matters', desc: 'What good S&OP gives you beyond the hard metrics: less firefighting, and a team that can look ahead.', duration: '9 min', youtube: 'paxvzhMDQ7M' },
-                { title: 'Step 1: Run the statistical forecast', desc: 'Where the monthly cycle starts: the baseline forecast built from history.', duration: '7 min', youtube: 'psxydlAo_kc' },
-                { title: 'Step 2: Prompt sales affiliates for input', desc: 'Sending the baseline to the sales affiliates and asking for their view of the market.', duration: '3 min', youtube: 'qZbghVknli0' },
-                { title: 'Step 3: Affiliates override with input', desc: 'Affiliates adjust the forecast and note why, so every change has a reason behind it.', duration: '17 min', youtube: '2rCoF0zvl3k' },
+                { title: 'Introduction: why S&OP matters', desc: 'What good S&OP gives you beyond the hard metrics: less firefighting, and a team that can look ahead.', duration: '9 min', youtube: 'paxvzhMDQ7M', article: 'blog/why-sop-matters.html' },
+                { title: 'Step 1: Run the statistical forecast', desc: 'Where the monthly cycle starts: the baseline forecast built from history.', duration: '7 min', youtube: 'psxydlAo_kc', article: 'blog/statistical-forecasting-for-sop.html' },
+                { title: 'Step 2: Prompt sales affiliates for input', desc: 'Sending the baseline to the sales affiliates and asking for their view of the market.', duration: '3 min', youtube: 'qZbghVknli0', article: 'blog/sop-sales-affiliates.html' },
+                { title: 'Step 3: Affiliates override with input', desc: 'Affiliates adjust the forecast and note why, so every change has a reason behind it.', duration: '17 min', youtube: '2rCoF0zvl3k', article: 'blog/sop-tenders-launches-forecast-overrides.html' },
                 { title: 'Step 4: Gather input from global teams', desc: 'Adding what the global teams know before the plan goes to review.', duration: '', youtube: '' },
                 { title: 'Step 5: S&OP review and sign-off', desc: 'Reviewing the consolidated plan, settling open questions and signing it off.', duration: '', youtube: '' },
                 { title: 'Step 6: Communicate and publish', desc: 'Getting the signed-off plan to everyone who works from it.', duration: '', youtube: '' }
@@ -269,6 +356,8 @@
 
         var playSvg = '<svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
         var container = document.getElementById('series-container');
+        // The list below is also baked into the HTML for search engines; rebuild it from SERIES here.
+        container.innerHTML = '';
 
         SERIES.forEach(function (s) {
             var eps = s.episodes.map(function (ep, i) {
@@ -276,7 +365,7 @@
                 var meta = 'Part ' + n + (ep.duration ? ' · ' + esc(ep.duration) : '') + (ep.youtube ? '' : ' · Coming soon');
                 var media;
                 if (ep.youtube) {
-                    media = '<img src="https://i.ytimg.com/vi/' + esc(ep.youtube) + '/hqdefault.jpg" alt="" loading="lazy">' +
+                    media = '<img src="https://i.ytimg.com/vi/' + esc(ep.youtube) + '/hqdefault.jpg" alt="' + esc(ep.title) + '" loading="lazy">' +
                         '<button class="episode-play" data-yt="' + esc(ep.youtube) + '" aria-label="Play: ' + esc(ep.title) + '">' +
                         '<span class="play-icon">' + playSvg + '</span></button>';
                 } else {
@@ -285,7 +374,8 @@
                 return '<article class="episode">' +
                     '<div class="episode-media">' + media + '</div>' +
                     '<div class="episode-info"><div class="episode-meta">' + meta + '</div>' +
-                    '<h3>' + esc(ep.title) + '</h3><p>' + esc(ep.desc) + '</p></div></article>';
+                    '<h3>' + esc(ep.title) + '</h3><p>' + esc(ep.desc) + '</p>' +
+                    (ep.article ? '<a class="episode-article" href="' + esc(ep.article) + '">Read the article &rarr;</a>' : '') + '</div></article>';
             }).join('');
 
             var section = document.createElement('section');

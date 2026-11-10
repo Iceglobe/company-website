@@ -13,7 +13,8 @@
     <title>Cost of Stockout Calculator | OmniaOps</title>
     <meta name="description" content="Estimate the annual revenue, gross margin, and customer-lifetime-value impact of stockouts at your company. 2 minutes. No email required.">
     <link rel="canonical" href="https://omniaops.com/tools/stockout-calculator.html">
-    <link rel="stylesheet" href="../style.css?v=40260505b">
+    <link rel="preload" href="../assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style.css?v=20261109">
     <style>
         .calc-wrap { max-width: 880px; margin: 0 auto; padding: 60px 24px 120px; color: #0d111c; }
         .calc-wrap h1 { font-size: 2.2rem; margin: 0 0 12px; line-height: 1.15; }
@@ -38,6 +39,14 @@
         .cta a:hover { background: #fde68a; }
         .micro { font-size: 0.8rem; opacity: 0.65; margin-top: 14px; line-height: 1.45; }
         .back-link { display: inline-block; margin-bottom: 24px; color: #475569; text-decoration: none; }
+
+        .tool-guide { margin-top: 72px; color: #0d111c; }
+        .tool-guide h2 { font-size: 1.6rem; margin: 0 0 14px; line-height: 1.2; }
+        .tool-guide h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+        .tool-guide p, .tool-guide li { font-size: 1.02rem; line-height: 1.7; color: #334155; }
+        .tool-guide ul { padding-left: 20px; margin: 0 0 12px; }
+        .tool-guide li { margin-bottom: 6px; }
+        .tool-guide a { color: #1d4ed8; }
     </style>
     <meta property="og:title" content="Cost of Stockout Calculator | OmniaOps">
     <meta property="og:description" content="Estimate the annual revenue, gross margin, and customer-lifetime-value impact of stockouts at your company. 2 minutes. No email required.">
@@ -89,34 +98,37 @@
 }
 </script>
 </head>
-<body>
+<body class="light-page">
 
 <header id="main-header">
-    <div class="container">
-        <nav class="nav-content">
-            <a href="../index.html" class="logo logo-white">
-                <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
-            </a>
-            <ul class="nav-links" id="primary-nav">
-                <li><a href="../index.html" style="color: white;">Home</a></li>
-                <li><a href="../index.html#platform" style="color: white;">The Platform</a></li>
-                <li><a href="../index.html#process" style="color: white;">Implementation</a></li>
-                <li><a href="../index.html#cro-tools" style="color: white;">Tools</a></li>
-                <li><a href="../training.html" style="color: white;">Training</a></li>
-                <li><a href="../about.html" style="color: white;">About Us</a></li>
-                <li class="mobile-only"><a href="../book-call.html" style="color: white;">Book a call</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="../book-call.html" class="nav-cta">Book a call</a>
-            </div>
-        </nav>
-    </div>
-</header>
+        <div class="container">
+            <nav class="nav-content" aria-label="Main">
+                <a href="../index.html" class="logo logo-white" aria-label="OmniaOps home">
+                    <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                </a>
+                <ul class="nav-links" id="primary-nav">
+                    <li><a href="../index.html" style="color: white;">Home</a></li>
+                    <li><a href="../index.html#platform" style="color: white;">The Platform</a></li>
+                    <li><a href="../index.html#process" style="color: white;">Implementation</a></li>
+                    <li><a href="../index.html#cro-tools" style="color: white;">Tools</a></li>
+                    <li><a href="../training.html" style="color: white;">Training</a></li>
+                    <li><a href="../blog/" style="color: white;">Blog</a></li>
+                    <li><a href="../about.html" style="color: white;">About Us</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="../book-call.html" class="nav-cta">Book a call</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
 <div class="calc-wrap">
     <a href="../index.html" class="back-link">← Back to OmniaOps</a>
     <h1>Cost of Stockout Calculator</h1>
-    <p class="lede">Estimate the annual cost of stockouts at your company in 2 minutes. Most teams under-count by 3-5x because they only see the lost sale, not the gross margin, the customer churn, and the expedite cost.</p>
+    <p class="lede">Estimate the annual cost of stockouts at your company in 2 minutes. Most teams under-count it, because they only see the lost sale, not the lost margin, the customers who quietly move orders elsewhere, and the expedite cost.</p>
 
     <div class="grid">
         <div>
@@ -135,22 +147,22 @@
                 <div class="field">
                     <label for="stockout_rate">Stockout rate %</label>
                     <input type="number" id="stockout_rate" value="3.5" min="0" max="50" step="0.1">
-                    <div class="hint">Of order lines requested, what percent cannot be fulfilled on time? Industry average for mid-market: 3-6%.</div>
+                    <div class="hint">Of order lines requested, what percent cannot be fulfilled on time? Use your order-fill or OTIF report. No data yet? Try 3-6% as a starting point.</div>
                 </div>
                 <div class="field">
                     <label for="recovery_rate">% of stockouts recovered (eventually filled)</label>
                     <input type="number" id="recovery_rate" value="65" min="0" max="100" step="1">
-                    <div class="hint">The rest is permanently lost revenue. Industry average: 50-70%.</div>
+                    <div class="hint">The rest is permanently lost revenue. No data yet? Try 50-70% as a starting point.</div>
                 </div>
                 <div class="field">
                     <label for="expedite_cost">Avg expedite cost per recovered stockout (USD)</label>
                     <input type="number" id="expedite_cost" value="450" min="0" step="10">
-                    <div class="hint">Air freight, overtime, line-changeover, etc. Typical: $200-$1,500.</div>
+                    <div class="hint">Air freight, overtime, line-changeover, etc. Rough range to start from: $200-$1,500.</div>
                 </div>
                 <div class="field">
                     <label for="customer_ltv_multiplier">Customer LTV multiplier</label>
-                    <input type="number" id="customer_ltv_multiplier" value="4" min="1" max="20" step="0.5">
-                    <div class="hint">Each lost order also damages future revenue from the same customer. Conservative: 3-5x the lost order value.</div>
+                    <input type="number" id="customer_ltv_multiplier" value="3" min="1" max="20" step="0.5">
+                    <div class="hint">Each lost order also puts future orders from the same customer at risk. Start at 2-3 unless you have churn data that says otherwise.</div>
                 </div>
             </div>
         </div>
@@ -166,12 +178,36 @@
                 <div class="result-line" style="border-top:1px solid rgba(255,255,255,0.3);margin-top:8px;padding-top:14px;font-weight:800"><span class="l" style="opacity:1">Total annual cost</span><span class="v" id="r_total">$0</span></div>
 
                 <div class="cta">
-                    <a id="cta-book" href="../book-call.html?utm_source=stockout_calc&utm_medium=cta">See how OmniaOps cuts this by 60-80%</a>
+                    <a id="cta-book" href="../book-call.html?utm_source=stockout_calc&utm_medium=cta">Book a call to bring this number down</a>
                 </div>
-                <div class="micro">Methodology: Lost margin = revenue × stockout-rate × (1 - recovery) × margin. Expedite = revenue × stockout-rate × recovery × (expedite_cost / avg_order_size_assumed_8000). LTV damage = lost revenue × (multiplier - 1). All inputs editable above.</div>
+                <div class="micro">Methodology: Lost margin = revenue × stockout-rate × (1 - recovery) × margin. Expedite = revenue × stockout-rate × recovery × (expedite_cost / avg_order_size_assumed_8000). Customer-lifetime damage = lost margin × (multiplier - 1), the gross margin on future orders from the same customers. Every cost line is counted at margin, not revenue, so the total is a profit impact. All inputs editable above.</div>
             </div>
         </div>
     </div>
+
+    <section class="tool-guide" aria-labelledby="how-it-works">
+        <h2 id="how-it-works">How the stockout calculator works</h2>
+        <p>A stockout rarely costs only the order you couldn't ship. The calculator adds up four effects, all from the numbers you enter above, so you can see where the money actually goes.</p>
+        <ul>
+            <li><strong>Lost revenue:</strong> the share of demand you couldn't supply and never recovered. Revenue &times; stockout rate &times; (1 &minus; recovery rate).</li>
+            <li><strong>Lost gross margin:</strong> what that lost revenue would have earned you. This is the direct profit hit.</li>
+            <li><strong>Expedite cost:</strong> the orders you did save, usually through rush freight, overtime or a re-planned production run. It assumes an average order of $8,000 and your expedite cost per order.</li>
+            <li><strong>Customer-lifetime damage:</strong> some customers who hit a stockout move part of their future orders elsewhere. The multiplier says how many orders' worth of margin each lost order puts at risk.</li>
+        </ul>
+        <p>Every line is counted at gross margin, not revenue, so the total reads as a profit impact you can put next to an investment case.</p>
+
+        <h3>Where to find your inputs</h3>
+        <ul>
+            <li><strong>Stockout rate:</strong> order lines not shipped on the requested date, from your ERP's order-fill or OTIF report. If you only track it for top customers, start there.</li>
+            <li><strong>Recovery rate:</strong> how many of those late lines were shipped later rather than cancelled.</li>
+            <li><strong>Expedite cost:</strong> the extra freight and overtime on rescued orders, often visible in freight invoices tagged express.</li>
+            <li><strong>Lifetime multiplier:</strong> start low (2-3) unless you have churn data that says otherwise. Sales usually knows which accounts went quiet after a missed delivery.</li>
+        </ul>
+
+        <h3>How to read the result</h3>
+        <p>Treat the total as a range rather than a precise figure. Change one input at a time to see which one drives most of the cost: for most manufacturers it is the stockout rate itself, which is exactly the number better planning moves. A fill-rate improvement of a few percentage points often pays for the planning work on its own.</p>
+        <p>The model is ours, built from planning work at manufacturers, and every assumption is visible and editable on this page. Want to sanity-check the numbers against your own data? <a href="../book-call.html?utm_source=stockout_calc&amp;utm_medium=guide">Book a 20-minute call</a> and bring the result.</p>
+    </section>
 </div>
 
 <script>
@@ -186,7 +222,8 @@ function recalc() {
     const lostGM = lostRevenue * (v.margin / 100);
     const recoveredStockouts = stockedOutRevenue * (v.recovery_rate / 100);
     const expediteCost = (recoveredStockouts / 8000) * v.expedite_cost;
-    const ltvDamage = lostRevenue * (v.customer_ltv_multiplier - 1);
+    // Future orders lost with the customer, counted at gross margin like the direct loss
+    const ltvDamage = lostGM * (v.customer_ltv_multiplier - 1);
     const total = lostGM + expediteCost + ltvDamage;
 
     document.getElementById('total').textContent = fmt(total);
@@ -223,10 +260,61 @@ if (typeof gtag === 'function') {
 </script>
 
 <footer class="midnight-footer">
-    <div class="container">
-        <div class="footer-bottom">&copy; 2026 OmniaOps. <a href="../index.html" style="color:rgba(255,255,255,0.6)">Back to home</a> · <a href="../book-call.html" style="color:rgba(255,255,255,0.6)">Book a call</a></div>
-    </div>
-</footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo" style="margin-bottom: 24px; color: white;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 2px; vertical-align: middle;" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="1.5" stroke="white" stroke-width="2.5"/>
+                            <path d="M3 21L21 3" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                    </a>
+                    <h2 class="footer-what-h">What is OmniaOps?</h2>
+                    <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <h4 class="footer-h">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="../about.html">About us</a></li>
+                            <li><a href="../training.html">Training</a></li>
+                            <li><a href="../blog/">Blog</a></li>
+                            <li><a href="../book-call.html">Book a call</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Platform</h4>
+                        <ul class="footer-list">
+                            <li><a href="../sop-software.html">S&amp;OP software</a></li>
+                            <li><a href="../demand-planning-software.html">Demand planning</a></li>
+                            <li><a href="../index.html#platform">All modules</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Free tools</h4>
+                        <ul class="footer-list">
+                            <li><a href="../tools/sop-maturity.html">S&amp;OP maturity</a></li>
+                            <li><a href="../tools/stockout-calculator.html">Stockout calculator</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Contact</h4>
+                        <ul class="footer-list">
+                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
+                            <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="../privacy.html">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 OmniaOps ApS. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
+    <script src="../nav.js" defer></script>
 </body>
 </html>

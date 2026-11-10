@@ -1,0 +1,29 @@
+# OmniaOps
+
+> OmniaOps is a supply chain planning platform for mid-market manufacturers. It covers demand, supply, inventory and capacity planning in one place, with AI agents that run the planning routines a team defines. OmniaOps ApS was founded in 2026 and is based in Birkerød, greater Copenhagen, Denmark.
+
+Key facts:
+- Customers get an Excel import running and full access with their own data in under two weeks; full ERP integration takes 4-6 weeks depending on modules and data maturity.
+- Live ERP integrations: SAP Business One and Microsoft Business Central. Any ERP with an API can be connected in 4-6 weeks.
+- Typical annual subscription: USD 40,000-120,000 depending on sites, SKUs, users and modules.
+- Founder: Philip L. Valentin, 8+ years leading supply chain and operations teams at Novo Nordisk, Ambu and WSA.
+
+## Product
+- [Home: platform overview](https://omniaops.com/): what the platform does, implementation, FAQ
+- [S&OP software](https://omniaops.com/sop-software.html): what the platform does for the monthly S&OP cycle
+- [Demand planning software](https://omniaops.com/demand-planning-software.html): statistical forecasting and collaborative demand planning
+- [About](https://omniaops.com/about.html): team, background and why OmniaOps exists
+- [Book a call](https://omniaops.com/book-call.html): talk to the founder
+
+## Guides
+- [S&OP process: step-by-step guide for mid-market manufacturers](https://omniaops.com/blog/sop-process.html)
+- [Kinaxis vs o9 vs Anaplan vs OmniaOps](https://omniaops.com/blog/demand-forecasting-comparison.html)
+- [S&OP training videos](https://omniaops.com/training.html)
+- [Why S&OP matters for manufacturers](https://omniaops.com/blog/why-sop-matters.html)
+- [Statistical forecasting for S&OP](https://omniaops.com/blog/statistical-forecasting-for-sop.html)
+- [Which sales affiliates belong in S&OP](https://omniaops.com/blog/sop-sales-affiliates.html)
+- [Tenders, launches and new customers in the S&OP forecast](https://omniaops.com/blog/sop-tenders-launches-forecast-overrides.html)
+
+## Free tools
+- [S&OP maturity self-assessment](https://omniaops.com/tools/sop-maturity.html)
+- [Cost of stockout calculator](https://omniaops.com/tools/stockout-calculator.html)

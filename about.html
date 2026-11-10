@@ -14,11 +14,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | OmniaOps</title>
     <meta name="description" content="We're supply chain practitioners who built the tool we always wanted. Meet the team behind OmniaOps.">
-    <link rel="stylesheet" href="style.css?v=20260505b">
+    <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css?v=20261109">
     <style>
         .about-hero {
             min-height: 58vh;
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.png');
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.webp');
             background-size: cover;
             background-position: center;
             color: white;
@@ -79,7 +80,7 @@
 
         .team-dark-section {
             padding: 80px 0;
-            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/circuit_bg.png');
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/circuit_bg.webp');
             background-size: cover;
             background-position: center;
             color: white;
@@ -359,13 +360,29 @@
       "@type": "Organization",
       "@id": "https://omniaops.com/#org",
       "name": "OmniaOps",
+      "legalName": "OmniaOps ApS",
       "url": "https://omniaops.com/",
-      "logo": "https://omniaops.com/assets/omniaops-logo.png",
-      "email": "philip@omniaops.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://omniaops.com/assets/omniaops-logo.png"
+      },
+      "description": "OmniaOps builds a supply chain planning platform for mid-market manufacturers, covering demand, supply, inventory and capacity planning with AI agents.",
+      "foundingDate": "2026",
       "founder": {
-        "@type": "Person",
-        "@id": "https://omniaops.com/about.html#philip",
-        "name": "Philip L. Valentin"
+        "@id": "https://omniaops.com/about.html#philip"
+      },
+      "email": "philip@omniaops.com",
+      "telephone": "+45 22 40 52 92",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "philip@omniaops.com",
+        "telephone": "+45 22 40 52 92",
+        "url": "https://omniaops.com/book-call.html",
+        "availableLanguage": [
+          "English",
+          "Danish"
+        ]
       },
       "address": {
         "@type": "PostalAddress",
@@ -375,14 +392,37 @@
         "addressCountry": "DK"
       },
       "vatID": "DK46516834",
+      "areaServed": "Europe",
       "sameAs": [
         "https://www.linkedin.com/company/omniaops/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://omniaops.com/about.html#philip",
+      "name": "Philip L. Valentin",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://omniaops.com/#org"
+      },
+      "image": "https://omniaops.com/assets/team/philip.jpeg",
+      "url": "https://omniaops.com/about.html#philip",
+      "description": "Supply chain and operations leader with 8+ years leading international planning teams at Novo Nordisk, Ambu and WSA. Founder of OmniaOps.",
+      "knowsAbout": [
+        "Sales and operations planning",
+        "Demand planning",
+        "Supply planning",
+        "Capacity planning",
+        "Inventory optimization"
       ]
     },
     {
       "@type": "AboutPage",
       "url": "https://omniaops.com/about.html",
       "about": {
+        "@id": "https://omniaops.com/#org"
+      },
+      "mainEntity": {
         "@id": "https://omniaops.com/#org"
       }
     },
@@ -411,8 +451,8 @@
 
     <header id="main-header">
         <div class="container">
-            <nav class="nav-content">
-                <a href="index.html" class="logo logo-white">
+            <nav class="nav-content" aria-label="Main">
+                <a href="index.html" class="logo logo-white" aria-label="OmniaOps home">
                     <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                 </a>
                 <ul class="nav-links" id="primary-nav">
@@ -421,10 +461,12 @@
                     <li><a href="index.html#process" style="color: white;">Implementation</a></li>
                     <li><a href="index.html#cro-tools" style="color: white;">Tools</a></li>
                     <li><a href="training.html" style="color: white;">Training</a></li>
+                    <li><a href="blog/" style="color: white;">Blog</a></li>
                     <li><a href="about.html" style="color: white;">About Us</a></li>
-                    <li class="mobile-only"><a href="book-call.html" style="color: white;">Book a call</a></li>
                 </ul>
-                <a href="book-call.html" class="nav-cta">Book call</a>
+                <div class="nav-right">
+                    <a href="book-call.html" class="nav-cta">Book a call</a>
+                </div>
                 <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
                     <span></span><span></span><span></span>
                 </button>
@@ -491,25 +533,23 @@
                 <p class="logo-ticker-disclaimer">Logos shown are organizations where our team and advisors have led or contributed to supply chain operations.</p>
                 <div style="height: 24px"></div>
                 <div class="logo-ticker-track">
-                    <div class="logo-ticker-item"><img src="assets/logos/novo-nordisk.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/wsa.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/ambu.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/ferrosan.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/pfizer.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/dana-lim.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/globus-wine.svg?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/nomeco.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/mission-pharma.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/novo-nordisk.png?v=4" alt="Novo Nordisk logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/wsa.png?v=4" alt="WSA logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ambu.png?v=4" alt="Ambu logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ferrosan.png?v=4" alt="Ferrosan logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/dana-lim.png?v=4" alt="Dana Lim logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/globus-wine.svg?v=4" alt="Globus Wine logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/nomeco.png?v=4" alt="Nomeco logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/mission-pharma.png?v=4" alt="Mission Pharma logo" width="120" height="40" loading="lazy"></div>
                     <!-- Duplicate for infinite scroll -->
-                    <div class="logo-ticker-item"><img src="assets/logos/novo-nordisk.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/wsa.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/ambu.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/ferrosan.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/pfizer.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/dana-lim.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/globus-wine.svg?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/nomeco.png?v=4" alt=""></div>
-                    <div class="logo-ticker-item"><img src="assets/logos/mission-pharma.png?v=4" alt=""></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/novo-nordisk.png?v=4" alt="Novo Nordisk logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/wsa.png?v=4" alt="WSA logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ambu.png?v=4" alt="Ambu logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/ferrosan.png?v=4" alt="Ferrosan logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/dana-lim.png?v=4" alt="Dana Lim logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/globus-wine.svg?v=4" alt="Globus Wine logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/nomeco.png?v=4" alt="Nomeco logo" width="120" height="40" loading="lazy"></div>
+                    <div class="logo-ticker-item"><img src="assets/logos/mission-pharma.png?v=4" alt="Mission Pharma logo" width="120" height="40" loading="lazy"></div>
                 </div>
             </div>
         </div>
@@ -524,7 +564,7 @@
             <div class="team-dark-row-label">The Team</div>
             <div class="team-dark-grid team-dark-grid-2">
 
-                <div class="team-dark-card">
+                <div class="team-dark-card" id="philip">
                     <div class="team-dark-photo">
                         <img src="assets/team/philip.jpeg" alt="Philip L. Valentin">
                     </div>
@@ -606,31 +646,56 @@
 
     <footer class="midnight-footer">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
-                <div>
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <a href="index.html" class="logo" style="margin-bottom: 24px; color: white;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 2px; vertical-align: middle;" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="1.5" stroke="white" stroke-width="2.5"/>
+                            <path d="M3 21L21 3" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
                         <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
                     </a>
-                    <p style="max-width: 300px;">The next major category in supply chain planning is autonomous.</p>
-                    <p style="max-width: 300px; margin-top: 12px;">CVR 46516834</p>
+                    <h2 class="footer-what-h">What is OmniaOps?</h2>
+                    <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
                 </div>
-                <div style="display: flex; gap: 80px;">
+                <div class="footer-cols">
                     <div>
-                        <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Company</h4>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                            <li><a href="about.html">About Us</a></li>
+                        <h4 class="footer-h">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="training.html">Training</a></li>
+                            <li><a href="blog/">Blog</a></li>
+                            <li><a href="book-call.html">Book a call</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Contact</h4>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <h4 class="footer-h">Platform</h4>
+                        <ul class="footer-list">
+                            <li><a href="sop-software.html">S&amp;OP software</a></li>
+                            <li><a href="demand-planning-software.html">Demand planning</a></li>
+                            <li><a href="index.html#platform">All modules</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Free tools</h4>
+                        <ul class="footer-list">
+                            <li><a href="tools/sop-maturity.html">S&amp;OP maturity</a></li>
+                            <li><a href="tools/stockout-calculator.html">Stockout calculator</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Contact</h4>
+                        <ul class="footer-list">
+                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
                             <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="privacy.html">Privacy policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 OmniaOps Autonomous Planning. All rights reserved.
+                &copy; 2026 OmniaOps ApS. All rights reserved.
             </div>
         </div>
     </footer>
@@ -648,7 +713,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260505"></script>
+    <script src="script.js?v=20261109" defer></script>
     <script>
     (function() {
         var stories = [

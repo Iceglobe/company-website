@@ -18,7 +18,8 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://omniaops.com/blog/{{ARTICLE_SLUG}}.html">
     <link rel="canonical" href="https://omniaops.com/blog/{{ARTICLE_SLUG}}.html">
-    <link rel="stylesheet" href="../style.css?v=40260505b">
+    <link rel="preload" href="../assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../style.css?v=20261109">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,27 +62,32 @@
         .related-list li a:hover { color: #f59e0b; }
     </style>
 </head>
-<body>
+<body class="light-page">
 
 <header id="main-header">
-    <div class="container">
-        <nav class="nav-content">
-            <a href="../index.html" class="logo logo-white">
-                <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="../index.html#about" style="color: white;">Platform</a></li>
-                <li><a href="../index.html#cro-tools" style="color: white;">Tools</a></li>
-                <li><a href="./" style="color: white;">Blog</a></li>
-                <li><a href="../training.html" style="color: white;">Training</a></li>
-                <li><a href="../about.html" style="color: white;">About</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="../book-call.html" class="nav-cta">Book a call</a>
-            </div>
-        </nav>
-    </div>
-</header>
+        <div class="container">
+            <nav class="nav-content" aria-label="Main">
+                <a href="../index.html" class="logo logo-white" aria-label="OmniaOps home">
+                    <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span style="color:white">Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                </a>
+                <ul class="nav-links" id="primary-nav">
+                    <li><a href="../index.html" style="color: white;">Home</a></li>
+                    <li><a href="../index.html#platform" style="color: white;">The Platform</a></li>
+                    <li><a href="../index.html#process" style="color: white;">Implementation</a></li>
+                    <li><a href="../index.html#cro-tools" style="color: white;">Tools</a></li>
+                    <li><a href="../training.html" style="color: white;">Training</a></li>
+                    <li><a href="../blog/" style="color: white;">Blog</a></li>
+                    <li><a href="../about.html" style="color: white;">About Us</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="../book-call.html" class="nav-cta">Book a call</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
 <article class="article-wrap">
     <a href="./" class="back-link">← All articles</a>
@@ -111,34 +117,60 @@
 </article>
 
 <footer class="midnight-footer">
-    <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px;">
-            <div>
-                <a href="../index.html" class="logo" style="margin-bottom: 24px; color: white;">
-                    <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
-                </a>
-                <p style="max-width: 300px;">The next major category in supply chain planning is autonomous.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo" style="margin-bottom: 24px; color: white;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 2px; vertical-align: middle;" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="1.5" stroke="white" stroke-width="2.5"/>
+                            <path d="M3 21L21 3" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span style="font-weight:900;letter-spacing:-0.025em;line-height:1"><span>Omnia</span><span style="color:rgba(255,255,255,0.3)">Ops</span></span>
+                    </a>
+                    <h2 class="footer-what-h">What is OmniaOps?</h2>
+                    <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <h4 class="footer-h">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="../about.html">About us</a></li>
+                            <li><a href="../training.html">Training</a></li>
+                            <li><a href="../blog/">Blog</a></li>
+                            <li><a href="../book-call.html">Book a call</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Platform</h4>
+                        <ul class="footer-list">
+                            <li><a href="../sop-software.html">S&amp;OP software</a></li>
+                            <li><a href="../demand-planning-software.html">Demand planning</a></li>
+                            <li><a href="../index.html#platform">All modules</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Free tools</h4>
+                        <ul class="footer-list">
+                            <li><a href="../tools/sop-maturity.html">S&amp;OP maturity</a></li>
+                            <li><a href="../tools/stockout-calculator.html">Stockout calculator</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-h">Contact</h4>
+                        <ul class="footer-list">
+                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
+                            <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="../privacy.html">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div style="display: flex; gap: 80px;">
-                <div>
-                    <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Free Tools</h4>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                        <li><a href="../tools/sop-maturity.html">S&amp;OP Maturity</a></li>
-                        <li><a href="../tools/stockout-calculator.html">Stockout Calculator</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase;">Contact</h4>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                        <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
-                        <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
-                    </ul>
-                </div>
+            <div class="footer-bottom">
+                &copy; 2026 OmniaOps ApS. All rights reserved.
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 OmniaOps. All rights reserved.</div>
-    </div>
-</footer>
+    </footer>
 
 <script src="/script.js?v=40260505"></script>
 </body>

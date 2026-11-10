@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Inter, self-hosted (latin subset, variable 300-900) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300 900;
+    font-display: swap;
+    src: url('assets/fonts/inter-latin-var.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Arial tuned to Inter's metrics, so text doesn't reflow when Inter arrives */
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    ascent-override: 90.44%;
+    descent-override: 22.52%;
+    line-gap-override: 0%;
+    size-adjust: 107.12%;
+}
 
 :root {
     --bg-primary: #f8f9fa;
@@ -28,7 +45,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -746,7 +763,7 @@ footer {
 /* Hero Dark */
 .hero-dark {
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('assets/circuit_bg.png');
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('assets/circuit_bg.webp');
     background-size: cover;
     background-position: center;
     color: white;
@@ -1023,7 +1040,7 @@ footer {
 /* Process Section (1/2/3 Steps) */
 .process-section {
     padding: 120px 0;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('assets/circuit_bg.png');
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('assets/circuit_bg.webp');
     background-size: cover;
     background-position: center;
     color: white;
@@ -3491,7 +3508,7 @@ footer.midnight-footer .footer-bottom {
    ========================================================== */
 .pricing-v2-section {
     padding: 120px 0;
-    background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)), url('assets/circuit_bg.png');
+    background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)), url('assets/circuit_bg.webp');
     background-size: cover;
     background-position: center;
     color: white;
@@ -4141,3 +4158,57 @@ body.menu-open {
         padding: 22px 18px;
     }
 }
+
+/* ============================================================
+   SEO/UX pass 2026-11: shared footer grid + visible mobile CTA
+   ============================================================ */
+.footer-grid { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 48px; }
+.footer-cols { display: flex; flex-wrap: wrap; gap: 48px 80px; }
+.footer-h { margin-bottom: 24px; font-size: 0.9rem; text-transform: uppercase; }
+.footer-list { list-style: none; display: flex; flex-direction: column; gap: 4px; padding: 0; margin: 0; }
+.footer-list a { display: inline-block; padding: 8px 0; min-height: 40px; }
+
+@media (max-width: 768px) {
+    .footer-cols { gap: 32px 48px; }
+    /* Keep "Book a call" visible in the mobile header next to the menu button */
+    .nav-content .nav-right { margin-left: auto; margin-right: 0; display: flex; }
+    .nav-content .nav-right .nav-cta {
+        display: inline-flex !important;
+        padding: 8px 14px;
+        min-height: 40px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        border-radius: 999px;
+    }
+    .nav-content .nav-links li.mobile-only { display: none; }
+    /* Stop wide hero/platform illustrations from causing sideways scroll */
+    html, body { overflow-x: clip; }
+}
+
+/* Homepage hero headline: let it wrap inside the screen on phones */
+@media (max-width: 600px) {
+    .hv2 > .container { min-width: 0; width: 100%; }
+    .hv2 h1 { font-size: clamp(1.7rem, 7.6vw, 2.2rem) !important; }
+    .hv2 h1 span[style*="nowrap"] { white-space: normal !important; }
+}
+
+/* Tablet widths: fit seven menu items between logo and "Book a call" */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.85rem; }
+    .nav-links li:first-child { display: none; } /* "Home": the logo already links home */
+}
+
+/* Menu items never break over two lines */
+.nav-links a { white-space: nowrap; }
+
+/* Light pages (blog, tools, privacy): dark header bar so the white menu is readable */
+@media (min-width: 769px) {
+    body.light-page #main-header:not(.scrolled) { background: #0a0e1a !important; }
+    body.light-page { padding-top: 88px; }
+}
+
+/* Footer: "What is OmniaOps?" next to the logo */
+.footer-brand { max-width: 440px; }
+footer.midnight-footer h2.footer-what-h { color: white !important; font-size: 1.05rem; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+footer.midnight-footer p.footer-what { max-width: 420px; line-height: 1.6; margin: 0; }

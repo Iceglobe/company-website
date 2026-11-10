@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Elements to animate
-    const animateElements = document.querySelectorAll('.hero-content, .hero-visual, .section-number, .work-card, .feature-card, h2, p');
-    
+    // Skip the homepage hero: it is above the fold and should paint immediately
+    const animateElements = [...document.querySelectorAll('.hero-content, .hero-visual, .section-number, .work-card, .feature-card, h2, p')]
+        .filter(el => !el.closest('.hv2'));
+
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
