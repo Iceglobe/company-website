@@ -10,12 +10,15 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <title>Ask OmniaOps — Free supply chain Q&amp;A</title>
     <meta name="description" content="Ask any supply chain planning question. Powered by the same AI agent that runs inside the OmniaOps platform. Free, instant, no signup.">
     <link rel="canonical" href="https://omniaops.com/ask.html">
     <meta name="robots" content="noindex">
     <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20261109">
+    <link rel="stylesheet" href="style.css?v=20261112">
     <style>
         body { background: #0d111c; color: white; min-height: 100vh; }
         .ask-wrap { max-width: 880px; margin: 0 auto; padding: 100px 24px 60px; }
@@ -211,7 +214,7 @@ async function ask(q) {
         });
         if (!resp.ok) throw new Error('backend ' + resp.status);
         const data = await resp.json();
-        const reply = data.reply || data.message || 'Sorry, I had a problem. Try again or email philip@omniaops.com directly.';
+        const reply = data.reply || data.message || 'Sorry, I had a problem. Try again or email phlv@omniaops.com directly.';
         ph.textContent = reply;
         STATE.messages.push({role: 'assistant', content: reply});
         if (typeof gtag === 'function') gtag('event', 'ask_message', { count: STATE.messages.length / 2 });
@@ -219,7 +222,7 @@ async function ask(q) {
             addEmailGate();
         }
     } catch (err) {
-        ph.innerHTML = `<span style="opacity:0.85">The chatbot backend is not reachable right now. Email Philip directly at <a href="mailto:philip@omniaops.com">philip@omniaops.com</a> or <a href="book-call.html">book a 20-min call</a> — we will answer in person.</span>`;
+        ph.innerHTML = `<span style="opacity:0.85">The chatbot backend is not reachable right now. Email Philip directly at <a href="mailto:phlv@omniaops.com">phlv@omniaops.com</a> or <a href="book-call.html">book a 30-min call</a> — we will answer in person.</span>`;
     }
 }
 
@@ -260,7 +263,7 @@ document.getElementById('input').addEventListener('keydown', e => {
                     </a>
                     <h2 class="footer-what-h">What is OmniaOps?</h2>
                     <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
-                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Greater Copenhagen</p>
                 </div>
                 <div class="footer-cols">
                     <div>
@@ -290,7 +293,7 @@ document.getElementById('input').addEventListener('keydown', e => {
                     <div>
                         <h4 class="footer-h">Contact</h4>
                         <ul class="footer-list">
-                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
+                            <li><a href="mailto:phlv@omniaops.com">phlv@omniaops.com</a></li>
                             <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
                             <li><a href="privacy.html">Privacy policy</a></li>
                         </ul>
@@ -303,6 +306,6 @@ document.getElementById('input').addEventListener('keydown', e => {
         </div>
     </footer>
 
-    <script src="nav.js" defer></script>
+    <script src="nav.js?v=20261112" defer></script>
 </body>
 </html>

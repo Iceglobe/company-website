@@ -4212,3 +4212,55 @@ body.menu-open {
 .footer-brand { max-width: 440px; }
 footer.midnight-footer h2.footer-what-h { color: white !important; font-size: 1.05rem; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
 footer.midnight-footer p.footer-what { max-width: 420px; line-height: 1.6; margin: 0; }
+/* ===== Blog: dark circuit hero, so the header sits on the same dark band as every other page ===== */
+.blog-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/circuit_bg.webp');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 180px 24px 88px;
+}
+.blog-hero-inner { max-width: 820px; margin: 0 auto; }
+.blog-hero .back-link { display: inline-block; margin-bottom: 28px; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; transition: color .2s; }
+.blog-hero .back-link:hover { color: #fff; }
+.blog-hero .meta { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 16px; }
+.blog-hero h1 { color: #fff; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 22px; text-wrap: balance; }
+.blog-hero .lede { color: rgba(255,255,255,0.75); font-size: 1.2rem; line-height: 1.6; margin: 0; }
+@media (max-width: 768px) {
+    .blog-hero { padding: 130px 20px 56px; }
+}
+
+/* ===== Blog call-to-action box: same look as the homepage (circuit board, glass border, white pill button) ===== */
+.article-cta {
+    background-image: linear-gradient(rgba(5,8,16,0.82), rgba(5,8,16,0.92)), url('assets/circuit_bg.webp');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 20px;
+    padding: 44px 40px;
+    margin: 56px 0;
+    color: #fff;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.3), 0 15px 35px rgba(0,0,0,0.25);
+}
+.article-wrap .article-cta h3 { margin: 0 0 10px; font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; color: #fff; }
+.article-wrap .article-cta p { color: rgba(255,255,255,0.78); margin: 0 0 26px; font-size: 1.05rem; line-height: 1.6; max-width: 560px; }
+.article-wrap .article-cta a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: #0a0e1a; text-decoration: none;
+    font-weight: 800; font-size: 1rem; letter-spacing: -0.01em;
+    padding: 15px 32px; border-radius: 999px;
+    box-shadow: 0 10px 40px rgba(79,157,255,0.25);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.article-wrap .article-cta a::after { content: "\2192"; transition: transform .25s ease; }
+.article-wrap .article-cta a:hover { transform: translateY(-2px); box-shadow: 0 14px 48px rgba(79,157,255,0.4); }
+.article-wrap .article-cta a:hover::after { transform: translateX(3px); }
+@media (max-width: 600px) {
+    .article-cta { padding: 32px 24px; }
+}
+
+/* ===== Phones: give small text links a finger-sized tap area (about 44px tall) ===== */
+@media (max-width: 768px) {
+    a.back-link, a.episode-article, a.team-dark-link { padding-top: 10px; padding-bottom: 10px; }
+    button.bk-more { padding-top: 12px; padding-bottom: 12px; }
+}

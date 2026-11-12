@@ -12,10 +12,13 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Call | OmniaOps</title>
-    <meta name="description" content="Book a call with OmniaOps to see how we can transform your supply chain planning.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <title>Book a 30-Minute Call: Free Planning Review | OmniaOps</title>
+    <meta name="description" content="Book a 30-minute call with the founder of OmniaOps and get a free review of your supply chain planning setup. Pick an available slot. No slide deck, no commitment.">
     <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20261109">
+    <link rel="stylesheet" href="style.css?v=20261112">
     <style>
         .book-page {
             min-height: 100vh;
@@ -24,298 +27,108 @@
             background-position: center;
             color: white;
             padding-top: 120px;
-            padding-bottom: 80px;
+            padding-bottom: 96px;
         }
-
-        .book-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-            padding-top: 60px;
-        }
-
-        .book-left h1 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            margin-bottom: 48px;
-            color: white;
-        }
-
-        .book-left p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.7;
-            margin-bottom: 48px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .contact-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
+        .book-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 80px; align-items: start; padding-top: 60px; }
+        .book-eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 18px; }
+        .book-left h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); color: white; margin-bottom: 28px; }
+        .book-lede { font-size: 1.2rem; line-height: 1.65; color: rgba(255,255,255,0.72); margin-bottom: 36px; }
+        .book-checks { list-style: none; display: grid; gap: 20px; margin-bottom: 48px; }
+        .book-checks li { position: relative; padding-left: 40px; font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.68); }
+        .book-checks li strong { color: white; font-weight: 700; }
+        .book-checks li::before { content: ''; position: absolute; left: 0; top: 3px; width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+        .book-checks li::after { content: ''; position: absolute; left: 8px; top: 10px; width: 8px; height: 4.5px; border-left: 1.8px solid white; border-bottom: 1.8px solid white; transform: rotate(-45deg); }
+        .book-direct { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); font-weight: 700; margin-bottom: 20px; }
+        .contact-item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .contact-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .contact-icon svg { width: 20px; height: 20px; stroke: white; }
-
-        .contact-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 4px;
-        }
-
+        .contact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 2px; }
         .contact-value { font-size: 1rem; font-weight: 600; color: white; }
-        .contact-value a { color: white; text-decoration: none; }
+        .contact-value a { color: white; text-decoration: none; display: inline-block; padding: 12px 0; margin: -12px 0; } /* bigger tap area, same layout */
         .contact-value a:hover { text-decoration: underline; }
 
-        /* ---- PREMIUM DARK GLASS FORM ---- */
-        .meeting-form-wrap {
-            background: rgba(13, 17, 28, 0.85);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border-radius: 28px;
-            padding: 48px;
-            min-height: 740px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
+        /* Booking card: dark glass */
+        /* Same glass as the "How we deliver results" cards (.process-step) */
+        .booking {
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.08);
+            /* glass tint on a dark base, so the form reads clearly over the circuit board */
+            background: linear-gradient(rgba(255,255,255,0.07), rgba(255,255,255,0.04)), rgba(8,11,17,0.78);
+            -webkit-backdrop-filter: blur(18px) saturate(120%);
+            backdrop-filter: blur(18px) saturate(120%);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.3), 0 15px 35px rgba(0,0,0,0.4);
             color: white;
         }
-
-        .step-indicator {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 32px;
+        .bk-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 24px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .bk-host { display: flex; align-items: center; gap: 14px; }
+        .bk-host img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; filter: grayscale(1); flex: none; }
+        .bk-host strong { display: block; font-size: 1rem; font-weight: 700; color: white; }
+        .bk-host span { display: block; font-size: 0.875rem; color: rgba(255,255,255,0.55); }
+        .bk-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border: 1px solid rgba(255,255,255,0.16); border-radius: 4px; background: rgba(255,255,255,0.05); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.8); white-space: nowrap; }
+        .bk-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: white; }
+        .bk-label { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+        .bk-label small { font-size: 0.75rem; font-weight: 500; letter-spacing: 0; text-transform: none; color: rgba(255,255,255,0.45); }
+        .bk-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 8px; }
+        .bk-day, .bk-time { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; cursor: pointer; font-family: inherit; transition: all 0.15s ease; }
+        .bk-day { padding: 10px 4px 9px; text-align: center; line-height: 1.2; }
+        .bk-day .dow { display: block; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+        .bk-day .dom { display: block; margin-top: 3px; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.03em; }
+        .bk-day .mon { display: block; font-size: 0.7rem; color: rgba(255,255,255,0.45); }
+        .bk-day:hover, .bk-time:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); }
+        .bk-day[aria-checked="true"], .bk-time[aria-checked="true"] { background: white; border-color: white; color: #0a0e1a; }
+        .bk-day[aria-checked="true"] .dow, .bk-day[aria-checked="true"] .mon { color: rgba(10,14,26,0.6); }
+        .bk-more { margin: 4px 0 26px; padding: 6px 0; border: 0; background: none; font-family: inherit; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+        .bk-more:hover { color: white; }
+        .bk-times { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 30px; }
+        .bk-time { padding: 12px 4px; font-size: 0.95rem; font-weight: 700; font-feature-settings: 'tnum'; text-align: center; }
+        .bk-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+        .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+        .field label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+        .field label .opt { font-weight: 500; letter-spacing: 0; text-transform: none; }
+        .field input, .field textarea { padding: 14px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.05); color: white; font-size: 1rem; font-family: inherit; outline: none; transition: all 0.2s ease; }
+        .field textarea { min-height: 84px; resize: vertical; line-height: 1.5; }
+        .field input:focus, .field textarea:focus { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.35); }
+        .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .field-error { display: none; font-size: 0.8rem; color: #fca5a5; }
+        .field.has-error input { border-color: rgba(248,113,113,0.7); }
+        .field.has-error .field-error { display: block; }
+        .bk-summary { margin: 4px 0 16px; padding: 12px 16px; border-radius: 12px; background: rgba(255,255,255,0.06); font-size: 0.925rem; color: rgba(255,255,255,0.75); }
+        .bk-summary strong { color: white; }
+        .bk-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 17px 24px; border: 0; border-radius: 12px; background: white; color: #0a0e1a; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all 0.2s ease; }
+        .bk-submit:hover { background: #f3f4f6; transform: translateY(-2px); }
+        .bk-submit[disabled] { opacity: 0.6; transform: none; cursor: default; }
+        .bk-error { display: none; margin-top: 14px; padding: 12px 16px; border-radius: 12px; background: rgba(248,113,113,0.12); color: #fecaca; font-size: 0.875rem; }
+        .bk-error.show { display: block; }
+        .bk-error a { color: white; }
+        .bk-note { margin-top: 16px; text-align: center; font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.45); }
+        .bk-note a { color: rgba(255,255,255,0.75); }
+        .bk-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+        .bk-done { text-align: center; padding: 28px 0 8px; }
+        .bk-done[hidden] { display: none; }
+        .bk-tick { width: 80px; height: 80px; margin: 0 auto 28px; border-radius: 50%; background: rgba(34,197,94,0.1); display: flex; align-items: center; justify-content: center; color: #22c55e; }
+        .bk-done h3 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; color: white; }
+        .bk-done .bk-when { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 4px; }
+        .bk-done p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.6; }
+        .bk-done p strong { color: white; }
+        .bk-done a { color: white; }
+        .bk-cal { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px 0 20px; }
+        .bk-cal a { display: inline-flex; align-items: center; padding: 11px 18px; border-radius: 10px; font-size: 0.875rem; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); color: white; transition: all 0.2s ease; }
+        .bk-cal a:first-child { background: white; color: #0a0e1a; border-color: white; }
+        .bk-cal a:hover { transform: translateY(-2px); }
+        @media (max-width: 992px) { .book-layout { grid-template-columns: 1fr; gap: 56px; padding-top: 24px; } }
+        @media (max-width: 560px) {
+            .booking { padding: 24px 18px; }
+            .bk-head { flex-direction: column; align-items: flex-start; }
+            .bk-days { gap: 6px; }
+            .bk-times { grid-template-columns: repeat(3, 1fr); }
+            .bk-row { grid-template-columns: 1fr; }
         }
-
-        .step-dot {
-            height: 4px;
-            flex: 1;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .step-dot.active { background: white; }
-
-        .form-step {
-            display: none;
-            flex-direction: column;
-            height: 100%;
-            animation: formFade 0.4s ease forwards;
-        }
-
-        .form-step.active { display: flex; }
-
-        @keyframes formFade {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .meeting-form-wrap h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-        }
-
-        .meeting-form-wrap .form-subhead {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-        .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-
-        .form-group label {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: rgba(255,255,255,0.4);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .form-group input, .form-group textarea {
-            padding: 14px 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            font-size: 1rem;
-            color: white;
-            background: rgba(255,255,255,0.05);
-            outline: none;
-            transition: all 0.2s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(255,255,255,0.3);
-        }
-
-        .form-navigation {
-            display: flex;
-            gap: 12px;
-            margin-top: auto;
-            padding-top: 24px;
-        }
-
-        .btn-next, .form-submit-btn {
-            background: white;
-            color: #0a0e1a;
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 800;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
-            flex: 2;
-        }
-
-        .btn-next:hover, .form-submit-btn:hover { background: #f3f4f6; transform: translateY(-2px); }
-
-        .btn-back {
-            background: rgba(255,255,255,0.05);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 800;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.1);
-            flex: 1;
-        }
-
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 60px 0;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex: 1; /* Fill the card height */
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(34, 197, 94, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 32px;
-        }
-
-        .success-icon svg { width: 40px; height: 40px; stroke: #22c55e; stroke-width: 3; }
-
-        /* ---- CALENDAR COMPONENT ---- */
-        .cal-widget {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 24px;
-        }
-
-        .cal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px;
-            background: rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .cal-month-label { font-weight: 800; font-size: 1rem; color: white !important; }
-
-        .cal-nav {
-            width: 32px;
-            height: 32px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-
-        .cal-nav:hover { background: rgba(255,255,255,0.15); }
-
-        .cal-days-header {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            padding: 12px 12px 6px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 800;
-            color: rgba(255,255,255,0.3);
-        }
-
-        .cal-days-header span { text-align: center; }
-
-        .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; padding: 0 12px 16px; }
-
-        .cal-day {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.15s;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .cal-day:hover:not(.cal-day--disabled):not(.cal-day--empty) { background: rgba(255,255,255,0.1); color: white; }
-        .cal-day--disabled { color: rgba(255,255,255,0.05); cursor: default; }
-        .cal-day--empty { cursor: default; }
-        .cal-day--selected { background: white !important; color: #0a0e1a !important; }
-        .cal-day--today { border: 1px solid rgba(255,255,255,0.3); }
-
-        .cal-slots { padding: 16px 12px; border-top: 1px solid rgba(255,255,255,0.05); display: none; }
-        .cal-slots-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-        .cal-slot {
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .cal-slot:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); }
-        .cal-slot--selected { background: white !important; color: #0a0e1a !important; border-color: white !important; }</style>
+    </style>
     <link rel="canonical" href="https://omniaops.com/book-call.html">
-    <meta property="og:title" content="Book a Call | OmniaOps">
-    <meta property="og:description" content="Book a call with OmniaOps to see how we can transform your supply chain planning.">
+    <meta property="og:title" content="Book a 30-minute call: free planning review | OmniaOps">
+    <meta property="og:description" content="Book a 30-minute call with the founder of OmniaOps and get a free review of your supply chain planning setup. Pick an available slot. No slide deck, no commitment.">
     <meta property="og:url" content="https://omniaops.com/book-call.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="OmniaOps">
@@ -386,148 +199,89 @@
         <div class="container">
             <div class="book-layout">
                 <div class="book-left">
-                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-bottom: 16px;">Get in touch</p>
-                    <h1>Let's talk about your supply chain</h1>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value"><a href="tel:+4522405292">+45 22 40 52 92</a></div>
-                        </div>
-                    </div>
+                    <p class="book-eyebrow">Book a call</p>
+                    <h1>Get a free review of your planning setup</h1>
+                    <p class="book-lede">30 minutes with Philip. You leave with recommendations on how to improve both your processes and your systems.</p>
+                    <ul class="book-checks">
+                        <li><strong>Where the gains are.</strong> A frank view of where your planning has the most to win: inventory, service or capacity.</li>
+                        <li><strong>What to change first.</strong> Concrete recommendations you can use whether or not you work with us.</li>
+                        <li><strong>An honest fit check.</strong> If we are not the right choice for you, we say so.</li>
+                    </ul>
 
+                    <p class="book-direct">Prefer to reach out directly?</p>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value"><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></div>
-                        </div>
+                        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                        <div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+4522405292">+45 22 40 52 92</a></div></div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect x="2" y="9" width="4" height="12"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">LinkedIn</div>
-                            <div class="contact-value"><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">OmniaOps</a></div>
-                        </div>
+                        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                        <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:phlv@omniaops.com">phlv@omniaops.com</a></div></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+                        <div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">OmniaOps</a></div></div>
                     </div>
                 </div>
 
-                <div class="meeting-form-wrap">
-                    <!-- Step Indicator -->
-                    <div class="step-indicator">
-                        <div class="step-dot active" id="dot-1"></div>
-                        <div class="step-dot" id="dot-2"></div>
-                    </div>
-
-                    <!-- SUCCESS STATE -->
-                    <div class="form-success" id="form-success">
-                        <div class="success-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                <form class="booking" id="booking" novalidate aria-label="Book a 30-minute call">
+                    <div id="bk-fields">
+                        <div class="bk-head">
+                            <div class="bk-host"><img src="assets/team/philip.jpeg" alt="Philip L. Valentin" width="52" height="52"><div><strong>30 minutes with Philip Valentin</strong><span>Founder, OmniaOps &middot; video call</span></div></div>
+                            <span class="bk-badge">Available time slots</span>
                         </div>
-                        <h3>Request sent!</h3>
-                        <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6; max-width: 400px; margin: 0 auto;">Thanks for reaching out. We'll get back to you within 24 hours to confirm the meeting time.</p>
-                    </div>
 
-                    <form id="meeting-form">
+                        <div class="bk-label"><span>1. Pick a day</span></div>
+                        <div class="bk-days" id="bk-days" role="radiogroup" aria-label="Day"></div>
+                        <button type="button" class="bk-more" id="bk-more">Show later dates</button>
+
+                        <div class="bk-label"><span>2. Pick a time</span><small id="bk-tz"></small></div>
+                        <div class="bk-times" id="bk-times" role="radiogroup" aria-label="Time"></div>
+
+                        <div class="bk-label"><span>3. Your details</span></div>
+                        <div class="bk-row">
+                            <div class="field">
+                                <label for="bk-name">Full name</label>
+                                <input type="text" id="bk-name" name="name" autocomplete="name" placeholder="Jane Smith" required>
+                                <span class="field-error">Please add your name.</span>
+                            </div>
+                            <div class="field">
+                                <label for="bk-email">Work email</label>
+                                <input type="email" id="bk-email" name="email" autocomplete="email" inputmode="email" placeholder="jane@company.com" required>
+                                <span class="field-error">Please add a valid email.</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="bk-company">Company</label>
+                            <input type="text" id="bk-company" name="company" autocomplete="organization" placeholder="Company name" required>
+                            <span class="field-error">Please add your company.</span>
+                        </div>
+                        <div class="field">
+                            <label for="bk-message">Anything we should look at? <span class="opt">(optional)</span></label>
+                            <textarea id="bk-message" name="message" rows="2" placeholder="For example: forecast accuracy, stockouts, S&amp;OP meetings that run long"></textarea>
+                        </div>
+                        <input type="checkbox" name="botcheck" class="bk-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <input type="hidden" name="access_key" value="0bd4c671-b693-48d8-bffd-575abc619096">
-                        
-                        <!-- STEP 1: IDENTITY -->
-                        <div class="form-step active" id="step-1">
-                            <h3>Let's get started</h3>
-                            <p class="form-subhead">First, we just need a few details to know who we're talking to.</p>
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="fname">First name</label>
-                                    <input type="text" id="fname" name="first_name" placeholder="Jane" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lname">Last name</label>
-                                    <input type="text" id="lname" name="last_name" placeholder="Smith" required>
-                                </div>
-                            </div>
+                        <div class="bk-summary" id="bk-summary" hidden></div>
+                        <button type="submit" class="bk-submit">Confirm my call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                        <div class="bk-error" id="bk-error" role="alert"></div>
+                        <p class="bk-note">Free, no commitment, no slide deck. See our <a href="privacy.html">privacy policy</a>.</p>
+                    </div>
 
-                            <div class="form-group">
-                                <label for="femail">Work email</label>
-                                <input type="email" id="femail" name="email" placeholder="jane@company.com" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company">Company</label>
-                                <input type="text" id="company" name="company" placeholder="Company name">
-                            </div>
-
-                            <div class="form-navigation">
-                                <button type="button" class="btn-next" onclick="goToStep(2)">Next: Schedule</button>
-                            </div>
+                    <div class="bk-done" id="bk-done" hidden>
+                        <div class="bk-tick"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+                        <h3>You&rsquo;re booked</h3>
+                        <p class="bk-when" id="bk-done-when"></p>
+                        <p id="bk-done-tz"></p>
+                        <div class="bk-cal">
+                            <a id="bk-ics" href="#">Add to calendar</a>
+                            <a id="bk-gcal" href="#" target="_blank" rel="noopener">Google</a>
+                            <a id="bk-outlook" href="#" target="_blank" rel="noopener">Outlook</a>
                         </div>
-
-                        <!-- STEP 2: SCHEDULE -->
-                        <div class="form-step" id="step-2">
-                            <h3>Pick a time</h3>
-                            <p class="form-subhead">Choose a window that works for you. Standard timeslot is 45 min.</p>
-
-                            <!-- Calendar widget -->
-                            <div class="cal-widget">
-                                <div class="cal-header">
-                                    <button type="button" class="cal-nav" id="cal-prev">&#8249;</button>
-                                    <span class="cal-month-label" id="cal-month-label"></span>
-                                    <button type="button" class="cal-nav" id="cal-next">&#8250;</button>
-                                </div>
-                                <div class="cal-days-header">
-                                    <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
-                                </div>
-                                <div class="cal-grid" id="cal-grid"></div>
-                                <div class="cal-slots" id="cal-slots">
-                                    <p class="cal-slots-label" style="font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; color: rgba(255,255,255,0.6);">Available times on <strong id="cal-date-label"></strong></p>
-                                    <div class="cal-slots-grid" id="cal-slots-grid"></div>
-                                </div>
-                            </div>
-                            
-                            <input type="hidden" id="pref-date-val" name="preferred_date">
-                            <input type="hidden" id="pref-time-val" name="preferred_time">
-
-                            <div class="form-group">
-                                <label for="message">What's on your mind?</label>
-                                <textarea id="message" name="message" placeholder="Briefly describe your planning challenges..."></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="heard_about">Where did you first hear about us? (optional)</label>
-                                <input type="text" id="heard_about" name="heard_about" placeholder="LinkedIn, search, referral, etc.">
-                            </div>
-
-                            <input type="hidden" id="utm_source_hidden" name="utm_source">
-                            <input type="hidden" id="utm_medium_hidden" name="utm_medium">
-                            <input type="hidden" id="utm_campaign_hidden" name="utm_campaign">
-                            <input type="hidden" id="utm_content_hidden" name="utm_content">
-                            <input type="hidden" id="referrer_hidden" name="referrer">
-
-                            <div class="form-navigation">
-                                <button type="button" class="btn-back" onclick="goToStep(1)">Back</button>
-                                <button type="submit" class="form-submit-btn">Request Meeting</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        <p>Philip will send the video link to <strong id="bk-done-email"></strong> before the call.</p>
+                        <p style="margin-top:10px">Need to move it? <a href="mailto:phlv@omniaops.com">phlv@omniaops.com</a> or <a href="tel:+4522405292">+45 22 40 52 92</a>.</p>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
@@ -545,7 +299,7 @@
                     </a>
                     <h2 class="footer-what-h">What is OmniaOps?</h2>
                     <p class="footer-what">OmniaOps is a supply chain planning platform for mid-market manufacturers. Demand, supply, inventory and capacity planning live in one connected plan. You work with your own data in under two weeks, and full ERP integration follows in 4-6 weeks.</p>
-                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Stenh&oslash;j V&aelig;nge 25, 3460 Birker&oslash;d, Denmark</p>
+                    <p style="max-width: 420px; margin-top: 16px;">OmniaOps ApS &middot; CVR 46516834<br>Greater Copenhagen</p>
                 </div>
                 <div class="footer-cols">
                     <div>
@@ -575,7 +329,7 @@
                     <div>
                         <h4 class="footer-h">Contact</h4>
                         <ul class="footer-list">
-                            <li><a href="mailto:philip@omniaops.com">philip@omniaops.com</a></li>
+                            <li><a href="mailto:phlv@omniaops.com">phlv@omniaops.com</a></li>
                             <li><a href="https://www.linkedin.com/company/omniaops/" target="_blank" rel="noopener">LinkedIn</a></li>
                             <li><a href="privacy.html">Privacy policy</a></li>
                         </ul>
@@ -589,211 +343,6 @@
     </footer>
 
     <script src="script.js?v=20261109" defer></script>
-    <script>
-    (function () {
-        // ── Calendar state ──────────────────────────────────────────────
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        let viewYear = today.getFullYear();
-        let viewMonth = today.getMonth();
-        let selDate = null;
-        let selTime = null;
-
-        const MONTHS = ['January','February','March','April','May','June',
-                        'July','August','September','October','November','December'];
-        const SLOTS   = ['09:00','10:00','11:00','13:00','14:00','15:00','16:00'];
-
-        function pad(n) { return String(n).padStart(2, '0'); }
-
-        // ── Render calendar grid ────────────────────────────────────────
-        function renderCal() {
-            document.getElementById('cal-month-label').textContent =
-                MONTHS[viewMonth] + ' ' + viewYear;
-
-            const grid = document.getElementById('cal-grid');
-            grid.innerHTML = '';
-
-            const firstDow = new Date(viewYear, viewMonth, 1).getDay(); // 0=Sun
-            const offset   = firstDow === 0 ? 6 : firstDow - 1;         // Mon-based
-            const days     = new Date(viewYear, viewMonth + 1, 0).getDate();
-
-            for (let i = 0; i < offset; i++) {
-                const el = document.createElement('div');
-                el.className = 'cal-day cal-day--empty';
-                grid.appendChild(el);
-            }
-
-            for (let d = 1; d <= days; d++) {
-                const date = new Date(viewYear, viewMonth, d);
-                const dow  = date.getDay();
-                const isWeekend  = dow === 0 || dow === 6;
-                const isPast     = date < today;
-                const isToday    = date.getTime() === today.getTime();
-                const isSelected = selDate && date.getTime() === selDate.getTime();
-
-                const el = document.createElement('div');
-                el.className = 'cal-day';
-                el.textContent = d;
-
-                if (isWeekend)       el.classList.add('cal-day--weekend');
-                else if (isPast)     el.classList.add('cal-day--disabled');
-                else {
-                    if (isToday)    el.classList.add('cal-day--today');
-                    if (isSelected) el.classList.add('cal-day--selected');
-                    el.addEventListener('click', () => pickDate(date));
-                }
-                grid.appendChild(el);
-            }
-
-            renderSlots();
-        }
-
-        // ── Pick a date ─────────────────────────────────────────────────
-        function pickDate(date) {
-            selDate = date;
-            selTime = null;
-            document.getElementById('pref-date-val').value = '';
-            document.getElementById('pref-time-val').value = '';
-            renderCal();
-
-            const opts = { weekday: 'long', month: 'long', day: 'numeric' };
-            document.getElementById('cal-date-label').textContent =
-                date.toLocaleDateString('en-GB', opts);
-            document.getElementById('pref-date-val').value =
-                viewYear + '-' + pad(viewMonth + 1) + '-' + pad(date.getDate());
-
-            document.getElementById('cal-slots').style.display = 'block';
-        }
-
-        // ── Render time slot pills ──────────────────────────────────────
-        function renderSlots() {
-            const grid = document.getElementById('cal-slots-grid');
-            if (!grid) return;
-            grid.innerHTML = '';
-            SLOTS.forEach(t => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'cal-slot' + (selTime === t ? ' cal-slot--selected' : '');
-                btn.textContent = t;
-                btn.addEventListener('click', () => {
-                    selTime = t;
-                    document.getElementById('pref-time-val').value = t;
-                    grid.querySelectorAll('.cal-slot').forEach(b =>
-                        b.classList.remove('cal-slot--selected'));
-                    btn.classList.add('cal-slot--selected');
-                });
-                grid.appendChild(btn);
-            });
-        }
-
-        // ── Month navigation ────────────────────────────────────────────
-        document.getElementById('cal-prev')?.addEventListener('click', () => {
-            viewMonth--;
-            if (viewMonth < 0) { viewMonth = 11; viewYear--; }
-            renderCal();
-        });
-        document.getElementById('cal-next')?.addEventListener('click', () => {
-            viewMonth++;
-            if (viewMonth > 11) { viewMonth = 0; viewYear++; }
-            renderCal();
-        });
-
-        renderCal();
-
-        // ── Form Step Logic ───────────────────────────────────────────
-        window.goToStep = function(step) {
-            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.step-dot').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById('step-' + step).classList.add('active');
-            for(let i=1; i<=step; i++) {
-                document.getElementById('dot-' + i).classList.add('active');
-            }
-        };
-
-        // ── Form submission via Web3Forms ───────────────────────────────
-        document.getElementById('meeting-form')?.addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const date = document.getElementById('pref-date-val').value;
-            const time = document.getElementById('pref-time-val').value;
-
-            if (!date) { alert('Please select a preferred date from the calendar.'); return; }
-            if (!time) { alert('Please select a preferred time slot.'); return; }
-
-            const btn = this.querySelector('.form-submit-btn');
-            const originalText = btn.textContent;
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-
-            const first   = document.getElementById('fname').value.trim();
-            const last    = document.getElementById('lname').value.trim();
-            const email   = document.getElementById('femail').value.trim();
-            const company = document.getElementById('company').value.trim();
-            const message = document.getElementById('message').value.trim();
-            const heard   = (document.getElementById('heard_about') || {value:''}).value.trim();
-            const params  = new URLSearchParams(window.location.search);
-            const utm_source = params.get('utm_source') || '';
-            const utm_medium = params.get('utm_medium') || '';
-            const utm_campaign = params.get('utm_campaign') || '';
-            const utm_content = params.get('utm_content') || '';
-            const referrer = document.referrer || '';
-
-            const payload = {
-                access_key: this.querySelector('[name="access_key"]').value,
-                subject: 'Meeting Request - ' + first + ' ' + last,
-                from_name: first + ' ' + last,
-                email: email,
-                message: [
-                    'Name:     ' + first + ' ' + last,
-                    'Email:    ' + email,
-                    'Company:  ' + (company || 'N/A'),
-                    'Date:     ' + date,
-                    'Time:     ' + time,
-                    'Heard:    ' + (heard || 'not provided'),
-                    'UTM:      ' + utm_source + ' / ' + utm_medium + ' / ' + utm_campaign + ' / ' + utm_content,
-                    'Referrer: ' + referrer,
-                    '',
-                    'Message:',
-                    message || '(none)'
-                 ].join('\n'),
-                heard_about: heard,
-                utm_source: utm_source,
-                utm_medium: utm_medium,
-                utm_campaign: utm_campaign,
-                utm_content: utm_content,
-                referrer: referrer
-            };
-            if (typeof gtag === 'function') {
-                gtag('event', 'generate_lead', {
-                    source: utm_source || 'direct',
-                    medium: utm_medium || 'organic'
-                });
-            }
-
-            try {
-                const res = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                if (data.success) {
-                    this.style.display = 'none';
-                    document.querySelector('.step-indicator').style.display = 'none';
-                    document.getElementById('form-success').style.display = 'flex';
-                } else {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                    alert('Something went wrong. Please email us directly at philip@omniaops.com');
-                }
-            } catch (err) {
-                btn.textContent = originalText;
-                btn.disabled = false;
-                alert('Something went wrong. Please email us directly at philip@omniaops.com');
-            }
-        });
-    })();
-    </script>
+    <script src="booking.js?v=20261112" defer></script>
 </body>
 </html>

@@ -206,4 +206,4 @@ This audit is the single highest-leverage planning improvement I have ever seen.
 OmniaOps · The next major category in supply chain planning is autonomous.
 Built by ops practitioners out of Novo Nordisk, Ambu, Pfizer, Ferrosan, WSA.
 
-omniaops.com · philip@omniaops.com · linkedin.com/in/philiplvalentin
+omniaops.com · phlv@omniaops.com · linkedin.com/in/philiplvalentin

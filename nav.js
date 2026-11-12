@@ -1,5 +1,13 @@
-// Mobile menu for pages that don't load script.js (blog, tools, privacy, 404).
+// Header + mobile menu for pages that don't load script.js (blog, tools, privacy, 404).
 document.addEventListener('DOMContentLoaded', () => {
+    // Header scroll effect: same floating pill as script.js uses on every other page
+    const header = document.getElementById('main-header');
+    if (header) {
+        const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 50);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
     const navToggle = document.querySelector('.nav-toggle');
     const navContent = document.querySelector('.nav-content');
     if (!navToggle || !navContent) return;
